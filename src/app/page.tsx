@@ -33,7 +33,7 @@ export default function Home() {
         {/* "Brevemente" text */}
         <div className="text-center">
           <p className="text-lg sm:text-xl md:text-2xl lg:text-3xl font-light text-white tracking-wide">
-            brevemente
+            brevemente / coming soon
           </p>
         </div>
       </div>
