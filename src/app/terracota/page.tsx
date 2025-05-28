@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, MessageCircle, ChevronRight, ChevronLeft } from 'lucide-react';
+import { MapPin, Phone, Mail, ChevronRight, ChevronLeft } from 'lucide-react';
 
 const Home = () => {
   const [activeSlide, setActiveSlide] = useState(0);
