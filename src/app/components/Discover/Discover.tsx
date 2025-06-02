@@ -21,7 +21,7 @@ const Discover = () => {
     return () => clearInterval(timer);
   }, [images.length]);
 
-  const goToSlide = (index:any) => {
+  const goToSlide = (index: number) => {
     setCurrentSlide(index);
   };
 

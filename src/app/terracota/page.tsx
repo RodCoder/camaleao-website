@@ -1,7 +1,7 @@
 "use client"
 import { useState } from 'react';
 import Image from 'next/image';
-import { MapPin, Phone, Mail, ChevronRight, ChevronLeft } from 'lucide-react';
+import { MapPin, Phone, Mail } from 'lucide-react';
 import Navigation from '../components/Navigation/Navigation';
 import Hero from '../components/Hero/Hero';
 import Markers from '../components/Markers/Markers';
@@ -11,43 +11,6 @@ import Units from '../components/Units/Units';
 import Comodities from '../components/Comodities/Comodities';
 
 const Home = () => {
-  const [activeSlide, setActiveSlide] = useState(0);
-
-  const residentialUnits = [
-    {
-      id: 1,
-      name: 'Mirador',
-      price: '1.200.000 €',
-      image: '/mirador.jpg',
-      details: '3 beds | 2 baths'
-    },
-    {
-      id: 2,
-      name: 'Oceano',
-      price: '850.000 €',
-      image: '/oceano.jpg',
-      details: '2 beds | 2 baths'
-    },
-    {
-      id: 3,
-      name: 'Apartamentos',
-      price: '600.000 €',
-      image: '/apartamentos.jpg',
-      details: '1 bed | 1 bath'
-    }
-  ];
-
-  const amenities = [
-    { id: 1, icon: '🌊', title: 'Acesso à Praia', description: 'Acesso exclusivo à praia' },
-    { id: 2, icon: '🏊', title: 'Piscinas', description: 'Piscinas interiores e exteriores' },
-    { id: 3, icon: '🍽️', title: 'Restaurantes', description: 'Gastronomia local e internacional' },
-    { id: 4, icon: '🧘', title: 'Spa', description: 'Tratamentos de bem-estar' },
-    { id: 5, icon: '🏋️', title: 'Fitness', description: 'Academia completa' },
-    { id: 6, icon: '🛌', title: 'Serviço de Quarto', description: 'Disponível 24 horas' },
-    { id: 7, icon: '🚗', title: 'Estacionamento', description: 'Vagas cobertas' },
-    { id: 8, icon: '👮', title: 'Segurança', description: 'Monitoramento 24h' }
-  ];
-
   const timelineData = [
     { phase: 'Lançamento', date: 'Março 2023', progress: 100 },
     { phase: 'Início de Desenvolvimento', date: 'Julho 2023', progress: 75 },
