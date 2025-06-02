@@ -1,6 +1,4 @@
 "use client"
-import Image from 'next/image';
-import { MapPin, Phone, Mail } from 'lucide-react';
 import Navigation from '../components/Navigation/Navigation';
 import Hero from '../components/Hero/Hero';
 import Markers from '../components/Markers/Markers';
