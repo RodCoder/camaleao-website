@@ -13,8 +13,23 @@
   src: local("Poppins"), url("./assets/fonts/Poppins/Poppins-Regular.ttf") format("truetype");
 }
 
+@font-face {
+  font-family: "Anton";
+  src: local("Anton"), url("./assets/fonts/Anton/Anton-Regular.ttf") format("truetype");
+}
+
 body {
   background: var(--background);
   color: var(--foreground);
   font-family: Poppins;
+}
+
+.title {
+  font-family: Anton;
+}
+
+.topNav {
+  margin-top: 20px;
+  background-color: rgb(from var(--brown) r g b / 0.4);
+  border-radius: 60px;
 }
