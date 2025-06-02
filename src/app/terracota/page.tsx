@@ -13,19 +13,6 @@ import ContactForm from '../components/ContactForm/ContactForm';
 import Footer from '../components/Footer/Footer';
 
 const Home = () => {
-  const timelineData = [
-    { phase: 'Lançamento', date: 'Março 2023', progress: 100 },
-    { phase: 'Início de Desenvolvimento', date: 'Julho 2023', progress: 75 },
-    { phase: 'Infraestrutura', date: 'Dezembro 2023', progress: 50 },
-    { phase: 'Conclusão', date: 'Junho 2025', progress: 0 }
-  ];
-
-  const galleryImages = [
-    { id: 1, src: '/gallery1.jpg', alt: 'Vista da praia' },
-    { id: 2, src: '/gallery2.jpg', alt: 'Interior moderno' },
-    { id: 3, src: '/gallery3.jpg', alt: 'Área da piscina' },
-    { id: 4, src: '/gallery4.jpg', alt: 'Terraço com vista para o mar' }
-  ];
 
   return (
     <div className="font-sans text-gray-800">
