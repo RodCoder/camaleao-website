@@ -1,5 +1,4 @@
 "use client"
-import { useState } from 'react';
 import Image from 'next/image';
 import { MapPin, Phone, Mail } from 'lucide-react';
 import Navigation from '../components/Navigation/Navigation';
