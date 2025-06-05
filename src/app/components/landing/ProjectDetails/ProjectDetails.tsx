@@ -47,58 +47,59 @@ interface ProgressBarProps {
 const ProjectDetails: React.FC = () => {
   // Timeline Component for Infrastructure, Apartments, and Houses
   const TimelineSection: React.FC<TimelineSectionProps> = ({ title, phases }) => {
+    const getGridCols = (phaseCount: number) => {
+      if (phaseCount === 3) return 'grid-cols-1 lg:grid-cols-3';
+      return 'grid-cols-1 lg:grid-cols-4';
+    };
+  
     return (
       <div className="mb-20">
-        <h3 className="text-2xl lg:text-3xl font-bold mb-12" style={{ color: 'var(--brown)' }}>
+        <h3 className="text-2xl lg:text-3xl font-bold mb-12 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
           {title}
         </h3>
-        
+  
         {/* Timeline */}
         <div className="relative">
-          {/* Timeline Line */}
-          <div className="absolute top-20 left-0 right-0 h-0.5 bg-gray-300"></div>
-          
           {/* Timeline Items */}
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
+          <div className={`grid ${getGridCols(phases.length)} gap-8 relative z-10`}>
             {phases.map((phase, index) => (
-              <div key={index} className="relative">
-                {/* Timeline Dot and Label */}
-                <div className="flex flex-col items-center mb-8">
-                  <div className="text-sm font-medium text-gray-500 mb-2">{phase.label}</div>
+              <div key={index} className="relative flex flex-col items-center">
+                
+                {/* Timeline Label and Dot */}
+                <div className="flex flex-col items-center mb-6">
+                  <div className="text-sm font-medium text-gray-500 mb-3">{phase.label}</div>
                   <div className="relative">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold ${
+                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold z-20 relative ${
                       phase.active ? 'bg-green-600' : 'bg-gray-400'
                     }`}>
                       {phase.year}
                     </div>
                     {phase.active && (
-                      <div className="absolute -top-2 -left-2 -right-2 -bottom-2 border-2 border-green-600 rounded-full"></div>
+                      <div className="absolute -top-2 -left-2 -right-2 -bottom-2 border-2 border-green-600 rounded-full z-10"></div>
                     )}
                   </div>
                 </div>
-                
+  
                 {/* Phase Card */}
-                <div className={`rounded-xl overflow-hidden shadow-lg ${
+                <div className={`w-full rounded-xl overflow-hidden shadow-lg bg-white ${
                   phase.active ? 'ring-2 ring-green-600' : ''
                 }`}>
-                  <div className="relative h-48">
+                  <div className="relative h-40">
                     <img
                       src={phase.image}
                       alt={phase.label}
                       className="w-full h-full object-cover"
                     />
                     {phase.badge && (
-                      <div className="absolute top-4 left-4 bg-black text-white px-3 py-1 rounded text-sm font-medium">
+                      <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 rounded text-xs font-medium">
                         {phase.badge}
                       </div>
                     )}
-                    {phase.year && (
-                      <div className="absolute bottom-4 right-4 bg-black/80 text-white px-2 py-1 rounded text-sm">
-                        {phase.year}
-                      </div>
-                    )}
+                    <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-xs">
+                      {phase.year}
+                    </div>
                   </div>
-                  <div className="p-6 bg-white">
+                  <div className="p-4">
                     <p className="text-sm text-gray-700 leading-relaxed">
                       {phase.description}
                     </p>
@@ -107,6 +108,17 @@ const ProjectDetails: React.FC = () => {
               </div>
             ))}
           </div>
+  
+          {/* Timeline Line - positioned after grid to calculate positions */}
+          <div 
+            className="absolute h-2 bg-gray-300 z-0"
+            style={{
+              top: '52px', // Adjust based on label + margin + half circle height
+              left: 'calc((100% / var(--phase-count)) / 2)', // Center of first column
+              right: 'calc((100% / var(--phase-count)) / 2)', // Center of last column
+              '--phase-count': phases.length
+            } as React.CSSProperties}
+          ></div>
         </div>
       </div>
     );
@@ -231,11 +243,11 @@ const ProjectDetails: React.FC = () => {
     }
   ];
 
-  const ProgressBar: React.FC<ProgressBarProps> = ({ progress, color = "bg-green-600" }) => (
-    <div className="w-full bg-gray-200 rounded-full h-2">
-      <div 
-        className={`h-2 rounded-full transition-all duration-500 ${color}`}
-        style={{ width: `${progress}%` }}
+  const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => (
+    <div className="w-full bg-gray-300 rounded-full h-3">
+      <div
+        className={`h-3 rounded-full transition-all duration-500`}
+        style={{ width: `${progress}%`, background: 'var(--dark-green)' }}
       ></div>
     </div>
   );
@@ -243,116 +255,120 @@ const ProjectDetails: React.FC = () => {
   return (
     <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
-        
+
         {/* Section Header */}
         <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4" style={{ color: 'var(--brown)' }}>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
             Evolução do Camaleão
           </h2>
-          <p className="text-lg lg:text-xl font-light" style={{ color: 'var(--brown)' }}>
+          <p className="text-lg lg:text-xl font-light" style={{ color: 'var(--dark-green)' }}>
             Última atualização: abril 2025
           </p>
         </div>
 
         {/* Sales and Development Phases */}
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
-          
+
           {/* Sales Phase */}
           <div>
-            <h3 className="text-2xl font-bold mb-8" style={{ color: 'var(--brown)' }}>
+            <h3 className="text-2xl font-bold mb-8 title tracking-wide mx-auto text-center" style={{ color: 'var(--dark-green)' }}>
               Fase de vendas
             </h3>
-            
-            {/* Apartments Sales */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--brown)' }}>
-                Apartamentos
-              </h4>
-              <div className="space-y-4">
-                {salesPhaseData.apartments.map((phase, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm mb-2">
-                        <span>{phase.type}</span>
-                        <span className="font-medium">{phase.status}</span>
-                      </div>
-                      <ProgressBar progress={phase.progress} color={phase.color} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Houses Sales */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--brown)' }}>
-                Moradias
-              </h4>
-              <div className="space-y-4">
-                {salesPhaseData.houses.map((phase, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm mb-2">
-                        <span>{phase.type}</span>
-                        <span className="font-medium">{phase.status}</span>
+            <div className="mb-8 flex">
+              {/* Apartments Sales */}
+              <div className='w-1/2 pr-4'>
+                <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+                  Apartamentos
+                </h4>
+                <div className="space-y-4">
+                  {salesPhaseData.apartments.map((phase, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex justify-between text-sm mb-2">
+                          <span>{phase.type}</span>
+                          <span className="font-medium">{phase.status}</span>
+                        </div>
+                        <ProgressBar progress={phase.progress} color={phase.color} />
                       </div>
-                      <ProgressBar progress={phase.progress} color={phase.color} />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Houses Sales */}
+              <div className='w-1/2 px-4'>
+                <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+                  Moradias
+                </h4>
+                <div className="space-y-4">
+                  {salesPhaseData.houses.map((phase, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex justify-between text-sm mb-2">
+                          <span>{phase.type}</span>
+                          <span className="font-medium">{phase.status}</span>
+                        </div>
+                        <ProgressBar progress={phase.progress} color={phase.color} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
           </div>
 
           {/* Development Phase */}
           <div>
-            <h3 className="text-2xl font-bold mb-8" style={{ color: 'var(--brown)' }}>
+            <h3 className="text-2xl font-bold mb-8 title tracking-wide text-center" style={{ color: 'var(--dark-green)' }}>
               Fase de desenvolvimento
             </h3>
-            
-            {/* Apartments Development */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--brown)' }}>
-                Apartamentos
-              </h4>
-              <div className="space-y-4">
-                {developmentPhaseData.apartments.map((phase, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm mb-2">
-                        <span>{phase.type}</span>
-                        <span className="font-medium">{phase.status}</span>
-                      </div>
-                      <ProgressBar progress={phase.progress} color={phase.progress > 0 ? "bg-green-600" : "bg-gray-300"} />
-                    </div>
-                  </div>
-                ))}
-              </div>
-            </div>
 
-            {/* Houses Development */}
-            <div className="mb-8">
-              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--brown)' }}>
-                Moradias
-              </h4>
-              <div className="space-y-4">
-                {developmentPhaseData.houses.map((phase, index) => (
-                  <div key={index} className="flex items-center justify-between">
-                    <div className="flex-1">
-                      <div className="flex justify-between text-sm mb-2">
-                        <span>{phase.type}</span>
-                        <span className="font-medium">{phase.status}</span>
+            {/* Apartments Development */}
+            <div className="mb-8 flex">
+              <div className='w-1/2 pr-4'>
+                <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+                  Apartamentos
+                </h4>
+                <div className="space-y-4">
+                  {developmentPhaseData.apartments.map((phase, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex justify-between text-sm mb-2">
+                          <span>{phase.type}</span>
+                          <span className="font-medium">{phase.status}</span>
+                        </div>
+                        <ProgressBar progress={phase.progress} color={phase.progress > 0 ? "bg-green-600" : "bg-gray-300"} />
                       </div>
-                      <ProgressBar progress={phase.progress} color={phase.progress > 0 ? "bg-green-600" : "bg-gray-300"} />
                     </div>
-                  </div>
-                ))}
+                  ))}
+                </div>
+              </div>
+
+              {/* Houses Development */}
+              <div className='w-1/2 px-4'>
+                <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+                  Moradias
+                </h4>
+                <div className="space-y-4">
+                  {developmentPhaseData.houses.map((phase, index) => (
+                    <div key={index} className="flex items-center justify-between">
+                      <div className="flex-1">
+                        <div className="flex justify-between text-sm mb-2">
+                          <span>{phase.type}</span>
+                          <span className="font-medium">{phase.status}</span>
+                        </div>
+                        <ProgressBar progress={phase.progress} color={phase.progress > 0 ? "bg-green-600" : "bg-gray-300"} />
+                      </div>
+                    </div>
+                  ))}
+                </div>
               </div>
             </div>
 
             {/* Infrastructure Development */}
-            <div>
-              <h4 className="text-lg font-semibold mb-4" style={{ color: 'var(--brown)' }}>
+            <div className='w-1/2 pr-4'>
+              <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
                 Infraestrutura
               </h4>
               <div className="space-y-4">
