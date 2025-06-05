@@ -51,39 +51,35 @@ const ProjectDetails: React.FC = () => {
       if (phaseCount === 3) return 'grid-cols-1 lg:grid-cols-3';
       return 'grid-cols-1 lg:grid-cols-4';
     };
-  
+
     return (
       <div className="mb-20">
         <h3 className="text-2xl lg:text-3xl font-bold mb-12 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
           {title}
         </h3>
-  
+
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Items */}
           <div className={`grid ${getGridCols(phases.length)} gap-8 relative z-10`}>
             {phases.map((phase, index) => (
               <div key={index} className="relative flex flex-col items-center">
-                
+
                 {/* Timeline Label and Dot */}
                 <div className="flex flex-col items-center mb-6">
-                  <div className="text-sm font-medium text-gray-500 mb-3">{phase.label}</div>
+                  <div className="text-m font-medium mb-3 title" style={{
+                    color:
+                      phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'
+                  }}>{phase.label}</div>
                   <div className="relative">
-                    <div className={`w-12 h-12 rounded-full flex items-center justify-center text-white text-sm font-bold z-20 relative ${
-                      phase.active ? 'bg-green-600' : 'bg-gray-400'
-                    }`}>
-                      {phase.year}
+                    <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'}} className={`${phase.active ? 'w-12 h-12' : 'w-6 h-6 mt-2'} rounded-full flex items-center justify-center text-white text-sm font-bold z-20 relative`}>
+                      {phase.active ? phase.year : ''}
                     </div>
-                    {phase.active && (
-                      <div className="absolute -top-2 -left-2 -right-2 -bottom-2 border-2 border-green-600 rounded-full z-10"></div>
-                    )}
                   </div>
                 </div>
-  
+
                 {/* Phase Card */}
-                <div className={`w-full rounded-xl overflow-hidden shadow-lg bg-white ${
-                  phase.active ? 'ring-2 ring-green-600' : ''
-                }`}>
+                <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'}}  className={`w-full rounded-xl overflow-hidden shadow-lg`}>
                   <div className="relative h-40">
                     <img
                       src={phase.image}
@@ -108,15 +104,16 @@ const ProjectDetails: React.FC = () => {
               </div>
             ))}
           </div>
-  
+
           {/* Timeline Line - positioned after grid to calculate positions */}
-          <div 
-            className="absolute h-2 bg-gray-300 z-0"
+          <div
+            className="absolute h-1 z-0"
             style={{
-              top: '52px', // Adjust based on label + margin + half circle height
+              top: '54px', // Adjust based on label + margin + half circle height
               left: 'calc((100% / var(--phase-count)) / 2)', // Center of first column
               right: 'calc((100% / var(--phase-count)) / 2)', // Center of last column
-              '--phase-count': phases.length
+              '--phase-count': phases.length,
+              background: 'var(--dark-green)'
             } as React.CSSProperties}
           ></div>
         </div>
