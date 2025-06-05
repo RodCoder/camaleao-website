@@ -79,24 +79,24 @@ const ProjectDetails: React.FC = () => {
                 </div>
 
                 {/* Phase Card */}
-                <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'}}  className={`w-full rounded-xl overflow-hidden shadow-lg`}>
+                <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)', maxWidth: '368.5px'}}  className={`w-full rounded-xl overflow-hidden shadow-lg`}>
                   <div className="relative h-40">
                     <img
                       src={phase.image}
                       alt={phase.label}
                       className="w-full h-full object-cover"
                     />
-                    {phase.badge && (
+                    {/* {phase.badge && (
                       <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 rounded text-xs font-medium">
                         {phase.badge}
                       </div>
-                    )}
-                    <div className="absolute bottom-3 right-3 bg-black/80 text-white px-2 py-1 rounded text-xs">
-                      {phase.year}
+                    )} */}
+                    <div className="absolute bottom-3 left-3 text-white px-2 py-1 rounded text-m title tracking-wide" style={{background: 'var(--dark-green)'}}>
+                      {phase.active ? '' : phase.year}
                     </div>
                   </div>
-                  <div className="p-4">
-                    <p className="text-sm text-gray-700 leading-relaxed">
+                  <div className="p-8">
+                    <p className={`text-sm ${phase.active ? 'text-white' : 'text-gray-700'} leading-relaxed`}>
                       {phase.description}
                     </p>
                   </div>
@@ -153,16 +153,16 @@ const ProjectDetails: React.FC = () => {
   const infrastructurePhases: Phase[] = [
     {
       label: "Projetos",
-      year: "2025",
+      year: "2024",
       active: false,
-      image: "/infrastructure-plans.jpg",
+      image: "/infra-01.jpg",
       description: "Planeamento técnico detalhado, garantindo soluções eficientes para cada tipo de investimento."
     },
     {
       label: "Início da construção",
-      year: "2026",
+      year: "2025",
       active: true,
-      image: "/construction-start.jpg",
+      image: "/infra-02.jpg",
       description: "Execução das obras com rigor, qualidade e sustentabilidade como pilares fundamentais que norteiam a funcionalidade das estruturas."
     },
     {
@@ -170,7 +170,7 @@ const ProjectDetails: React.FC = () => {
       year: "2026",
       active: false,
       badge: "Receção",
-      image: "/project-handover.jpg",
+      image: "/infra-03.jpg",
       description: "Entrega do empreendimento concluído, após verificação técnica e validação de todos os requisitos do projeto."
     }
   ];
@@ -179,30 +179,30 @@ const ProjectDetails: React.FC = () => {
   const apartmentPhases: Phase[] = [
     {
       label: "Projetos",
-      year: "2025",
+      year: "2024",
       active: false,
-      image: "/apartment-plans.jpg",
+      image: "/apart-01.jpg",
       description: "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida aos apartamentos."
     },
     {
       label: "Início da construção",
-      year: "2026",
+      year: "2025",
       active: true,
-      image: "/apartment-construction.jpg",
+      image: "/apart-02.jpg",
       description: "Arranque das obras com acompanhamento técnico especializado para garantir qualidade e cumprimento dos prazos."
     },
     {
       label: "Fim da construção",
       year: "2027",
       active: false,
-      image: "/apartment-completion.jpg",
+      image: "/apart-03.png",
       description: "Conclusão das obras com entrega das chaves e total disponibilidade para usufruir necessidades finais."
     },
     {
       label: "Escrituras",
       year: "2027",
       active: false,
-      image: "/apartment-deeds.jpg",
+      image: "/apart-04.jpg",
       description: "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto."
     }
   ];
@@ -212,30 +212,30 @@ const ProjectDetails: React.FC = () => {
     {
       label: "Projetos",
       year: "2025",
-      active: false,
+      active: true,
       badge: "Projetos",
-      image: "/house-plans.jpg",
+      image: "/morad-01.png",
       description: "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida às moradias."
     },
     {
       label: "Início da construção",
       year: "2026",
-      active: true,
-      image: "/house-construction.jpg",
+      active: false,
+      image: "/morad-02.jpg",
       description: "Início da edificação com equipas experientes e materiais de elevada qualidade."
     },
     {
       label: "Fim da construção",
       year: "2028",
       active: false,
-      image: "/house-completion.jpg",
+      image: "/morad-03.jpg",
       description: "Obra finalizada, com entrega pronta a habitar e apta ao usufruto para os últimos detalhes."
     },
     {
       label: "Escrituras",
       year: "2029",
       active: false,
-      image: "/house-deeds.jpg",
+      image: "/morad-04.jpg",
       description: "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto."
     }
   ];

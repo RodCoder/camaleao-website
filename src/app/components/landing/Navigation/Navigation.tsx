@@ -109,7 +109,7 @@ const Navigation = () => {
       </div>
 
       {/* Mobile Navigation Menu */}
-      <div className="md:hidden">
+      <div className="hidden">
         <div className={`px-2 pt-2 pb-3 space-y-1 sm:px-3 ${
           isScrolled ? 'bg-white/95 backdrop-blur-md' : 'bg-black/20 backdrop-blur-md'
         }`}>
