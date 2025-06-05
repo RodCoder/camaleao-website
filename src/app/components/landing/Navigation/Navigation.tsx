@@ -14,37 +14,25 @@ const Navigation = () => {
 
   return (
     <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent`}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 topNav">
-        <div className="flex items-center justify-between h-16 lg:h-20">
+      <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 topNav">
+        <div className="flex items-center justify-between h-[60px]">
           {/* Left Navigation */}
           <div className="hidden md:flex items-baseline space-x-6">
             <a
               href="#home"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Descobrir
             </a>
             <a
               href="#discover"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Unidades
             </a>
             <a
               href="#residential"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Comodidades
             </a>
@@ -55,7 +43,7 @@ const Navigation = () => {
             <img 
               src="/CAMALEÃO_GRANDE.svg" 
               alt="Camaleão" 
-              className={`h-8 lg:h-10 transition-opacity duration-300`}
+              className={`h-[34px] transition-opacity duration-300`}
             />
           </div>
 
@@ -63,31 +51,19 @@ const Navigation = () => {
           <div className="hidden md:flex items-baseline space-x-6">
             <a
               href="#amenities"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Localização
             </a>
             <a
               href="#location"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Evolução
             </a>
             <a
               href="#evolution"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 ${
-                isScrolled 
-                  ? 'text-gray-700 hover:text-amber-600' 
-                  : 'text-white hover:text-amber-300'
-              }`}
+              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Contacto
             </a>

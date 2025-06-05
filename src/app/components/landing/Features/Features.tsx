@@ -16,7 +16,7 @@ const Features = () => {
 
       {/* Content Container */}
       <div className="relative z-10">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+        <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Features Grid */}
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 lg:gap-12">
@@ -29,7 +29,7 @@ const Features = () => {
                    border: '0.99px solid rgba(255,255,255,0.2)',
                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
                  }}>
-              <h3 className="text-2xl lg:text-3xl font-light mb-6 title">
+              <h3 className="text-2xl  font-light mb-6 title tracking-wide">
                 Essência Algarvia
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
@@ -45,7 +45,7 @@ const Features = () => {
                    border: '0.99px solid rgba(255,255,255,0.2)',
                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
                  }}>
-              <h3 className="text-2xl lg:text-3xl font-light mb-6 title">
+              <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
                 Vivência Inesquecível
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
@@ -61,7 +61,7 @@ const Features = () => {
                    border: '0.99px solid rgba(255,255,255,0.2)',
                    boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
                  }}>
-              <h3 className="text-2xl lg:text-3xl font-light mb-6 title">
+              <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
                 Envolvência com a Natureza
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">

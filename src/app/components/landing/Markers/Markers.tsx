@@ -3,7 +3,7 @@ import React from 'react';
 const Markers = () => {
   return (
     <section className="bg-white py-12" style={{ minHeight: '150px' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-center h-full">
           {/* Feature Icons Grid */}
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 text-gray-800 w-full">

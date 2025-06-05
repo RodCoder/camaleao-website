@@ -3,7 +3,7 @@ import React from 'react';
 const Location = () => {
   return (
     <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--light-brown)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           

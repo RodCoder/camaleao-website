@@ -94,7 +94,7 @@ const LivingSlide = () => {
       className="relative min-h-screen flex items-center transition-all duration-1000 ease-in-out"
       style={{ backgroundColor: currentSlideData.backgroundColor }}
     >
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 w-full">
+      <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
           

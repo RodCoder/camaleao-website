@@ -5,11 +5,11 @@ const Discover = () => {
 
   // Sample images - replace with your actual images
   const images = [
-    '/descobrir-1.jpg',
-    '/descobrir-2.jpg',
-    '/descobrir-3.jpg',
-    '/descobrir-4.jpg',
-    '/descobrir-5.jpg'
+    '/apartamentos-piscina.jpg',
+    '/Apartamentos (2).png',
+    '/Apartamentos.jpg',
+    '/Apartamentos.png',
+    '/Moradias.png'
   ];
 
   // Auto-advance carousel
@@ -35,14 +35,14 @@ const Discover = () => {
 
   return (
     <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--brown)' }}>
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
         <div className="text-center mb-16">
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 tracking-wide title">
             DESCOBRIR
           </h2>
-          <p className="text-xl lg:text-2xl text-white/90 font-light title">
+          <p className="text-xl lg:text-2xl text-white/90 tracking-wide font-light title">
             Viver em harmonia
           </p>
         </div>
