@@ -69,7 +69,7 @@ const ContactForm: React.FC = () => {
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 
-          src="/contact-terrace-background.jpg" 
+          src="/contacto.jpg" 
           alt="Contact Background" 
           className="w-full h-full object-cover"
         />
@@ -86,7 +86,7 @@ const ContactForm: React.FC = () => {
           <div className="text-white space-y-8">
             
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
               Contactos
             </h2>
             
@@ -122,10 +122,10 @@ const ContactForm: React.FC = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container">
+          <div className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container" style={{background: 'rgba(46,69,46,0.4)'}}>
             
             {/* Form Title */}
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8">
+            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 title tracking-wide">
               Quer saber mais?
             </h3>
 
@@ -207,7 +207,7 @@ const ContactForm: React.FC = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={!formData.agreement}
-                  className="w-full py-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white font-semibold rounded-lg transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
+                  className="w-full py-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
                 >
                   Reservar estadia
                 </button>

@@ -8,8 +8,8 @@ const LivingSlide = () => {
       id: 1,
       title: "Castro Marim",
       description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
-      mainImage: "/castro-marim-boardwalk.jpg",
-      overlayImage: "/flamingos-castro-marim.jpg",
+      mainImage: "/algarve-01.png",
+      overlayImage: "/algarve-02.png",
       backgroundColor: "var(--brown)",
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -27,8 +27,8 @@ const LivingSlide = () => {
       id: 2,
       title: "Sabor a mar",
       description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
-      mainImage: "/interior-kitchen-view.jpg",
-      overlayImage: "/grilled-fish-dish.jpg",
+      mainImage: "/Restaurante.png",
+      overlayImage: "/Restaurante2.png",
       backgroundColor: "var(--dark-green)",
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -50,8 +50,8 @@ const LivingSlide = () => {
       id: 3,
       title: "A calma da natureza",
       description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
-      mainImage: "/residential-complex.jpg",
-      overlayImage: "/modern-architecture.jpg",
+      mainImage: "/calma-01.jpg",
+      overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -102,7 +102,7 @@ const LivingSlide = () => {
           <div className="lg:col-span-4 text-white space-y-8 order-2 lg:order-1">
             
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold leading-tight">
+            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
               {currentSlideData.title}
             </h2>
             
