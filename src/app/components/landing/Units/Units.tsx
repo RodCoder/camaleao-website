@@ -143,10 +143,10 @@ const Units = () => {
                   <div className="flex justify-between items-start">
                     {/* Left side - Title and Subtitle */}
                     <div>
-                      <h3 className="text-2xl font-bold mb-1 title tracking-wide">{property.type}</h3>
-                      <p className="text-sm opacity-90 font-bold">{property.subtitle}</p>
+                      <h3 className="text-4xl font-bold mb-1 title tracking-wide">{property.type}</h3>
+                      <p className="text-l opacity-90 font-bold">{property.subtitle}</p>
                       {property.badge && (
-                        <span className="inline-block bg-orange-500 text-white text-xs px-2 py-1 rounded mt-2">
+                        <span className="inline-block text-white text-xs px-3 py-2 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
                           {property.badge}
                         </span>
                       )}

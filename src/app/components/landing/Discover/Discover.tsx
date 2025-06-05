@@ -38,11 +38,11 @@ const DescobrirSection = () => {
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 title tracking-wide">
+        <div className="text-center" style={{"marginBottom": "-40px","zIndex": "1000", "position": "relative"}}>
+          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 tracking-wide title">
             DESCOBRIR
           </h2>
-          <p className="text-xl lg:text-2xl text-white/90 title font-light">
+          <p className="text-2xl lg:text-3xl text-white/90 font-light tracking-wide title">
             Viver em harmonia
           </p>
         </div>
@@ -51,7 +51,7 @@ const DescobrirSection = () => {
         <div className="relative w-full mb-12">
           
           {/* Image Container - Full Width with Overlapping Images */}
-          <div className="relative h-96 lg:h-[500px] overflow-hidden">
+          <div className="relative h-[500px] lg:h-[600px] overflow-hidden">
             
             {/* Images with overlapping layout */}
             <div className="relative flex items-center justify-center h-full">

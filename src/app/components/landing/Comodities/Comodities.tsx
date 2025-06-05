@@ -89,7 +89,7 @@ const Comodities = () => {
   ];
 
   return (
-    <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
+    <section className="py-10 lg:py-20" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
@@ -105,7 +105,7 @@ const Comodities = () => {
         {/* Amenities Grid */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">
           {amenities.map((amenity) => (
-            <div key={amenity.id} className="text-center space-y-4">
+            <div key={amenity.id} className="text-center space-y-4 p-4" style={{'background': 'rgba(86, 53, 46, 0.05)'}}>
               {/* Icon */}
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 flex items-center justify-center" style={{ color: 'var(--brown)' }}>
@@ -119,7 +119,7 @@ const Comodities = () => {
               </h3>
               
               {/* Description */}
-              <p className="text-sm lg:text-base font-light leading-relaxed max-w-xs mx-auto" 
+              <p className="text-sm lg:text-m font-light leading-relaxed max-w-xs mx-auto" 
                  style={{ color: 'var(--brown)' }}>
                 {amenity.description}
               </p>
