@@ -37,6 +37,6 @@ body {
 .hero-text {
   background: radial-gradient(ellipse 700px 400px at center,
       rgba(86, 53, 46, 0.4) 0%,
-      rgba(86, 53, 46, 0.2) 30%,
-      transparent 36%);
+      rgba(86, 53, 46, 0.2) 15%,
+      transparent 25%);
 }
