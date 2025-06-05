@@ -23,7 +23,7 @@ const HeroSection = () => {
             </h1>
 
             {/* Description Text */}
-            <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-12 max-w-xl">
+            <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl">
               Abrace a beleza da vida costeira com um empreendimento
               sustentável e bem planeado que proporciona luxo e paz de
               espírito. Perfeitas para viver, passar férias ou até mesmo para

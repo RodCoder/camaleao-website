@@ -8,7 +8,7 @@ const Units = () => {
       type: "Apartamento",
       price: "825 000 €",
       subtitle: "LOFT A | TIPOLOGIA: T2",
-      image: "/apartamento-1.jpg",
+      image: "/apartamento1.png",
       specs: {
         inicioObras: "2026",
         areaBruta: "164 m²",
@@ -21,7 +21,7 @@ const Units = () => {
       type: "Apartamento",
       price: "1 350 000 €",
       subtitle: "LOFT B | TIPOLOGIA: T3",
-      image: "/apartamento-2.jpg",
+      image: "/apartamento2.png",
       specs: {
         inicioObras: "2026",
         areaBruta: "203 m²",
@@ -34,7 +34,7 @@ const Units = () => {
       type: "Apartamento",
       price: "440 000 €",
       subtitle: "LOFT C | TIPOLOGIA: ESTÚDIO",
-      image: "/apartamento-3.jpg",
+      image: "/apartamento3.jpg",
       specs: {
         inicioObras: "2026",
         areaBruta: "45 m²",
@@ -48,7 +48,7 @@ const Units = () => {
       price: "790 000 €",
       subtitle: "Tipologia T2",
       badge: "Early bird price",
-      image: "/moradia-1.jpg",
+      image: "/moradia1.png",
       specs: {
         inicioObras: "2026",
         areaBruta: "105 m²",
@@ -61,7 +61,7 @@ const Units = () => {
       type: "Moradia",
       price: "590 000 €",
       subtitle: "Tipologia T2",
-      image: "/moradia-2.jpg",
+      image: "/moradia2.jpg",
       specs: {
         inicioObras: "2026",
         areaBruta: "164 m²",
@@ -74,7 +74,7 @@ const Units = () => {
       type: "Moradia",
       price: "1 050 000 €",
       subtitle: "Vista campo | Tipologia T2",
-      image: "/moradia-3.jpg",
+      image: "/moradia3.jpg",
       specs: {
         inicioObras: "2026",
         areaBruta: "125 m²",
@@ -87,7 +87,7 @@ const Units = () => {
       type: "Moradia",
       price: "1 150 000 €",
       subtitle: "Vista mar | Tipologia T2",
-      image: "/moradia-4.jpg",
+      image: "/moradia4.png",
       specs: {
         inicioObras: "2026",
         areaBruta: "180 m²",
@@ -129,7 +129,12 @@ const Units = () => {
                 />
 
                 {/* Dark Overlay */}
-                <div className="absolute inset-0 bg-black/50"></div>
+                <div
+                  className="absolute inset-0"
+                  style={{
+                    background: 'linear-gradient(to top, rgba(86, 53, 46, 1) 0%, rgba(86, 53, 46, 0.5) 40%, transparent 60%)'
+                  }}
+                ></div>
 
                 {/* Content Overlay */}
                 <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
@@ -138,8 +143,8 @@ const Units = () => {
                   <div className="flex justify-between items-start">
                     {/* Left side - Title and Subtitle */}
                     <div>
-                      <h3 className="text-2xl font-bold mb-1">{property.type}</h3>
-                      <p className="text-sm opacity-90">{property.subtitle}</p>
+                      <h3 className="text-2xl font-bold mb-1 title tracking-wide">{property.type}</h3>
+                      <p className="text-sm opacity-90 font-bold">{property.subtitle}</p>
                       {property.badge && (
                         <span className="inline-block bg-orange-500 text-white text-xs px-2 py-1 rounded mt-2">
                           {property.badge}
@@ -149,7 +154,7 @@ const Units = () => {
 
                     {/* Right side - Price */}
                     <div className="text-right">
-                      <div className="text-4xl font-bold">{property.price}</div>
+                      <div className="text-4xl font-bold title tracking-wide">{property.price}</div>
                     </div>
                   </div>
 
@@ -171,13 +176,15 @@ const Units = () => {
                       <span>VALOR DO IMÓVEL:</span>
                       <span className="font-medium">{property.specs.valorMovel}</span>
                     </div>
-
-                    {/* More Info Button */}
-                    <button
-                      className="w-full mt-4 py-3 bg-white/20 backdrop-blur-sm text-white font-medium rounded-lg transition-all duration-200 hover:bg-white/30 border border-white/30"
-                    >
-                      Mais informações
-                    </button>
+                    <div className='w-full flex items-center '>
+                      {/* More Info Button */}
+                      <button
+                        className="w-[250px] mt-4 py-3 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-200 mx-auto"
+                        style={{ "border": "1px solid var(--light-brown)", "backgroundColor": "rgba(86, 53, 46, 0.1)" }}
+                      >
+                        Mais informações
+                      </button>
+                    </div>
                   </div>
                 </div>
               </div>
