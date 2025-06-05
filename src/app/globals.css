@@ -40,3 +40,17 @@ body {
       rgba(86, 53, 46, 0.2) 15%,
       transparent 25%);
 }
+
+.loader-background {
+  background: var(--dark-green);
+  animation: colorLoop 2s ease-in-out infinite alternate;
+}
+
+@keyframes colorLoop {
+  0% {
+    background-color: var(--dark-green);
+  }
+  100% {
+    background-color: var(--brown);
+  }
+}

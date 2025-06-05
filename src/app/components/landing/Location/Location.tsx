@@ -23,7 +23,7 @@ const Location = () => {
             
             {/* Title */}
             <div>
-              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6">
+              <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 title tracking-wide">
                 Localização
               </h2>
               

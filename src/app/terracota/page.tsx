@@ -11,11 +11,17 @@ import LivingSlide from '../components/landing/Living/Living';
 import ProjectDetails from '../components/landing/ProjectDetails/ProjectDetails';
 import ContactForm from '../components/landing/ContactForm/ContactForm';
 import Footer from '../components/landing/Footer/Footer';
+import { useState } from 'react';
+import Loader from '../components/Loader';
 
 const Home = () => {
-
+  const [showLoader, setShowLoader] = useState(true);
   return (
     <div className="text-gray-800">
+      <div>
+        {showLoader && <Loader onComplete={() => setShowLoader(false)} />}
+        {/* Rest of your components */}
+      </div>
       {/* Header */}
       <Navigation />
 
@@ -32,7 +38,7 @@ const Home = () => {
       <Discover />
 
       {/* Residential Units */}
-      <Units/>
+      <Units />
 
       {/* Comodities */}
       <Comodities />
@@ -42,9 +48,9 @@ const Home = () => {
 
       {/* Living */}
       <LivingSlide />
-      
+
       {/* Project Evolution */}
-      <ProjectDetails/>
+      <ProjectDetails />
 
       {/* Contact */}
       <ContactForm />
