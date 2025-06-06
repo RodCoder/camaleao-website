@@ -160,8 +160,6 @@ const Units: React.FC = () => {
     // }
   ];
 
-  // Duplicate the array for seamless infinite scroll (desktop only)
-  const duplicatedProperties = [...properties, ...properties];
 
   // Animation variants
   const headerVariants = {
