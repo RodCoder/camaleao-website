@@ -105,7 +105,7 @@ const DescobrirSection = () => {
   };
 
   const sideImageVariants = {
-    enter: (opacity: number) => ({
+    enter: (opacity:  number) => ({
       opacity: opacity,
       transition: {
         duration: 0.8,
@@ -198,11 +198,10 @@ const DescobrirSection = () => {
                 />
               </motion.div>
               
-              {/* Center image (current) - 70% width, z-index 3 */}
+              {/* Center image (current) - larger on mobile */}
               <AnimatePresence mode="wait">
                 <motion.div 
-                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden z-30"
-                  style={{ width: '70%', height: '100%' }}
+                  className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden z-30 w-[85%] lg:w-[70%] h-full"
                   key={`center-${currentSlide}`}
                   variants={imageVariants}
                   initial="exit"
