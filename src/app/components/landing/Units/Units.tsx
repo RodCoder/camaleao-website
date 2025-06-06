@@ -64,7 +64,7 @@ const Units: React.FC = () => {
       id: 1,
       type: "Apartamento",
       price: "840 000 €",
-      subtitle: "LOFT A | TIPOLOGIA: T2",
+      subtitle: "TIPOLOGIA: T2",
       image: "/apartamento1.png",
       link: "https://properties.terracota.capital/property/apartment-b1/21388247",
       specs: {
@@ -78,7 +78,7 @@ const Units: React.FC = () => {
       id: 2,
       type: "Apartamento",
       price: "1 350 000 €",
-      subtitle: "LOFT B | TIPOLOGIA: T3",
+      subtitle: "TIPOLOGIA: T3",
       image: "/apartamento2.png",
       link: "https://properties.terracota.capital/property/apartment-c/21388245",
       specs: {
@@ -92,7 +92,7 @@ const Units: React.FC = () => {
       id: 3,
       type: "Apartamento",
       price: "440 000 €",
-      subtitle: "LOFT C | TIPOLOGIA: ESTÚDIO",
+      subtitle: "TIPOLOGIA: ESTÚDIO",
       image: "/apartamento3.jpg",
       link: "https://properties.terracota.capital/property/apartment-e/21388243",
       specs: {

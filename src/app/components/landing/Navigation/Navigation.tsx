@@ -11,8 +11,15 @@ const Navigation = () => {
     setIsMobileMenuOpen(false);
   };
 
+  const scrollToTop = () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth'
+    });
+  };
+
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 bg-transparent`}>
+    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent`}>
       <div className="max-w-[1166px] mx-auto px-4 sm:px-6 lg:px-8 topNav backdrop-blur-sm">
         <div className="flex items-center justify-between h-[60px]">
           {/* Left Navigation - Desktop Only */}
@@ -39,11 +46,13 @@ const Navigation = () => {
 
           {/* Centered Logo - Desktop Only */}
           <div className="hidden md:block flex-shrink-0 absolute left-1/2 transform -translate-x-1/2">
-            <img 
-              src="/CAMALEÃO_GRANDE.svg" 
-              alt="Camaleão" 
-              className={`h-[34px] transition-opacity duration-300`}
-            />
+            <button onClick={scrollToTop} className="cursor-pointer">
+              <img 
+                src="/CAMALEÃO_GRANDE.svg" 
+                alt="Camaleão" 
+                className={`h-[34px] transition-opacity duration-300 hover:opacity-80`}
+              />
+            </button>
           </div>
 
           {/* Right Navigation - Desktop Only */}
@@ -118,7 +127,7 @@ const Navigation = () => {
       <div className={`md:hidden transition-all duration-300 ease-in-out ${
         isMobileMenuOpen ? 'max-h-96 opacity-100' : 'max-h-0 opacity-0 overflow-hidden'
       }`}>
-        <div className="px-4 pt-2 pb-3 space-y-1 bg-black/20 backdrop-blur-md">
+        <div className="mx-4 px-4 pt-2 pb-3 space-y-1 bg-black/20 backdrop-blur-md">
           <a
             href="#descobrir"
             onClick={closeMobileMenu}

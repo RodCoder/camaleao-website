@@ -16,7 +16,7 @@ const Comodities: React.FC = () => {
     {
       id: 2,
       title: "Restaurantes",
-      description: "Experiências autênticas e sabores inesquecíveis. Descubra restaurantes locais com pratos regionais e tradicionais que celebram a autêntica algarvia.",
+      description: "Experiências autênticas e sabores inesquecíveis. Descubra restaurantes locais com pratos regionais e tradicionais que celebram a autêntica gastronomia algarvia.",
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M3 15a4 4 0 004 4h9a5 5 0 10-.1-9.999 5.002 5.002 0 10-9.78 2.096A4.001 4.001 0 003 15z" />
@@ -46,7 +46,7 @@ const Comodities: React.FC = () => {
     },
     {
       id: 5,
-      title: "Pista Caminhada",
+      title: "Circuito Pedonal",
       description: "Trilhos através na natureza, ideais para caminhadas matinais, exercício ou simplesmente para caminhar entre a fauna e fauna locais.",
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -79,7 +79,7 @@ const Comodities: React.FC = () => {
     },
     {
       id: 8,
-      title: "Parque Velocípedes",
+      title: "Parque de Lazer",
       description: "Espaço concebido para crianças se divertirem. Equipado com infraestruturas e brinquedos adequados, oferecendo lazer e velocípedes, oferecendo lazer ao ar livre, com segurança e diversão.",
       icon: (
         <svg className="w-12 h-12" fill="none" stroke="currentColor" viewBox="0 0 24 24">

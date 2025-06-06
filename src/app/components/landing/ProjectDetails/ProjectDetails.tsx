@@ -272,7 +272,7 @@ const ProjectDetails: React.FC = () => {
   const salesPhaseData: SalesPhaseData = {
     apartments: [
       { type: "Fase 1 - Early bird", status: "Concluído", progress: 100, color: "bg-green-600" },
-      { type: "Fase 2", status: "57%", progress: 57, color: "bg-green-600" }
+      { type: "Fase 2", status: "Em curso", progress: 25, color: "bg-green-600" }
     ],
     houses: [
       { type: "Fase 1 - Early bird", status: "Iniciado", progress: 30, color: "bg-green-600" },
@@ -375,7 +375,7 @@ const ProjectDetails: React.FC = () => {
       label: "Fim da construção",
       year: "2028",
       active: false,
-      image: "/morad-03.jpg",
+      image: "/apartamentos-piscina.jpg",
       description: "Obra finalizada, com entrega pronta a habitar e apta ao usufruto para os últimos detalhes."
     },
     {
