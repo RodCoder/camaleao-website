@@ -95,34 +95,59 @@ const LivingSlide = () => {
 
   return (
     <section 
-      className="relative min-h-screen flex items-center transition-all duration-1000 ease-in-out"
-      style={{ backgroundColor: currentSlideData.backgroundColor }}
+      className="relative min-h-screen flex items-center overflow-hidden"
+      style={{ 
+        backgroundColor: currentSlideData.backgroundColor,
+        transition: 'background-color 1000ms ease-in-out'
+      }}
     >
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
           
           {/* Text Content */}
-          <div className={`lg:col-span-6 text-white space-y-8 transition-all duration-1000 ease-in-out ${
-            isImageLeft ? 'order-2 lg:order-2 text-right' : 'order-2 lg:order-1'
-          }`}>
+          <div 
+            className={`lg:col-span-6 text-white space-y-8 ${
+              isImageLeft ? 'order-2 lg:order-2 text-right' : 'order-2 lg:order-1'
+            }`}
+            style={{
+              transform: isImageLeft ? 'translateX(0)' : 'translateX(0)',
+              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1)',
+              opacity: 1
+            }}
+          >
             
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
+            <h2 
+              className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide"
+              style={{
+                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 200ms'
+              }}
+            >
               {currentSlideData.title}
             </h2>
             
             {/* Description */}
-            <p className={`text-base lg:text-lg font-light leading-relaxed opacity-90 ${
-              isImageLeft ? 'max-w-md ml-auto' : 'max-w-md'
-            }`}>
+            <p 
+              className={`text-base lg:text-lg font-light leading-relaxed opacity-90 ${
+                isImageLeft ? 'max-w-md ml-auto' : 'max-w-md'
+              }`}
+              style={{
+                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 300ms'
+              }}
+            >
               {currentSlideData.description}
             </p>
 
             {/* Icons */}
-            <div className={`flex space-x-6 text-white/80 ${
-              isImageLeft ? 'justify-end' : ''
-            }`}>
+            <div 
+              className={`flex space-x-6 text-white/80 ${
+                isImageLeft ? 'justify-end' : ''
+              }`}
+              style={{
+                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 400ms'
+              }}
+            >
               {currentSlideData.icons.map((icon, index) => (
                 <div key={index} className="hover:text-white transition-colors duration-200">
                   {icon}
@@ -132,32 +157,55 @@ const LivingSlide = () => {
           </div>
 
           {/* Images */}
-          <div className={`lg:col-span-6 relative transition-all duration-1000 ease-in-out ${
-            isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
-          }`}>
+          <div 
+            className={`lg:col-span-6 relative ${
+              isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
+            }`}
+            style={{
+              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1)'
+            }}
+          >
             
             {/* Images Container */}
             <div className="relative h-96 lg:h-[600px] flex items-center justify-center">
               
               {/* Main Background Image - 3/4 width, aligned to side */}
-              <div className={`w-full h-full rounded-2xl overflow-hidden shadow-lg ${
-                isImageLeft ? 'mr-auto' : 'ml-auto'
-              }`}>
+              <div 
+                className={`w-full h-full rounded-2xl overflow-hidden shadow-lg ${
+                  isImageLeft ? 'mr-auto' : 'ml-auto'
+                }`}
+                style={{
+                  transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1) 100ms'
+                }}
+              >
                 <img
+                  key={currentSlideData.id}
                   src={currentSlideData.mainImage}
                   alt={currentSlideData.title}
                   className="w-full h-full object-cover"
+                  style={{
+                    transition: 'opacity 600ms ease-in-out'
+                  }}
                 />
               </div>
             </div>
           </div>
 
           {/* Overlay Image - positioned in the center gap between columns */}
-          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block">
+          <div 
+            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block"
+            style={{
+              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1) 500ms'
+            }}
+          >
             <img
+              key={`overlay-${currentSlideData.id}`}
               src={currentSlideData.overlayImage}
               alt={`${currentSlideData.title} detail`}
               className="w-full h-full object-cover"
+              style={{
+                transition: 'opacity 600ms ease-in-out'
+              }}
             />
           </div>
 

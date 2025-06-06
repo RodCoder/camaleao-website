@@ -68,9 +68,9 @@ const ContactForm: React.FC = () => {
     <section id='contacto' className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img 
-          src="/contacto.jpg" 
-          alt="Contact Background" 
+        <img
+          src="/contacto.jpg"
+          alt="Contact Background"
           className="w-full h-full object-cover"
         />
         {/* Dark Overlay */}
@@ -79,20 +79,20 @@ const ContactForm: React.FC = () => {
 
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
-        
+
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
-          
+
           {/* Left Side - Contact Information */}
           <div className="text-white space-y-8">
-            
+
             {/* Title */}
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
               Contactos
             </h2>
-            
+
             {/* Description */}
             <p className="text-base lg:text-lg font-light leading-relaxed opacity-90 max-w-lg">
-              Precisa de mais informações? Ligue-nos ou preencha o formulário de 
+              Precisa de mais informações? Ligue-nos ou preencha o formulário de
               mensagem, e entraremos em contacto consigo entre 24 a 48h.
             </p>
 
@@ -122,8 +122,8 @@ const ContactForm: React.FC = () => {
           </div>
 
           {/* Right Side - Contact Form */}
-          <div className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container" style={{background: 'rgba(46,69,46,0.4)'}}>
-            
+          <div className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container" style={{ background: 'rgba(46,69,46,0.4)' }}>
+
             {/* Form Title */}
             <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 title tracking-wide">
               Quer saber mais?
@@ -131,7 +131,7 @@ const ContactForm: React.FC = () => {
 
             {/* Contact Form */}
             <div className="space-y-6">
-              
+
               {/* Name Field */}
               <div>
                 <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
@@ -195,8 +195,8 @@ const ContactForm: React.FC = () => {
                   required
                 />
                 <label htmlFor="agreement" className="text-white text-sm font-light leading-relaxed">
-                  Dê acordo com a lei geral de proteção de dados, concordo em fornecer os 
-                  dados acima para que o incorporador entre em contacto comigo para apresentar 
+                  Dê acordo com a lei geral de proteção de dados, concordo em fornecer os
+                  dados acima para que o incorporador entre em contacto comigo para apresentar
                   produtos e serviços em conformidade com a política de privacidade adotada.
                 </label>
               </div>
@@ -207,7 +207,11 @@ const ContactForm: React.FC = () => {
                   type="button"
                   onClick={handleSubmit}
                   disabled={!formData.agreement}
-                  className="w-full py-4 bg-green-600 hover:bg-green-700 disabled:bg-gray-500 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
+                  className="w-full py-4 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
+                  style={{
+                    backgroundColor: formData.agreement ? 'var(--dark-green)' : 'transparent',
+                    border: formData.agreement ? 'none' : '1px solid rgba(255, 255, 255, 0.3)'
+                  }}
                 >
                   Reservar estadia
                 </button>
