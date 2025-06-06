@@ -318,7 +318,7 @@ const ProjectDetails: React.FC = () => {
       active: false,
       badge: "Receção",
       image: "/infra-03.jpg",
-      description: "Entrega do empreendimento concluído, após verificação técnica e validação de todos os requisitos do projeto."
+      description: "Entrega das infraestruturas concluídas, após verificação técnica e validação de todos os requisitos do projeto."
     }
   ];
 

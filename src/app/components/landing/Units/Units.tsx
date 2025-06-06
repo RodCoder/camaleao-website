@@ -68,7 +68,7 @@ const Units: React.FC = () => {
       image: "/apartamento1.png",
       link: "https://properties.terracota.capital/property/apartment-b1/21388247",
       specs: {
-        inicioObras: "2026",
+        inicioObras: "2025",
         areaBruta: "164 m²",
         areaTotal: "249 m²",
         valorMovel: "840 000 €"
@@ -82,7 +82,7 @@ const Units: React.FC = () => {
       image: "/apartamento2.png",
       link: "https://properties.terracota.capital/property/apartment-c/21388245",
       specs: {
-        inicioObras: "2026",
+        inicioObras: "2025",
         areaBruta: "203 m²",
         areaTotal: "350 m²",
         valorMovel: "1 350 000 €"
@@ -96,7 +96,7 @@ const Units: React.FC = () => {
       image: "/apartamento3.jpg",
       link: "https://properties.terracota.capital/property/apartment-e/21388243",
       specs: {
-        inicioObras: "2026",
+        inicioObras: "2025",
         areaBruta: "45 m²",
         areaTotal: "65 m²",
         valorMovel: "440 000 €"
@@ -427,7 +427,7 @@ const Units: React.FC = () => {
             style={{ backgroundColor: 'var(--brown)' }}
             onClick={() => window.open('https://properties.terracota.capital/development/camaleao/21388242', '_blank')}
           >
-            Ver todas as unidades
+            Ver mais unidades
           </button>
         </motion.div>
       </div>

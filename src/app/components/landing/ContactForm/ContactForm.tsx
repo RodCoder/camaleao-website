@@ -458,7 +458,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                   whileTap={(formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? { scale: 0.95 } : {}}
                   transition={{ duration: 0.2 }}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Reservar estadia'}
+                  {isSubmitting ? 'Enviando...' : 'Entre em contacto'}
                 </motion.button>
 
                 {/* Status Messages */}
