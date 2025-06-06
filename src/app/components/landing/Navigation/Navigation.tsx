@@ -19,7 +19,7 @@ const Navigation = () => {
   };
 
   return (
-    <nav className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 bg-transparent`}>
+    <nav className={`fixed top-0 left-0 right-0 z-1000 transition-all duration-300 bg-transparent`}>
       <div className="max-w-[1166px] mx-auto px-4 sm:px-6 lg:px-8 topNav backdrop-blur-sm">
         <div className="flex items-center justify-between h-[60px]">
           {/* Left Navigation - Desktop Only */}
