@@ -13,11 +13,6 @@ interface SocialLink {
 }
 
 const Footer: React.FC = () => {
-  const legalLinks: FooterLink[] = [
-    { text: "Aviso Legal", href: "/aviso-legal" },
-    { text: "Política de privacidade", href: "/politica-privacidade" },
-    { text: "Política de Cookies", href: "/politica-cookies" }
-  ];
 
   const socialLinks: SocialLink[] = [
     {
