@@ -17,10 +17,10 @@ const HeroSection = () => {
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-          <div className="max-w-2xl hero-text">
+          <div className="max-w-2xl hero-text  md:bg-transparent bg-black/20 md:p-0 p-6 md:rounded-none rounded-lg">
             {/* Main Headline */}
             <motion.h1 
-              className="mt-[100px] text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
+              className="mt-[100px] md:mt-[100px] mt-0 text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 

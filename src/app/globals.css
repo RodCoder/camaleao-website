@@ -54,3 +54,13 @@ body {
     background-color: var(--brown);
   }
 }
+
+@media only screen and (max-width: 768px) {
+  .hero-text {
+    background-color: rgb(from var(--brown) r g b / 0.4);
+  }
+
+  .hero-text h1 {
+    margin-top: 40px;
+  }
+}
