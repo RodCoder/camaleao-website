@@ -23,7 +23,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
   if (!isVisible) return null;
 
   return (
-    <div className="fixed inset-0 z-100 flex items-center justify-center loader-background">
+    <div className="fixed inset-0 z-2000 flex items-center justify-center loader-background">
       {/* Centered Logo/Icon */}
       <div className="flex flex-col items-center space-y-6">
         
