@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { motion } from "motion/react";
 
 interface Property {
@@ -18,6 +18,46 @@ interface Property {
 }
 
 const Units: React.FC = () => {
+  const desktopScrollRef = useRef<HTMLDivElement>(null);
+  const mobileScrollRef = useRef<HTMLDivElement>(null);
+
+  // Drag to scroll functionality
+  const handleMouseDown = (e: React.MouseEvent<HTMLDivElement>, scrollRef: React.RefObject<HTMLDivElement | null>): void => {
+    const slider = scrollRef.current;
+    if (!slider) return;
+
+    let isDown = true;
+    let startX = e.pageX - slider.offsetLeft;
+    let scrollLeft = slider.scrollLeft;
+
+    const handleMouseMove = (e: MouseEvent): void => {
+      if (!isDown) return;
+      e.preventDefault();
+      const x = e.pageX - slider.offsetLeft;
+      const walk = (x - startX) * 2; // Scroll speed multiplier
+      slider.scrollLeft = scrollLeft - walk;
+    };
+
+    const handleMouseUp = (): void => {
+      isDown = false;
+      document.removeEventListener('mousemove', handleMouseMove);
+      document.removeEventListener('mouseup', handleMouseUp);
+      slider.style.cursor = 'grab';
+    };
+
+    slider.style.cursor = 'grabbing';
+    document.addEventListener('mousemove', handleMouseMove);
+    document.addEventListener('mouseup', handleMouseUp);
+  };
+
+  // Separate handlers for each container
+  const handleDesktopMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {
+    handleMouseDown(e, desktopScrollRef);
+  };
+
+  const handleMobileMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {
+    handleMouseDown(e, mobileScrollRef);
+  };
   // Property data - 6 cards as requested
   const properties: Property[] = [
     {
@@ -180,7 +220,7 @@ const Units: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Desktop: Auto-scrolling Cards / Mobile: Touch-scrollable */}
+      {/* Scrollable Cards for both Desktop and Mobile */}
       <motion.div 
         className="relative w-full"
         variants={carouselVariants}
@@ -188,12 +228,17 @@ const Units: React.FC = () => {
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        {/* Desktop version - auto-scrolling with duplicated items */}
-        <div className="hidden lg:block overflow-hidden">
-          <div className="flex animate-scroll space-x-8 px-4">
-            {duplicatedProperties.map((property, index) => (
+        {/* Desktop version - scrollable with larger cards */}
+        <div 
+          ref={desktopScrollRef}
+          className="hidden lg:block overflow-x-auto overflow-y-hidden scrollbar-hide cursor-grab"
+          onMouseDown={handleDesktopMouseDown}
+          style={{ userSelect: 'none' }}
+        >
+          <div className="flex space-x-8 px-4 pb-4" style={{ width: 'max-content' }}>
+            {properties.map((property) => (
               <div
-                key={`${property.id}-${index}`}
+                key={property.id}
                 className="flex-shrink-0 w-[480px] rounded-2xl overflow-hidden shadow-lg relative"
               >
                 {/* Background Image */}
@@ -276,7 +321,12 @@ const Units: React.FC = () => {
         </div>
 
         {/* Mobile version - touch scrollable with smaller cards */}
-        <div className="lg:hidden overflow-x-auto overflow-y-hidden scrollbar-hide">
+        <div 
+          ref={mobileScrollRef}
+          className="lg:hidden overflow-x-auto overflow-y-hidden scrollbar-hide cursor-grab"
+          onMouseDown={handleMobileMouseDown}
+          style={{ userSelect: 'none' }}
+        >
           <div className="flex space-x-6 px-4 pb-4" style={{ width: 'max-content' }}>
             {properties.map((property) => (
               <div
@@ -382,27 +432,9 @@ const Units: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* CSS Animation - Desktop only */}
+      {/* CSS for hiding scrollbar and drag styling */}
       <style jsx>{`
-        @keyframes scroll {
-          0% {
-            transform: translateX(0);
-          }
-          100% {
-            transform: translateX(-50%);
-          }
-        }
-        
-        .animate-scroll {
-          animation: scroll 40s linear infinite;
-          width: calc(480px * 12 + 32px * 11); /* 12 cards + 11 gaps */
-        }
-        
-        .animate-scroll:hover {
-          animation-play-state: paused;
-        }
-
-        /* Hide scrollbar for mobile */
+        /* Hide scrollbar for both desktop and mobile */
         .scrollbar-hide {
           -ms-overflow-style: none;
           scrollbar-width: none;
@@ -410,6 +442,16 @@ const Units: React.FC = () => {
         
         .scrollbar-hide::-webkit-scrollbar {
           display: none;
+        }
+
+        /* Smooth scrolling behavior */
+        .scrollbar-hide {
+          scroll-behavior: smooth;
+        }
+
+        /* Prevent text selection during drag */
+        .scrollbar-hide * {
+          pointer-events: auto;
         }
       `}</style>
     </section>
