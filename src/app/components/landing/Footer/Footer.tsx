@@ -1,11 +1,11 @@
 import React from 'react';
 import { motion } from "motion/react";
 
-interface SocialLink {
-  name: string;
-  href: string;
-  icon: React.ReactNode;
-}
+// interface SocialLink {
+//   name: string;
+//   href: string;
+//   icon: React.ReactNode;
+// }
 
 const Footer: React.FC = () => {
 
