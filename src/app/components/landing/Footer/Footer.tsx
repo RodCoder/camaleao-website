@@ -1,11 +1,5 @@
 import React from 'react';
 
-// Type definitions
-interface FooterLink {
-  text: string;
-  href: string;
-}
-
 interface SocialLink {
   name: string;
   href: string;
