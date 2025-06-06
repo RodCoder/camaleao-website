@@ -9,8 +9,9 @@ const LivingSlide = () => {
       title: "Castro Marim",
       description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
       mainImage: "/algarve-01.png",
-      overlayImage: "/algarve-02.png",
+      overlayImage: "/flamingos.jpg",
       backgroundColor: "var(--brown)",
+      imagePosition: "left", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z" />
@@ -30,6 +31,7 @@ const LivingSlide = () => {
       mainImage: "/Restaurante.png",
       overlayImage: "/Restaurante2.png",
       backgroundColor: "var(--dark-green)",
+      imagePosition: "right", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -53,6 +55,7 @@ const LivingSlide = () => {
       mainImage: "/calma-01.jpg",
       overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",
+      imagePosition: "left", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <circle cx="18.5" cy="17.5" r="3.5" />
@@ -88,6 +91,7 @@ const LivingSlide = () => {
   };
 
   const currentSlideData = slides[currentSlide];
+  const isImageLeft = currentSlideData.imagePosition === "left";
 
   return (
     <section 
@@ -96,10 +100,12 @@ const LivingSlide = () => {
     >
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
-        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
+        <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
           
-          {/* Left Content */}
-          <div className="lg:col-span-4 text-white space-y-8 order-2 lg:order-1">
+          {/* Text Content */}
+          <div className={`lg:col-span-6 text-white space-y-8 transition-all duration-1000 ease-in-out ${
+            isImageLeft ? 'order-2 lg:order-2 text-right' : 'order-2 lg:order-1'
+          }`}>
             
             {/* Title */}
             <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
@@ -107,12 +113,16 @@ const LivingSlide = () => {
             </h2>
             
             {/* Description */}
-            <p className="text-base lg:text-lg font-light leading-relaxed opacity-90 max-w-md">
+            <p className={`text-base lg:text-lg font-light leading-relaxed opacity-90 ${
+              isImageLeft ? 'max-w-md ml-auto' : 'max-w-md'
+            }`}>
               {currentSlideData.description}
             </p>
 
             {/* Icons */}
-            <div className="flex space-x-6 text-white/80">
+            <div className={`flex space-x-6 text-white/80 ${
+              isImageLeft ? 'justify-end' : ''
+            }`}>
               {currentSlideData.icons.map((icon, index) => (
                 <div key={index} className="hover:text-white transition-colors duration-200">
                   {icon}
@@ -121,26 +131,34 @@ const LivingSlide = () => {
             </div>
           </div>
 
-          {/* Center Images */}
-          <div className="lg:col-span-8 relative order-1 lg:order-2">
+          {/* Images */}
+          <div className={`lg:col-span-6 relative transition-all duration-1000 ease-in-out ${
+            isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
+          }`}>
             
-            {/* Main Background Image */}
-            <div className="relative h-96 lg:h-[600px] rounded-2xl overflow-hidden">
-              <img
-                src={currentSlideData.mainImage}
-                alt={currentSlideData.title}
-                className="w-full h-full object-cover"
-              />
+            {/* Images Container */}
+            <div className="relative h-96 lg:h-[600px] flex items-center justify-center">
               
-              {/* Overlay Image */}
-              <div className="absolute top-8 left-8 lg:top-16 lg:left-16 w-48 h-32 lg:w-80 lg:h-52 rounded-xl overflow-hidden shadow-2xl">
+              {/* Main Background Image - 3/4 width, aligned to side */}
+              <div className={`w-full h-full rounded-2xl overflow-hidden shadow-lg ${
+                isImageLeft ? 'mr-auto' : 'ml-auto'
+              }`}>
                 <img
-                  src={currentSlideData.overlayImage}
-                  alt={`${currentSlideData.title} detail`}
+                  src={currentSlideData.mainImage}
+                  alt={currentSlideData.title}
                   className="w-full h-full object-cover"
                 />
               </div>
             </div>
+          </div>
+
+          {/* Overlay Image - positioned in the center gap between columns */}
+          <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block">
+            <img
+              src={currentSlideData.overlayImage}
+              alt={`${currentSlideData.title} detail`}
+              className="w-full h-full object-cover"
+            />
           </div>
 
         </div>
