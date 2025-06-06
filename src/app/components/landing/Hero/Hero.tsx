@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "motion/react";
 
 const HeroSection = () => {
   return (
@@ -18,18 +19,36 @@ const HeroSection = () => {
 
           <div className="max-w-2xl hero-text">
             {/* Main Headline */}
-            <h1 className="mt-[100px] text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide">
+            <motion.h1 
+              className="mt-[100px] text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
+              initial={{ opacity: 0, y: 60 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 1,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.3
+              }}
+            >
               A dois passos do mar
-            </h1>
+            </motion.h1>
 
             {/* Description Text */}
-            <p className="text-white text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl">
+            <motion.p 
+              className="text-white text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl"
+              initial={{ opacity: 0, y: 40 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ 
+                duration: 0.8,
+                ease: [0.25, 0.1, 0.25, 1],
+                delay: 0.8
+              }}
+            >
               Abrace a beleza da vida costeira com um empreendimento
               sustentável e bem planeado que proporciona luxo e paz de
               espírito. Perfeitas para viver, passar férias ou até mesmo para
               alugar turístico, estas propriedades exclusivas oferecem
               flexibilidade e conveniência.
-            </p>
+            </motion.p>
 
           </div>
         </div>
