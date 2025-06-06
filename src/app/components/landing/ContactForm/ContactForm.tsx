@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { motion } from "motion/react";
+import emailjs from 'emailjs-com';
 
 // Type definitions
 interface FormData {
@@ -22,19 +23,68 @@ const ContactForm: React.FC = () => {
     agreement: false
   });
 
+  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
+
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement>): void => {
     const { name, value, type, checked } = e.target;
     setFormData(prev => ({
       ...prev,
       [name]: type === 'checkbox' ? checked : value
     }));
+    // Reset status when user starts typing again
+    if (submitStatus !== 'idle') {
+      setSubmitStatus('idle');
+    }
   };
 
-  const handleSubmit = (e: React.MouseEvent<HTMLButtonElement>): void => {
+  const handleSubmit = async (e: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     e.preventDefault();
-    if (!formData.agreement) return;
-    console.log('Form submitted:', formData);
-    // Handle form submission logic here
+    
+    if (!formData.agreement || !formData.name || !formData.email || !formData.phone) {
+      return;
+    }
+
+    setIsSubmitting(true);
+    setSubmitStatus('idle');
+
+    try {
+      // EmailJS configuration
+      const serviceID = 'service_sdfgxkp'; // Replace with your EmailJS service ID
+      const templateID = 'template_xw0xtiq'; // Replace with your EmailJS template ID
+      const userID = 'J1iAEIbQtO3vuszLY'; // Replace with your EmailJS user ID
+
+      const templateParams = {
+        to_email: 'info@terracotacapital.pt',
+        subject: 'Site enquiry',
+        from_name: formData.name,
+        from_email: formData.email,
+        phone: formData.phone,
+        message: `Nova consulta do website:
+        
+Nome: ${formData.name}
+Email: ${formData.email}
+Telefone: ${formData.phone}
+
+Esta pessoa concordou com os termos de proteção de dados.`,
+      };
+
+      await emailjs.send(serviceID, templateID, templateParams, userID);
+      
+      setSubmitStatus('success');
+      // Reset form after successful submission
+      setFormData({
+        name: '',
+        email: '',
+        phone: '',
+        agreement: false
+      });
+    } catch (error) {
+      console.error('Email send failed:', error);
+      setSubmitStatus('error');
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const contactInfo: ContactInfo[] = [
@@ -398,18 +448,39 @@ const ContactForm: React.FC = () => {
                 <motion.button
                   type="button"
                   onClick={handleSubmit}
-                  disabled={!formData.agreement}
+                  disabled={!formData.agreement || !formData.name || !formData.email || !formData.phone || isSubmitting}
                   className="w-full py-4 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200"
                   style={{
-                    backgroundColor: formData.agreement ? 'var(--dark-green)' : 'transparent',
-                    border: formData.agreement ? 'none' : '1px solid rgba(255, 255, 255, 0.3)'
+                    backgroundColor: (formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? 'var(--dark-green)' : 'transparent',
+                    border: (formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? 'none' : '1px solid rgba(255, 255, 255, 0.3)'
                   }}
-                  whileHover={formData.agreement ? { scale: 1.05 } : {}}
-                  whileTap={formData.agreement ? { scale: 0.95 } : {}}
+                  whileHover={(formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? { scale: 1.05 } : {}}
+                  whileTap={(formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? { scale: 0.95 } : {}}
                   transition={{ duration: 0.2 }}
                 >
-                  Reservar estadia
+                  {isSubmitting ? 'Enviando...' : 'Reservar estadia'}
                 </motion.button>
+
+                {/* Status Messages */}
+                {submitStatus === 'success' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 p-3 bg-green-600/20 border border-green-600/30 rounded-lg text-green-100 text-sm text-center"
+                  >
+                    ✓ Mensagem enviada com sucesso! Entraremos em contacto em breve.
+                  </motion.div>
+                )}
+
+                {submitStatus === 'error' && (
+                  <motion.div
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    className="mt-4 p-3 bg-red-600/20 border border-red-600/30 rounded-lg text-red-100 text-sm text-center"
+                  >
+                    ✗ Erro ao enviar mensagem. Tente novamente ou contacte-nos diretamente.
+                  </motion.div>
+                )}
               </motion.div>
             </motion.div>
           </motion.div>
