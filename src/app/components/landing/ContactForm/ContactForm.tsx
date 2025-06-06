@@ -65,7 +65,7 @@ const ContactForm: React.FC = () => {
   ];
 
   return (
-    <section className="relative min-h-screen flex items-center">
+    <section id='contacto' className="relative min-h-screen flex items-center">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img 

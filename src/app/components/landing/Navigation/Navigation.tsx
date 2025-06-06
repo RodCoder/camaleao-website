@@ -19,19 +19,19 @@ const Navigation = () => {
           {/* Left Navigation */}
           <div className="hidden md:flex items-baseline space-x-6">
             <a
-              href="#home"
+              href="#descobrir"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Descobrir
             </a>
             <a
-              href="#discover"
+              href="#unidades"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Unidades
             </a>
             <a
-              href="#residential"
+              href="#comodidades"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Comodidades
@@ -50,19 +50,19 @@ const Navigation = () => {
           {/* Right Navigation */}
           <div className="hidden md:flex items-baseline space-x-6">
             <a
-              href="#amenities"
+              href="#localizacao"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Localização
             </a>
             <a
-              href="#location"
+              href="#evolucao"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Evolução
             </a>
             <a
-              href="#evolution"
+              href="#contacto"
               className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
             >
               Contacto

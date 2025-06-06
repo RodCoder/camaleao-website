@@ -101,7 +101,7 @@ const Units = () => {
   const duplicatedProperties = [...properties, ...properties];
 
   return (
-    <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
+    <section id='unidades' className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}

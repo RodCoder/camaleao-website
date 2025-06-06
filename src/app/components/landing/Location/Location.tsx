@@ -2,7 +2,7 @@ import React from 'react';
 
 const Location = () => {
   return (
-    <section className="py-20 lg:py-32 relative" style={{ backgroundColor: 'var(--light-brown)' }}>
+    <section id='localizacao' className="py-20 lg:py-32 relative" style={{ backgroundColor: 'var(--light-brown)' }}>
       {/* Pattern Overlay */}
       <div
           className="absolute inset-0 "

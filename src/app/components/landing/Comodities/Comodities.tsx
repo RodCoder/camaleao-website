@@ -89,7 +89,7 @@ const Comodities = () => {
   ];
 
   return (
-    <section className="py-10 lg:py-20" style={{ backgroundColor: 'var(--background)' }}>
+    <section id='comodidades' className="py-10 lg:py-20" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}

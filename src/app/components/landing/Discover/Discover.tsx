@@ -34,7 +34,7 @@ const DescobrirSection = () => {
   };
 
   return (
-    <section className="py-20 lg:py-32" style={{ backgroundColor: 'var(--brown)' }}>
+    <section id='descobrir' className="py-20 lg:py-32" style={{ backgroundColor: 'var(--brown)' }}>
       <div className="max-w-full mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
