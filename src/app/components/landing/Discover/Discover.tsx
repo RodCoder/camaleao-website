@@ -86,26 +86,27 @@ const DescobrirSection = () => {
     }
   };
 
-  // Image transition variants - smoother opacity-only transitions
+  // Image transition variants - crossfade without empty moment
   const imageVariants = {
     enter: {
       opacity: 1,
       transition: {
-        duration: 0.8,
-        ease: "easeInOut"
+        duration: 0.6,
+        ease: "easeInOut",
+        delay: 0.1
       }
     },
     exit: {
       opacity: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6,
         ease: "easeInOut"
       }
     }
   };
 
   const sideImageVariants = {
-    enter: (opacity:  number) => ({
+    enter: (opacity: number) => ({
       opacity: opacity,
       transition: {
         duration: 0.8,
@@ -199,10 +200,10 @@ const DescobrirSection = () => {
               </motion.div>
               
               {/* Center image (current) - larger on mobile */}
-              <AnimatePresence mode="wait">
+              <AnimatePresence mode="popLayout">
                 <motion.div 
                   className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 rounded-2xl overflow-hidden z-30 w-[85%] lg:w-[70%] h-full"
-                  key={`center-${currentSlide}`}
+                  key={currentSlide}
                   variants={imageVariants}
                   initial="exit"
                   animate="enter"
