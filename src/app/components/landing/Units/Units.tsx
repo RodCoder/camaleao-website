@@ -1,20 +1,37 @@
 import React from 'react';
 import { motion } from "motion/react";
 
+interface Property {
+  id: number;
+  type: string;
+  price: string;
+  subtitle: string;
+  image: string;
+  link?: string;
+  badge?: string;
+  specs: {
+    inicioObras: string;
+    areaBruta: string;
+    areaTotal: string;
+    valorMovel: string;
+  };
+}
+
 const Units: React.FC = () => {
-  // Property data - 5 cards as requested
-  const properties = [
+  // Property data - 6 cards as requested
+  const properties: Property[] = [
     {
       id: 1,
       type: "Apartamento",
-      price: "825 000 €",
+      price: "840 000 €",
       subtitle: "LOFT A | TIPOLOGIA: T2",
       image: "/apartamento1.png",
+      link: "https://properties.terracota.capital/property/apartment-b1/21388247",
       specs: {
         inicioObras: "2026",
         areaBruta: "164 m²",
         areaTotal: "249 m²",
-        valorMovel: "825 000 €"
+        valorMovel: "840 000 €"
       }
     },
     {
@@ -23,6 +40,7 @@ const Units: React.FC = () => {
       price: "1 350 000 €",
       subtitle: "LOFT B | TIPOLOGIA: T3",
       image: "/apartamento2.png",
+      link: "https://properties.terracota.capital/property/apartment-c/21388245",
       specs: {
         inicioObras: "2026",
         areaBruta: "203 m²",
@@ -36,6 +54,7 @@ const Units: React.FC = () => {
       price: "440 000 €",
       subtitle: "LOFT C | TIPOLOGIA: ESTÚDIO",
       image: "/apartamento3.jpg",
+      link: "https://properties.terracota.capital/property/apartment-e/21388243",
       specs: {
         inicioObras: "2026",
         areaBruta: "45 m²",
@@ -50,52 +69,55 @@ const Units: React.FC = () => {
       subtitle: "Tipologia T2",
       badge: "Early bird price",
       image: "/moradia1.png",
+      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool/22948689",
       specs: {
         inicioObras: "2026",
         areaBruta: "105 m²",
-        areaTotal: "203 m²",
+        areaTotal: "227 m²",
         valorMovel: "790 000 €"
       }
     },
     {
       id: 5,
       type: "Moradia",
-      price: "590 000 €",
+      price: "990 000 €",
       subtitle: "Tipologia T2",
       image: "/moradia2.jpg",
+      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-integrated-social-space/23022753",
       specs: {
         inicioObras: "2026",
         areaBruta: "164 m²",
-        areaTotal: "247 m²",
-        valorMovel: "590 000 €"
+        areaTotal: "308 m²",
+        valorMovel: "990 000 €"
       }
     },
     {
       id: 6,
       type: "Moradia",
-      price: "1 050 000 €",
+      price: "1 160 000 €",
       subtitle: "Vista campo | Tipologia T2",
       image: "/moradia3.jpg",
+      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
       specs: {
         inicioObras: "2026",
-        areaBruta: "125 m²",
-        areaTotal: "280 m²",
-        valorMovel: "1 050 000 €"
-      }
-    },
-    {
-      id: 7,
-      type: "Moradia",
-      price: "1 150 000 €",
-      subtitle: "Vista mar | Tipologia T2",
-      image: "/moradia4.png",
-      specs: {
-        inicioObras: "2026",
-        areaBruta: "180 m²",
-        areaTotal: "320 m²",
-        valorMovel: "1 150 000 €"
+        areaBruta: "166 m²",
+        areaTotal: "282 m²",
+        valorMovel: "1 160 000 €"
       }
     }
+    // {
+    //   id: 7,
+    //   type: "Moradia",
+    //   price: "1 150 000 €",
+    //   subtitle: "Vista mar | Tipologia T2",
+    //   image: "/moradia4.png",
+    //   specs: {
+    //     inicioObras: "2026",
+    //     areaBruta: "180 m²",
+    //     areaTotal: "320 m²",
+    //     valorMovel: "1 150 000 €"
+    //   }
+    // }
   ];
 
   // Duplicate the array for seamless infinite scroll
@@ -231,8 +253,14 @@ const Units: React.FC = () => {
                     <div className='w-full flex items-center '>
                       {/* More Info Button */}
                       <button
-                        className="w-[250px] mt-4 py-3 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-200 mx-auto"
+                        className="w-[250px] mt-4 py-3 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-200 mx-auto hover:bg-white/20 cursor-pointer"
                         style={{ "border": "1px solid var(--light-brown)", "backgroundColor": "rgba(86, 53, 46, 0.1)" }}
+                        onClick={(e) => {
+                          e.stopPropagation();
+                          if (property.link) {
+                            window.open(property.link, '_blank');
+                          }
+                        }}
                       >
                         Mais informações
                       </button>
@@ -254,8 +282,11 @@ const Units: React.FC = () => {
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <button className="px-8 py-3 text-white font-medium rounded-full transition-all duration-200 hover:opacity-90"
-            style={{ backgroundColor: 'var(--brown)' }}>
+          <button 
+            className="px-8 py-3 text-white font-medium rounded-full transition-all duration-200 hover:opacity-90 cursor-pointer"
+            style={{ backgroundColor: 'var(--brown)' }}
+            onClick={() => window.open('https://properties.terracota.capital/development/camaleao/21388242', '_blank')}
+          >
             Ver todas as unidades
           </button>
         </motion.div>
@@ -267,7 +298,7 @@ const Units: React.FC = () => {
           0% {
             transform: translateX(0);
           }
-          100% {
+        100% {
             transform: translateX(-50%);
           }
         }
