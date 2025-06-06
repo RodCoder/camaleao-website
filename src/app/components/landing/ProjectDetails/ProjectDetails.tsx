@@ -1,4 +1,5 @@
 import React from 'react';
+import { motion } from "motion/react";
 
 // Type definitions
 interface Phase {
@@ -45,6 +46,96 @@ interface ProgressBarProps {
 }
 
 const ProjectDetails: React.FC = () => {
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.2
+      }
+    }
+  };
+
+  const salesDevContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const cardVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const timelineSectionVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const timelineContainerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.15,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const timelineItemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
   // Timeline Component for Infrastructure, Apartments, and Houses
   const TimelineSection: React.FC<TimelineSectionProps> = ({ title, phases }) => {
     const getGridCols = (phaseCount: number) => {
@@ -53,17 +144,40 @@ const ProjectDetails: React.FC = () => {
     };
 
     return (
-      <div className="mb-20">
-        <h3 className="text-2xl lg:text-3xl font-bold mb-12 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+      <motion.div 
+        className="mb-20"
+        variants={timelineSectionVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
+        <motion.h3 
+          className="text-2xl lg:text-3xl font-bold mb-12 title tracking-wide" 
+          style={{ color: 'var(--dark-green)' }}
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+          viewport={{ once: true }}
+        >
           {title}
-        </h3>
+        </motion.h3>
 
         {/* Timeline */}
         <div className="relative">
           {/* Timeline Items */}
-          <div className={`grid ${getGridCols(phases.length)} gap-8 relative z-10`}>
+          <motion.div 
+            className={`grid ${getGridCols(phases.length)} gap-8 relative z-10`}
+            variants={timelineContainerVariants}
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true, amount: 0.2 }}
+          >
             {phases.map((phase, index) => (
-              <div key={index} className="relative flex flex-col items-center">
+              <motion.div 
+                key={index} 
+                className="relative flex flex-col items-center"
+                variants={timelineItemVariants}
+              >
 
                 {/* Timeline Label and Dot */}
                 <div className="flex flex-col items-center mb-6">
@@ -86,11 +200,6 @@ const ProjectDetails: React.FC = () => {
                       alt={phase.label}
                       className="w-full h-full object-cover"
                     />
-                    {/* {phase.badge && (
-                      <div className="absolute top-3 left-3 bg-black text-white px-2 py-1 rounded text-xs font-medium">
-                        {phase.badge}
-                      </div>
-                    )} */}
                     <div className="absolute bottom-3 left-3 text-white px-2 py-1 rounded text-m title tracking-wide" style={{background: 'var(--dark-green)'}}>
                       {phase.active ? '' : phase.year}
                     </div>
@@ -101,9 +210,9 @@ const ProjectDetails: React.FC = () => {
                     </p>
                   </div>
                 </div>
-              </div>
+              </motion.div>
             ))}
-          </div>
+          </motion.div>
 
           {/* Timeline Line - positioned after grid to calculate positions */}
           <div
@@ -117,7 +226,7 @@ const ProjectDetails: React.FC = () => {
             } as React.CSSProperties}
           ></div>
         </div>
-      </div>
+      </motion.div>
     );
   };
 
@@ -242,10 +351,14 @@ const ProjectDetails: React.FC = () => {
 
   const ProgressBar: React.FC<ProgressBarProps> = ({ progress }) => (
     <div className="w-full bg-gray-300 rounded-full h-3">
-      <div
-        className={`h-3 rounded-full transition-all duration-500`}
-        style={{ width: `${progress}%`, background: 'var(--dark-green)' }}
-      ></div>
+      <motion.div
+        className={`h-3 rounded-full`}
+        style={{ background: 'var(--dark-green)' }}
+        initial={{ width: 0 }}
+        whileInView={{ width: `${progress}%` }}
+        transition={{ duration: 1.2, ease: [0.25, 0.1, 0.25, 1], delay: 0.3 }}
+        viewport={{ once: true }}
+      />
     </div>
   );
 
@@ -254,20 +367,39 @@ const ProjectDetails: React.FC = () => {
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.h2 
+            className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 title tracking-wide" 
+            style={{ color: 'var(--dark-green)' }}
+            variants={headerVariants}
+          >
             Evolução do Camaleão
-          </h2>
-          <p className="text-lg lg:text-xl font-light" style={{ color: 'var(--dark-green)' }}>
+          </motion.h2>
+          <motion.p 
+            className="text-lg lg:text-xl font-light" 
+            style={{ color: 'var(--dark-green)' }}
+            variants={subtitleVariants}
+          >
             Última atualização: abril 2025
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Sales and Development Phases */}
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 mb-20"
+          variants={salesDevContainerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
 
           {/* Sales Phase */}
-          <div>
+          <motion.div variants={cardVariants}>
             <h3 className="text-2xl font-bold mb-8 title tracking-wide mx-auto text-center" style={{ color: 'var(--dark-green)' }}>
               Fase de vendas
             </h3>
@@ -313,10 +445,10 @@ const ProjectDetails: React.FC = () => {
                 </div>
               </div>
             </div>
-          </div>
+          </motion.div>
 
           {/* Development Phase */}
-          <div>
+          <motion.div variants={cardVariants}>
             <h3 className="text-2xl font-bold mb-8 title tracking-wide text-center" style={{ color: 'var(--dark-green)' }}>
               Fase de desenvolvimento
             </h3>
@@ -382,8 +514,8 @@ const ProjectDetails: React.FC = () => {
                 ))}
               </div>
             </div>
-          </div>
-        </div>
+          </motion.div>
+        </motion.div>
 
         {/* Timeline Sections */}
         <TimelineSection title="Infraestrutura" phases={infrastructurePhases} />

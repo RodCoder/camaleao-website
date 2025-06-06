@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import { motion } from "motion/react";
 
 // Type definitions
 interface FormData {
@@ -64,6 +65,150 @@ const ContactForm: React.FC = () => {
     }
   ];
 
+  // Animation variants
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.2,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const leftContentVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -60 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const rightContentVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: 60 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const titleVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.2
+      }
+    }
+  };
+
+  const workingHoursVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.4
+      }
+    }
+  };
+
+  const contactInfoVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.6
+      }
+    }
+  };
+
+  const contactItemVariants = {
+    hidden: { 
+      opacity: 0, 
+      x: -20 
+    },
+    visible: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const formVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const formFieldsVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.2
+      }
+    }
+  };
+
+  const fieldVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 20 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.6,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
   return (
     <section id='contacto' className="relative min-h-screen flex items-center">
       {/* Background Image */}
@@ -80,64 +225,99 @@ const ContactForm: React.FC = () => {
       {/* Content Container */}
       <div className="relative z-10 w-full max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
 
-        <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start">
+        <motion.div 
+          className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
 
           {/* Left Side - Contact Information */}
-          <div className="text-white space-y-8">
+          <motion.div 
+            className="text-white space-y-8"
+            variants={leftContentVariants}
+          >
 
             {/* Title */}
-            <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide">
+            <motion.h2 
+              className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide"
+              variants={titleVariants}
+            >
               Contactos
-            </h2>
+            </motion.h2>
 
             {/* Description */}
-            <p className="text-base lg:text-lg font-light leading-relaxed opacity-90 max-w-lg">
+            <motion.p 
+              className="text-base lg:text-lg font-light leading-relaxed opacity-90 max-w-lg"
+              variants={descriptionVariants}
+            >
               Precisa de mais informações? Ligue-nos ou preencha o formulário de
               mensagem, e entraremos em contacto consigo entre 24 a 48h.
-            </p>
+            </motion.p>
 
             {/* Working Hours */}
-            <div className="space-y-2">
+            <motion.div 
+              className="space-y-2"
+              variants={workingHoursVariants}
+            >
               <h3 className="text-lg font-semibold">
                 Horário de funcionamento:
               </h3>
               <p className="text-sm lg:text-base font-light opacity-90">
                 Segunda a Sexta das 9:00h às 18:00h
               </p>
-            </div>
+            </motion.div>
 
             {/* Contact Information */}
-            <div className="space-y-6 pt-8">
+            <motion.div 
+              className="space-y-6 pt-8"
+              variants={contactInfoVariants}
+            >
               {contactInfo.map((info, index) => (
-                <div key={index} className="flex items-center space-x-4">
+                <motion.div 
+                  key={index} 
+                  className="flex items-center space-x-4"
+                  variants={contactItemVariants}
+                >
                   <div className="flex-shrink-0 text-white">
                     {info.icon}
                   </div>
                   <span className="text-sm lg:text-base font-light">
                     {info.text}
                   </span>
-                </div>
+                </motion.div>
               ))}
-            </div>
-          </div>
+            </motion.div>
+          </motion.div>
 
           {/* Right Side - Contact Form */}
-          <div className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container" style={{ background: 'rgba(46,69,46,0.4)' }}>
+          <motion.div 
+            className="backdrop-blur-md rounded-2xl p-8 lg:p-10 form-container" 
+            style={{ background: 'rgba(46,69,46,0.4)' }}
+            variants={rightContentVariants}
+          >
 
             {/* Form Title */}
-            <h3 className="text-2xl lg:text-3xl font-bold text-white mb-8 title tracking-wide">
+            <motion.h3 
+              className="text-2xl lg:text-3xl font-bold text-white mb-8 title tracking-wide"
+              variants={formVariants}
+            >
               Quer saber mais?
-            </h3>
+            </motion.h3>
 
             {/* Contact Form */}
-            <div className="space-y-6">
+            <motion.div 
+              className="space-y-6"
+              variants={formFieldsVariants}
+            >
 
               {/* Name Field */}
-              <div>
+              <motion.div variants={fieldVariants}>
                 <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
                   Nome
                 </label>
-                <input
+                <motion.input
                   type="text"
                   id="name"
                   name="name"
@@ -146,15 +326,17 @@ const ContactForm: React.FC = () => {
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="Seu nome completo"
                   required
+                  whileFocus={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
                 />
-              </div>
+              </motion.div>
 
               {/* Email Field */}
-              <div>
+              <motion.div variants={fieldVariants}>
                 <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
                   E-mail
                 </label>
-                <input
+                <motion.input
                   type="email"
                   id="email"
                   name="email"
@@ -163,15 +345,17 @@ const ContactForm: React.FC = () => {
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="seu.email@exemplo.com"
                   required
+                  whileFocus={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
                 />
-              </div>
+              </motion.div>
 
               {/* Phone Field */}
-              <div>
+              <motion.div variants={fieldVariants}>
                 <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
                   Telefone/Whatsapp
                 </label>
-                <input
+                <motion.input
                   type="tel"
                   id="phone"
                   name="phone"
@@ -180,11 +364,16 @@ const ContactForm: React.FC = () => {
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
                   placeholder="+351 xxx xxx xxx"
                   required
+                  whileFocus={{ scale: 1.02 }}
+                  transition={{ duration: 0.2 }}
                 />
-              </div>
+              </motion.div>
 
               {/* Agreement Checkbox */}
-              <div className="flex items-start space-x-3 pt-4">
+              <motion.div 
+                className="flex items-start space-x-3 pt-4"
+                variants={fieldVariants}
+              >
                 <input
                   type="checkbox"
                   id="agreement"
@@ -199,27 +388,33 @@ const ContactForm: React.FC = () => {
                   dados acima para que o incorporador entre em contacto comigo para apresentar
                   produtos e serviços em conformidade com a política de privacidade adotada.
                 </label>
-              </div>
+              </motion.div>
 
               {/* Submit Button */}
-              <div className="pt-6">
-                <button
+              <motion.div 
+                className="pt-6"
+                variants={fieldVariants}
+              >
+                <motion.button
                   type="button"
                   onClick={handleSubmit}
                   disabled={!formData.agreement}
-                  className="w-full py-4 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200 transform hover:scale-105 disabled:hover:scale-100"
+                  className="w-full py-4 disabled:cursor-not-allowed text-white font-semibold rounded-full transition-all duration-200"
                   style={{
                     backgroundColor: formData.agreement ? 'var(--dark-green)' : 'transparent',
                     border: formData.agreement ? 'none' : '1px solid rgba(255, 255, 255, 0.3)'
                   }}
+                  whileHover={formData.agreement ? { scale: 1.05 } : {}}
+                  whileTap={formData.agreement ? { scale: 0.95 } : {}}
+                  transition={{ duration: 0.2 }}
                 >
                   Reservar estadia
-                </button>
-              </div>
-            </div>
-          </div>
+                </motion.button>
+              </motion.div>
+            </motion.div>
+          </motion.div>
 
-        </div>
+        </motion.div>
       </div>
     </section>
   );
