@@ -27,8 +27,8 @@ const Units: React.FC = () => {
     if (!slider) return;
 
     let isDown = true;
-    let startX = e.pageX - slider.offsetLeft;
-    let scrollLeft = slider.scrollLeft;
+    const startX = e.pageX - slider.offsetLeft;
+    const scrollLeft = slider.scrollLeft;
 
     const handleMouseMove = (e: MouseEvent): void => {
       if (!isDown) return;
