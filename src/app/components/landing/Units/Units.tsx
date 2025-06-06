@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from "motion/react";
 
-const Units = () => {
+const Units: React.FC = () => {
   // Property data - 5 cards as requested
   const properties = [
     {
@@ -100,20 +101,71 @@ const Units = () => {
   // Duplicate the array for seamless infinite scroll
   const duplicatedProperties = [...properties, ...properties];
 
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const carouselVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.3
+      }
+    }
+  };
+
+  const buttonVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.5
+      }
+    }
+  };
+
   return (
     <section id='unidades' className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <div className="text-center mb-16">
+        <motion.div 
+          className="text-center mb-16"
+          variants={headerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 title" style={{ color: 'var(--brown)' }}>
             Unidades Residenciais
           </h2>
-        </div>
+        </motion.div>
       </div>
 
       {/* Full Width Scrolling Cards Container */}
-      <div className="relative overflow-hidden w-full">
+      <motion.div 
+        className="relative overflow-hidden w-full"
+        variants={carouselVariants}
+        initial="hidden"
+        whileInView="visible"
+        viewport={{ once: true, amount: 0.3 }}
+      >
         <div className="flex animate-scroll space-x-8 px-4">
           {duplicatedProperties.map((property, index) => (
             <div
@@ -191,16 +243,22 @@ const Units = () => {
             </div>
           ))}
         </div>
-      </div>
+      </motion.div>
 
       {/* View All Button */}
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center mt-12">
+        <motion.div 
+          className="text-center mt-12"
+          variants={buttonVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <button className="px-8 py-3 text-white font-medium rounded-full transition-all duration-200 hover:opacity-90"
             style={{ backgroundColor: 'var(--brown)' }}>
             Ver todas as unidades
           </button>
-        </div>
+        </motion.div>
       </div>
 
       {/* CSS Animation */}

@@ -1,6 +1,7 @@
 import React from 'react';
+import { motion } from "motion/react";
 
-const Comodities = () => {
+const Comodities: React.FC = () => {
   const amenities = [
     {
       id: 1,
@@ -88,24 +89,113 @@ const Comodities = () => {
     }
   ];
 
+  // Animation variants
+  const headerVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const subtitleVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.2
+      }
+    }
+  };
+
+  const containerVariants = {
+    hidden: { opacity: 0 },
+    visible: {
+      opacity: 1,
+      transition: {
+        staggerChildren: 0.1,
+        delayChildren: 0.3
+      }
+    }
+  };
+
+  const itemVariants = {
+    hidden: { 
+      opacity: 0, 
+      y: 40 
+    },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const descriptionVariants = {
+    hidden: { opacity: 0, y: 40 },
+    visible: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.5
+      }
+    }
+  };
+
   return (
     <section id='comodidades' className="py-10 lg:py-20" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         
         {/* Section Header */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 title" style={{ color: 'var(--brown)' }}>
+        <motion.div 
+          className="text-center mb-16"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
+          <motion.h2 
+            className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-4 title" 
+            style={{ color: 'var(--brown)' }}
+            variants={headerVariants}
+          >
             Comodidades
-          </h2>
-          <p className="text-lg lg:text-xl font-light" style={{ color: 'var(--brown)' }}>
+          </motion.h2>
+          <motion.p 
+            className="text-lg lg:text-xl font-light" 
+            style={{ color: 'var(--brown)' }}
+            variants={subtitleVariants}
+          >
             Abrace o ritmo da vida
-          </p>
-        </div>
+          </motion.p>
+        </motion.div>
 
         {/* Amenities Grid */}
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16">
+        <motion.div 
+          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16"
+          variants={containerVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.2 }}
+        >
           {amenities.map((amenity) => (
-            <div key={amenity.id} className="text-center space-y-4 p-4" style={{'background': 'rgba(86, 53, 46, 0.05)'}}>
+            <motion.div 
+              key={amenity.id} 
+              className="text-center space-y-4 p-4" 
+              style={{'background': 'rgba(86, 53, 46, 0.05)'}}
+              variants={itemVariants}
+            >
               {/* Icon */}
               <div className="flex justify-center mb-6">
                 <div className="w-16 h-16 flex items-center justify-center" style={{ color: 'var(--brown)' }}>
@@ -123,18 +213,24 @@ const Comodities = () => {
                  style={{ color: 'var(--brown)' }}>
                 {amenity.description}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
         {/* Bottom Description */}
-        <div className="text-center max-w-4xl mx-auto">
+        <motion.div 
+          className="text-center max-w-4xl mx-auto"
+          variants={descriptionVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+        >
           <p className="text-base lg:text-lg font-light leading-relaxed" 
              style={{ color: 'var(--brown)' }}>
             Um empreendimento sustentável e cuidadosamente planeado que proporciona exclusividade e tranquilidade. 
             Ideais para viver ou desfrutar de férias, estas propriedades únicas aliam exclusividade e conforto, ao encanto local.
           </p>
-        </div>
+        </motion.div>
 
       </div>
     </section>

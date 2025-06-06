@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from "motion/react";
 
-const LivingSlide = () => {
-  const [currentSlide, setCurrentSlide] = useState(0);
+const LivingSlide: React.FC = () => {
+  const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slides = [
     {
@@ -86,135 +87,257 @@ const LivingSlide = () => {
     return () => clearInterval(timer);
   }, [slides.length]);
 
-  const goToSlide = (index: number) => {
+  const goToSlide = (index: number): void => {
     setCurrentSlide(index);
   };
 
   const currentSlideData = slides[currentSlide];
   const isImageLeft = currentSlideData.imagePosition === "left";
 
+  // Animation variants
+  const containerVariants = {
+    initial: { opacity: 0 },
+    animate: { 
+      opacity: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        staggerChildren: 0.2
+      }
+    }
+  };
+
+  const textVariants = {
+    initial: { 
+      opacity: 0, 
+      x: isImageLeft ? 60 : -60 
+    },
+    animate: { 
+      opacity: 1, 
+      x: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      x: isImageLeft ? -60 : 60,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const imageVariants = {
+    initial: { 
+      opacity: 0, 
+      x: isImageLeft ? -60 : 60,
+      scale: 0.95 
+    },
+    animate: { 
+      opacity: 1, 
+      x: 0,
+      scale: 1,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      x: isImageLeft ? 60 : -60,
+      scale: 0.95,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const overlayImageVariants = {
+    initial: { 
+      opacity: 0, 
+      scale: 0.8,
+      y: 20
+    },
+    animate: { 
+      opacity: 1, 
+      scale: 1,
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.3
+      }
+    },
+    exit: { 
+      opacity: 0, 
+      scale: 0.8,
+      y: -20,
+      transition: {
+        duration: 0.4,
+        ease: [0.25, 0.1, 0.25, 1]
+      }
+    }
+  };
+
+  const dotsVariants = {
+    initial: { opacity: 0, y: 40 },
+    animate: { 
+      opacity: 1, 
+      y: 0,
+      transition: {
+        duration: 0.8,
+        ease: [0.25, 0.1, 0.25, 1],
+        delay: 0.6
+      }
+    }
+  };
+
   return (
-    <section 
+    <motion.section 
       className="relative min-h-screen flex items-center overflow-hidden"
       style={{ 
-        backgroundColor: currentSlideData.backgroundColor,
-        transition: 'background-color 1000ms ease-in-out'
+        backgroundColor: currentSlideData.backgroundColor
       }}
+      variants={containerVariants}
+      initial="initial"
+      whileInView="animate"
+      viewport={{ once: true, amount: 0.3 }}
     >
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
         
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center relative">
           
           {/* Text Content */}
-          <div 
-            className={`lg:col-span-6 text-white space-y-8 ${
-              isImageLeft ? 'order-2 lg:order-2 text-right' : 'order-2 lg:order-1'
-            }`}
-            style={{
-              transform: isImageLeft ? 'translateX(0)' : 'translateX(0)',
-              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1)',
-              opacity: 1
-            }}
-          >
-            
-            {/* Title */}
-            <h2 
-              className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide"
-              style={{
-                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 200ms'
-              }}
-            >
-              {currentSlideData.title}
-            </h2>
-            
-            {/* Description */}
-            <p 
-              className={`text-base lg:text-lg font-light leading-relaxed opacity-90 ${
-                isImageLeft ? 'max-w-md ml-auto' : 'max-w-md'
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`text-${currentSlide}`}
+              className={`lg:col-span-6 text-white space-y-8 ${
+                isImageLeft ? 'order-2 lg:order-2 text-right' : 'order-2 lg:order-1'
               }`}
-              style={{
-                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 300ms'
-              }}
+              variants={textVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
             >
-              {currentSlideData.description}
-            </p>
+              
+              {/* Title */}
+              <motion.h2 
+                className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide"
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.1, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {currentSlideData.title}
+              </motion.h2>
+              
+              {/* Description */}
+              <motion.p 
+                className={`text-base lg:text-lg font-light leading-relaxed opacity-90 ${
+                  isImageLeft ? 'max-w-md ml-auto' : 'max-w-md'
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.2, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {currentSlideData.description}
+              </motion.p>
 
-            {/* Icons */}
-            <div 
-              className={`flex space-x-6 text-white/80 ${
-                isImageLeft ? 'justify-end' : ''
-              }`}
-              style={{
-                transition: 'all 800ms cubic-bezier(0.4, 0, 0.2, 1) 400ms'
-              }}
-            >
-              {currentSlideData.icons.map((icon, index) => (
-                <div key={index} className="hover:text-white transition-colors duration-200">
-                  {icon}
-                </div>
-              ))}
-            </div>
-          </div>
+              {/* Icons */}
+              <motion.div 
+                className={`flex space-x-6 text-white/80 ${
+                  isImageLeft ? 'justify-end' : ''
+                }`}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ delay: 0.3, duration: 0.6, ease: [0.25, 0.1, 0.25, 1] }}
+              >
+                {currentSlideData.icons.map((icon, index) => (
+                  <motion.div 
+                    key={index} 
+                    className="hover:text-white transition-colors duration-200"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    animate={{ opacity: 1, scale: 1 }}
+                    transition={{ 
+                      delay: 0.4 + (index * 0.1), 
+                      duration: 0.4, 
+                      ease: [0.25, 0.1, 0.25, 1] 
+                    }}
+                  >
+                    {icon}
+                  </motion.div>
+                ))}
+              </motion.div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Images */}
-          <div 
-            className={`lg:col-span-6 relative ${
-              isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
-            }`}
-            style={{
-              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1)'
-            }}
-          >
-            
-            {/* Images Container */}
-            <div className="relative h-96 lg:h-[600px] flex items-center justify-center">
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`images-${currentSlide}`}
+              className={`lg:col-span-6 relative ${
+                isImageLeft ? 'order-1 lg:order-1' : 'order-1 lg:order-2'
+              }`}
+              variants={imageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
               
-              {/* Main Background Image - 3/4 width, aligned to side */}
-              <div 
-                className={`w-full h-full rounded-2xl overflow-hidden shadow-lg ${
-                  isImageLeft ? 'mr-auto' : 'ml-auto'
-                }`}
-                style={{
-                  transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1) 100ms'
-                }}
-              >
-                <img
-                  key={currentSlideData.id}
-                  src={currentSlideData.mainImage}
-                  alt={currentSlideData.title}
-                  className="w-full h-full object-cover"
-                  style={{
-                    transition: 'opacity 600ms ease-in-out'
-                  }}
-                />
+              {/* Images Container */}
+              <div className="relative h-96 lg:h-[600px] flex items-center justify-center">
+                
+                {/* Main Background Image */}
+                <motion.div 
+                  className={`w-full h-full rounded-2xl overflow-hidden shadow-lg ${
+                    isImageLeft ? 'mr-auto' : 'ml-auto'
+                  }`}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  animate={{ opacity: 1, scale: 1 }}
+                  transition={{ duration: 0.8, ease: [0.25, 0.1, 0.25, 1] }}
+                >
+                  <img
+                    src={currentSlideData.mainImage}
+                    alt={currentSlideData.title}
+                    className="w-full h-full object-cover"
+                  />
+                </motion.div>
               </div>
-            </div>
-          </div>
+            </motion.div>
+          </AnimatePresence>
 
           {/* Overlay Image - positioned in the center gap between columns */}
-          <div 
-            className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block"
-            style={{
-              transition: 'all 1000ms cubic-bezier(0.4, 0, 0.2, 1) 500ms'
-            }}
-          >
-            <img
-              key={`overlay-${currentSlideData.id}`}
-              src={currentSlideData.overlayImage}
-              alt={`${currentSlideData.title} detail`}
-              className="w-full h-full object-cover"
-              style={{
-                transition: 'opacity 600ms ease-in-out'
-              }}
-            />
-          </div>
+          <AnimatePresence mode="wait">
+            <motion.div 
+              key={`overlay-${currentSlide}`}
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block"
+              variants={overlayImageVariants}
+              initial="initial"
+              animate="animate"
+              exit="exit"
+            >
+              <img
+                src={currentSlideData.overlayImage}
+                alt={`${currentSlideData.title} detail`}
+                className="w-full h-full object-cover"
+              />
+            </motion.div>
+          </AnimatePresence>
 
         </div>
 
         {/* Dot Navigation */}
-        <div className="flex justify-center space-x-3 mt-12">
+        <motion.div 
+          className="flex justify-center space-x-3 mt-12"
+          variants={dotsVariants}
+          initial="initial"
+          animate="animate"
+        >
           {slides.map((_, index) => (
-            <button
+            <motion.button
               key={index}
               onClick={() => goToSlide(index)}
               className={`w-3 h-3 rounded-full transition-all duration-300 ${
@@ -222,12 +345,14 @@ const LivingSlide = () => {
                   ? 'bg-white scale-125' 
                   : 'bg-white/40 hover:bg-white/60'
               }`}
+              whileHover={{ scale: 1.2 }}
+              whileTap={{ scale: 0.9 }}
             />
           ))}
-        </div>
+        </motion.div>
 
       </div>
-    </section>
+    </motion.section>
   );
 };
 
