@@ -18,7 +18,7 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <link rel="icon" href="/favico.png" sizes="any" />
+      <link rel="icon" href="https://www.praiadocamaleao.pt/favico.png" sizes="any" />
       <body
         className={`antialiased`}
       >
