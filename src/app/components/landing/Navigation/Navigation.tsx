@@ -20,19 +20,19 @@ const Navigation = () => {
           <div className="hidden md:flex items-baseline space-x-6">
             <a
               href="#descobrir"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Descobrir
             </a>
             <a
               href="#unidades"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Unidades
             </a>
             <a
               href="#comodidades"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Comodidades
             </a>
@@ -51,19 +51,19 @@ const Navigation = () => {
           <div className="hidden md:flex items-baseline space-x-6">
             <a
               href="#localizacao"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Localização
             </a>
             <a
               href="#evolucao"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Evolução
             </a>
             <a
               href="#contacto"
-              className={`px-3 py-2 text-sm font-medium transition-colors duration-300 hover:text-amber-500 text-white hover:text-amber-300`}
+              className="px-3 py-2 text-sm font-medium transition-colors duration-300 text-white hover-light-brown"
             >
               Contacto
             </a>
@@ -87,7 +87,7 @@ const Navigation = () => {
               className={`inline-flex items-center justify-center p-2 rounded-md transition-colors duration-300 ${
                 isScrolled 
                   ? 'text-gray-700 hover:text-amber-600 hover:bg-gray-100' 
-                  : 'text-white hover:text-amber-300 hover:bg-white/10'
+                  : 'text-white hover-light-brown hover:bg-white/10'
               }`}
             >
               <svg
@@ -118,7 +118,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             INÍCIO
@@ -128,7 +128,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             DESCOBRIR
@@ -138,7 +138,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             UNIDADES RESIDENCIAIS
@@ -148,7 +148,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             COMODIDADES
@@ -158,7 +158,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             LOCALIZAÇÃO
@@ -168,7 +168,7 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             EVOLUÇÃO
@@ -178,13 +178,20 @@ const Navigation = () => {
             className={`block px-3 py-2 text-base font-medium transition-colors duration-300 ${
               isScrolled 
                 ? 'text-gray-700 hover:text-amber-600' 
-                : 'text-white hover:text-amber-300'
+                : 'text-white hover-light-brown'
             }`}
           >
             CONTACTOS
           </a>
         </div>
       </div>
+
+      {/* Custom CSS for hover effect */}
+      <style jsx>{`
+        .hover-light-brown:hover {
+          color: var(--light-brown);
+        }
+      `}</style>
     </nav>
   );
 };
