@@ -15,7 +15,7 @@ const Loader: React.FC<LoaderProps> = ({ onComplete }) => {
       if (onComplete) {
         onComplete();
       }
-    }, 3000);
+    }, 2000);
 
     return () => clearTimeout(timer);
   }, [onComplete]);

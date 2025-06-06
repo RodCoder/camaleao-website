@@ -65,7 +65,7 @@ const Features = () => {
                 boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
               }}
             >
-              <h3 className="text-2xl  font-light mb-6 title tracking-wide">
+              <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
                 Essência Algarvia
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">

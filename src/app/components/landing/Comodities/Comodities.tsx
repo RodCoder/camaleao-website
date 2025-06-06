@@ -204,7 +204,7 @@ const Comodities: React.FC = () => {
               </div>
               
               {/* Title */}
-              <h3 className="text-xl lg:text-2xl font-semibold mb-4" style={{ color: 'var(--brown)' }}>
+              <h3 className="text-l lg:text-2xl font-semibold mb-4" style={{ color: 'var(--brown)' }}>
                 {amenity.title}
               </h3>
               

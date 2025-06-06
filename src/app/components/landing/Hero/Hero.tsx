@@ -17,10 +17,15 @@ const HeroSection = () => {
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-          <div className="max-w-2xl hero-text  md:bg-transparent bg-black/20 md:p-0 p-6 md:rounded-none rounded-lg">
+          <div className="max-w-[708px] hero-text p-6 md:rounded-none rounded-lg backdrop-blur-sm" style={{
+                backgroundColor: 'rgb(from var(--brown) r g b / 0.4)',
+                borderRadius: '9.89px',
+                border: '0.99px solid rgba(255,255,255,0.2)',
+                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
+              }}>
             {/* Main Headline */}
             <motion.h1 
-              className="mt-[100px] md:mt-[100px] mt-0 text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
+              className="md:mt-[40px] mt-0 text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -34,7 +39,7 @@ const HeroSection = () => {
 
             {/* Description Text */}
             <motion.p 
-              className="text-white text-lg md:text-xl font-light leading-relaxed mb-12 max-w-2xl"
+              className="text-white text-lg md:text-xl font-light leading-relaxed mb-6 max-w-2xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 

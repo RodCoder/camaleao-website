@@ -128,7 +128,7 @@ const DescobrirSection = () => {
         {/* Section Header */}
         <motion.div 
           className="text-center" 
-          style={{"marginBottom": "-40px","zIndex": "1000", "position": "relative"}}
+          style={{"marginBottom": "-40px","zIndex": "100", "position": "relative"}}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
