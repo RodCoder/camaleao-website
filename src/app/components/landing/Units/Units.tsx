@@ -120,7 +120,7 @@ const Units: React.FC = () => {
     // }
   ];
 
-  // Duplicate the array for seamless infinite scroll
+  // Duplicate the array for seamless infinite scroll (desktop only)
   const duplicatedProperties = [...properties, ...properties];
 
   // Animation variants
@@ -180,96 +180,186 @@ const Units: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* Full Width Scrolling Cards Container */}
+      {/* Desktop: Auto-scrolling Cards / Mobile: Touch-scrollable */}
       <motion.div 
-        className="relative overflow-hidden w-full"
+        className="relative w-full"
         variants={carouselVariants}
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true, amount: 0.3 }}
       >
-        <div className="flex animate-scroll space-x-8 px-4">
-          {duplicatedProperties.map((property, index) => (
-            <div
-              key={`${property.id}-${index}`}
-              className="flex-shrink-0 w-[480px] rounded-2xl overflow-hidden shadow-lg relative"
-            >
-              {/* Background Image */}
-              <div className="relative h-[620px]">
-                <img
-                  src={property.image}
-                  alt={property.type}
-                  className="w-full h-full object-cover"
-                />
+        {/* Desktop version - auto-scrolling with duplicated items */}
+        <div className="hidden lg:block overflow-hidden">
+          <div className="flex animate-scroll space-x-8 px-4">
+            {duplicatedProperties.map((property, index) => (
+              <div
+                key={`${property.id}-${index}`}
+                className="flex-shrink-0 w-[480px] rounded-2xl overflow-hidden shadow-lg relative"
+              >
+                {/* Background Image */}
+                <div className="relative h-[620px]">
+                  <img
+                    src={property.image}
+                    alt={property.type}
+                    className="w-full h-full object-cover"
+                  />
 
-                {/* Dark Overlay */}
-                <div
-                  className="absolute inset-0"
-                  style={{
-                    background: 'linear-gradient(to top, rgba(86, 53, 46, 1) 0%, rgba(86, 53, 46, 0.5) 40%, transparent 60%)'
-                  }}
-                ></div>
+                  {/* Dark Overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(86, 53, 46, 1) 0%, rgba(86, 53, 46, 0.5) 40%, transparent 60%)'
+                    }}
+                  ></div>
 
-                {/* Content Overlay */}
-                <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-6 text-white">
 
-                  {/* Top Section - Type and Price */}
-                  <div className="flex justify-between items-start">
-                    {/* Left side - Title and Subtitle */}
-                    <div>
-                      <h3 className="text-4xl font-bold mb-1 title tracking-wide">{property.type}</h3>
-                      <p className="text-l opacity-90 font-bold">{property.subtitle}</p>
-                      {property.badge && (
-                        <span className="inline-block text-white text-xs px-3 py-2 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
-                          {property.badge}
-                        </span>
-                      )}
+                    {/* Top Section - Type and Price */}
+                    <div className="flex justify-between items-start">
+                      {/* Left side - Title and Subtitle */}
+                      <div>
+                        <h3 className="text-4xl font-bold mb-1 title tracking-wide">{property.type}</h3>
+                        <p className="text-l opacity-90 font-bold">{property.subtitle}</p>
+                        {property.badge && (
+                          <span className="inline-block text-white text-xs px-3 py-2 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
+                            {property.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Right side - Price */}
+                      <div className="text-right">
+                        <div className="text-4xl font-bold title tracking-wide">{property.price}</div>
+                      </div>
                     </div>
 
-                    {/* Right side - Price */}
-                    <div className="text-right">
-                      <div className="text-4xl font-bold title tracking-wide">{property.price}</div>
-                    </div>
-                  </div>
-
-                  {/* Bottom Section - Details */}
-                  <div className="space-y-2">
-                    <div className="flex justify-between items-center text-sm">
-                      <span>INÍCIO DAS OBRAS:</span>
-                      <span className="font-medium">{property.specs.inicioObras}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span>ÁREA BRUTA PRIVATIVA:</span>
-                      <span className="font-medium">{property.specs.areaBruta}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span>ÁREA TOTAL:</span>
-                      <span className="font-medium">{property.specs.areaTotal}</span>
-                    </div>
-                    <div className="flex justify-between items-center text-sm">
-                      <span>VALOR DO IMÓVEL:</span>
-                      <span className="font-medium">{property.specs.valorMovel}</span>
-                    </div>
-                    <div className='w-full flex items-center '>
-                      {/* More Info Button */}
-                      <button
-                        className="w-[250px] mt-4 py-3 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-200 mx-auto hover:bg-white/20 cursor-pointer"
-                        style={{ "border": "1px solid var(--light-brown)", "backgroundColor": "rgba(86, 53, 46, 0.1)" }}
-                        onClick={(e) => {
-                          e.stopPropagation();
-                          if (property.link) {
-                            window.open(property.link, '_blank');
-                          }
-                        }}
-                      >
-                        Mais informações
-                      </button>
+                    {/* Bottom Section - Details */}
+                    <div className="space-y-2">
+                      <div className="flex justify-between items-center text-sm">
+                        <span>INÍCIO DAS OBRAS:</span>
+                        <span className="font-medium">{property.specs.inicioObras}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>ÁREA BRUTA PRIVATIVA:</span>
+                        <span className="font-medium">{property.specs.areaBruta}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>ÁREA TOTAL:</span>
+                        <span className="font-medium">{property.specs.areaTotal}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-sm">
+                        <span>VALOR DO IMÓVEL:</span>
+                        <span className="font-medium">{property.specs.valorMovel}</span>
+                      </div>
+                      <div className='w-full flex items-center '>
+                        {/* More Info Button */}
+                        <button
+                          className="w-[250px] mt-4 py-3 backdrop-blur-sm text-white font-medium rounded-full transition-all duration-200 mx-auto hover:bg-white/20 cursor-pointer"
+                          style={{ "border": "1px solid var(--light-brown)", "backgroundColor": "rgba(86, 53, 46, 0.1)" }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (property.link) {
+                              window.open(property.link, '_blank');
+                            }
+                          }}
+                        >
+                          Mais informações
+                        </button>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
+        </div>
+
+        {/* Mobile version - touch scrollable with smaller cards */}
+        <div className="lg:hidden overflow-x-auto overflow-y-hidden scrollbar-hide">
+          <div className="flex space-x-6 px-4 pb-4" style={{ width: 'max-content' }}>
+            {properties.map((property) => (
+              <div
+                key={property.id}
+                className="flex-shrink-0 w-[320px] rounded-2xl overflow-hidden shadow-lg relative"
+              >
+                {/* Background Image */}
+                <div className="relative h-[480px]">
+                  <img
+                    src={property.image}
+                    alt={property.type}
+                    className="w-full h-full object-cover"
+                  />
+
+                  {/* Dark Overlay */}
+                  <div
+                    className="absolute inset-0"
+                    style={{
+                      background: 'linear-gradient(to top, rgba(86, 53, 46, 1) 0%, rgba(86, 53, 46, 0.5) 40%, transparent 60%)'
+                    }}
+                  ></div>
+
+                  {/* Content Overlay */}
+                  <div className="absolute inset-0 flex flex-col justify-between p-4 text-white">
+
+                    {/* Top Section - Type and Price */}
+                    <div className="flex justify-between items-start">
+                      {/* Left side - Title and Subtitle */}
+                      <div>
+                        <h3 className="text-2xl font-bold mb-1 title tracking-wide">{property.type}</h3>
+                        <p className="text-sm opacity-90 font-bold">{property.subtitle}</p>
+                        {property.badge && (
+                          <span className="inline-block text-white text-xs px-2 py-1 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
+                            {property.badge}
+                          </span>
+                        )}
+                      </div>
+
+                      {/* Right side - Price */}
+                      <div className="text-right">
+                        <div className="text-xl font-bold title tracking-wide">{property.price}</div>
+                      </div>
+                    </div>
+
+                    {/* Bottom Section - Details */}
+                    <div className="space-y-1">
+                      <div className="flex justify-between items-center text-xs">
+                        <span>INÍCIO DAS OBRAS:</span>
+                        <span className="font-medium">{property.specs.inicioObras}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span>ÁREA BRUTA PRIVATIVA:</span>
+                        <span className="font-medium">{property.specs.areaBruta}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span>ÁREA TOTAL:</span>
+                        <span className="font-medium">{property.specs.areaTotal}</span>
+                      </div>
+                      <div className="flex justify-between items-center text-xs">
+                        <span>VALOR DO IMÓVEL:</span>
+                        <span className="font-medium">{property.specs.valorMovel}</span>
+                      </div>
+                      <div className='w-full flex items-center '>
+                        {/* More Info Button */}
+                        <button
+                          className="w-full mt-3 py-2 backdrop-blur-sm text-white text-sm font-medium rounded-full transition-all duration-200 mx-auto hover:bg-white/20 cursor-pointer"
+                          style={{ "border": "1px solid var(--light-brown)", "backgroundColor": "rgba(86, 53, 46, 0.1)" }}
+                          onClick={(e) => {
+                            e.stopPropagation();
+                            if (property.link) {
+                              window.open(property.link, '_blank');
+                            }
+                          }}
+                        >
+                          Mais informações
+                        </button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
 
@@ -292,24 +382,34 @@ const Units: React.FC = () => {
         </motion.div>
       </div>
 
-      {/* CSS Animation */}
+      {/* CSS Animation - Desktop only */}
       <style jsx>{`
         @keyframes scroll {
           0% {
             transform: translateX(0);
           }
-        100% {
+          100% {
             transform: translateX(-50%);
           }
         }
         
         .animate-scroll {
           animation: scroll 40s linear infinite;
-          width: calc(320px * 10 + 32px * 9); /* 10 cards + 9 gaps */
+          width: calc(480px * 12 + 32px * 11); /* 12 cards + 11 gaps */
         }
         
         .animate-scroll:hover {
           animation-play-state: paused;
+        }
+
+        /* Hide scrollbar for mobile */
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
         }
       `}</style>
     </section>

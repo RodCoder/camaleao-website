@@ -138,11 +138,6 @@ const ProjectDetails: React.FC = () => {
 
   // Timeline Component for Infrastructure, Apartments, and Houses
   const TimelineSection: React.FC<TimelineSectionProps> = ({ title, phases }) => {
-    const getGridCols = (phaseCount: number) => {
-      if (phaseCount === 3) return 'grid-cols-1 lg:grid-cols-3';
-      return 'grid-cols-1 lg:grid-cols-4';
-    };
-
     return (
       <motion.div 
         className="mb-20"
@@ -162,11 +157,11 @@ const ProjectDetails: React.FC = () => {
           {title}
         </motion.h3>
 
-        {/* Timeline */}
-        <div className="relative">
+        {/* Desktop Timeline */}
+        <div className="hidden lg:block relative">
           {/* Timeline Items */}
           <motion.div 
-            className={`grid ${getGridCols(phases.length)} gap-8 relative z-10`}
+            className={`grid ${phases.length === 3 ? 'grid-cols-3' : 'grid-cols-4'} gap-8 relative z-10`}
             variants={timelineContainerVariants}
             initial="hidden"
             whileInView="visible"
@@ -225,6 +220,49 @@ const ProjectDetails: React.FC = () => {
               background: 'var(--dark-green)'
             } as React.CSSProperties}
           ></div>
+        </div>
+
+        {/* Mobile Timeline - Horizontal Scrollable */}
+        <div className="lg:hidden overflow-x-auto overflow-y-hidden scrollbar-hide">
+          <div className="flex space-x-6 px-4 pb-4" style={{ width: 'max-content' }}>
+            {phases.map((phase, index) => (
+              <div
+                key={index}
+                className="flex-shrink-0 w-[280px] flex flex-col items-center"
+              >
+                {/* Timeline Label and Dot */}
+                <div className="flex flex-col items-center mb-6">
+                  <div className="text-sm font-medium mb-3 title text-center" style={{
+                    color: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'
+                  }}>{phase.label}</div>
+                  <div className="relative">
+                    <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'}} className={`${phase.active ? 'w-10 h-10' : 'w-5 h-5 mt-1'} rounded-full flex items-center justify-center text-white text-xs font-bold z-20 relative`}>
+                      {phase.active ? phase.year : ''}
+                    </div>
+                  </div>
+                </div>
+
+                {/* Phase Card */}
+                <div style={{background: phase.active ? 'var(--dark-green)' : 'oklch(87.2% 0.01 258.338)'}} className="w-full rounded-xl overflow-hidden shadow-lg">
+                  <div className="relative h-32">
+                    <img
+                      src={phase.image}
+                      alt={phase.label}
+                      className="w-full h-full object-cover"
+                    />
+                    <div className="absolute bottom-2 left-2 text-white px-2 py-1 rounded text-xs title tracking-wide" style={{background: 'var(--dark-green)'}}>
+                      {phase.active ? '' : phase.year}
+                    </div>
+                  </div>
+                  <div className="p-4">
+                    <p className={`text-xs ${phase.active ? 'text-white' : 'text-gray-700'} leading-relaxed`}>
+                      {phase.description}
+                    </p>
+                  </div>
+                </div>
+              </div>
+            ))}
+          </div>
         </div>
       </motion.div>
     );
@@ -523,6 +561,18 @@ const ProjectDetails: React.FC = () => {
         <TimelineSection title="Moradias" phases={housePhases} />
 
       </div>
+
+      {/* CSS for hiding scrollbar */}
+      <style jsx>{`
+        .scrollbar-hide {
+          -ms-overflow-style: none;
+          scrollbar-width: none;
+        }
+        
+        .scrollbar-hide::-webkit-scrollbar {
+          display: none;
+        }
+      `}</style>
     </section>
   );
 };

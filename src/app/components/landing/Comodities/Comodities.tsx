@@ -183,7 +183,7 @@ const Comodities: React.FC = () => {
 
         {/* Amenities Grid */}
         <motion.div 
-          className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-12 mb-16"
+          className="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-4 lg:gap-12 mb-16"
           variants={containerVariants}
           initial="hidden"
           whileInView="visible"
@@ -208,8 +208,8 @@ const Comodities: React.FC = () => {
                 {amenity.title}
               </h3>
               
-              {/* Description */}
-              <p className="text-sm lg:text-m font-light leading-relaxed max-w-xs mx-auto" 
+              {/* Description - Hidden on mobile */}
+              <p className="hidden lg:block text-sm lg:text-m font-light leading-relaxed max-w-xs mx-auto" 
                  style={{ color: 'var(--brown)' }}>
                 {amenity.description}
               </p>

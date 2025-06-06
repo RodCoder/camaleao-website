@@ -81,9 +81,9 @@ const Location: React.FC = () => {
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
-          {/* Left Image */}
+          {/* Left Image - Hidden on mobile */}
           <motion.div 
-            className="lg:col-span-6 z-1"
+            className="hidden lg:block lg:col-span-6 z-1"
             variants={imageVariants}
             initial="hidden"
             whileInView="visible"
@@ -98,12 +98,12 @@ const Location: React.FC = () => {
             </div>
           </motion.div>
 
-          {/* Center Content */}
+          {/* Center Content - Full width on mobile, half width on desktop */}
           <div className="lg:col-span-6 text-white space-y-8">
 
-            {/* Title */}
+            {/* Title - Centered on mobile, right-aligned on desktop */}
             <motion.div 
-              className="text-right mb-12"
+              className="text-center lg:text-right mb-12"
               variants={titleVariants}
               initial="hidden"
               whileInView="visible"
@@ -114,8 +114,9 @@ const Location: React.FC = () => {
               </h2>
             </motion.div>
 
-            {/* Description */}
+            {/* Description - Centered on mobile */}
             <motion.div
+              className="text-center lg:text-left"
               variants={descriptionVariants}
               initial="hidden"
               whileInView="visible"
@@ -132,9 +133,9 @@ const Location: React.FC = () => {
               </p>
             </motion.div>
 
-            {/* Area Information */}
+            {/* Area Information - Centered on mobile */}
             <motion.div 
-              className="space-y-6 text-left"
+              className="space-y-6 text-center lg:text-left"
               variants={areaInfoVariants}
               initial="hidden"
               whileInView="visible"
@@ -146,27 +147,27 @@ const Location: React.FC = () => {
                 </h3>
               </div>
 
-              {/* Distance List */}
+              {/* Distance List - Centered on mobile */}
               <div className="space-y-3 text-sm lg:text-base">
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">26 000 m²</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">450m da praia</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">3 km das autoestradas</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">58km do Aeroporto Internacional de Faro</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">153km do Aeroporto de Sevilha</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">450m dos restaurantes mais próximos</span>
                 </div>
-                <div className="flex items-center justify-start space-x-3">
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">2km do supermercado</span>
                 </div>
               </div>
@@ -176,7 +177,7 @@ const Location: React.FC = () => {
         </div>
       </div>
 
-      {/* Absolute Chameleon - Inverted */}
+      {/* Absolute Chameleon - Inverted - Desktop only */}
       <motion.div 
         className="absolute right-0 bottom-auto transform -translate-y-1/2 hidden lg:block"
         variants={chameleonVariants}
