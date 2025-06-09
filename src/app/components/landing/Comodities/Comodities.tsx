@@ -26,7 +26,7 @@ const Comodities: React.FC = () => {
       id: 4,
       title: "Miradouro",
       description: "Locais de pausa tranquilizante, pensados para contemplar a vista abangedora sobre as áreas verdes e o ambiente envolvente.",
-      icon: "/Icon miradoro.svg"
+      icon: "/Icon_miradoro.svg"
     },
     {
       id: 5,
