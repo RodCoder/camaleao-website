@@ -28,7 +28,7 @@ const LivingSlide: React.FC = () => {
     {
       id: 2,
       title: "Sabor a mar",
-      description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
+      description: "Frescura que vem do mar, num cenário onde o oceano nunca se ausenta. Peixe grelhado à beira-mar, aromas que se confundem com a brisa, e uma cultura gastronómica enraizada na tradição costeira.",
       mainImage: "/Restaurante.png",
       overlayImage: "/Restaurante2.png",
       backgroundColor: "var(--dark-green)",
@@ -52,7 +52,7 @@ const LivingSlide: React.FC = () => {
     {
       id: 3,
       title: "A calma da natureza",
-      description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
+      description: "Onde o verde das reservas naturais se funde ao azul do céu algarvio, encontra-se o equilíbrio perfeito entre conforto e tranquilidade. Um refúgio onde a natureza guia o compasso dos dias e revela a essência de uma vida mais simples e plena.",
       mainImage: "/calma-01.jpg",
       overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",
