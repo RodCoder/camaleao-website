@@ -1,16 +1,16 @@
 "use client"
-import Navigation from '../components/landing/Navigation/Navigation';
-import Hero from '../components/landing/Hero/Hero';
-import Markers from '../components/landing/Markers/Markers';
-import Features from '../components/landing/Features/Features';
-import Discover from '../components/landing/Discover/Discover';
-import Units from '../components/landing/Units/Units';
-import Comodities from '../components/landing/Comodities/Comodities';
-import Location from '../components/landing/Location/Location';
-import LivingSlide from '../components/landing/Living/Living';
-import ProjectDetails from '../components/landing/ProjectDetails/ProjectDetails';
-import ContactForm from '../components/landing/ContactForm/ContactForm';
-import Footer from '../components/landing/Footer/Footer';
+import Navigation from '../components/terracota-landing/Navigation';
+import Hero from '../components/terracota-landing/Hero';
+import Markers from '../components/terracota-landing/Markers';
+import Features from '../components/terracota-landing/Features';
+import Discover from '../components/terracota-landing/Discover';
+import Units from '../components/terracota-landing/Units';
+import Comodities from '../components/terracota-landing/Comodities';
+import Location from '../components/terracota-landing/Location';
+import LivingSlide from '../components/terracota-landing/Living';
+import ProjectDetails from '../components/terracota-landing/ProjectDetails';
+import ContactForm from '../components/terracota-landing/ContactForm';
+import Footer from '../components/terracota-landing/Footer';
 import { useState } from 'react';
 import Loader from '../components/Loader';
 
