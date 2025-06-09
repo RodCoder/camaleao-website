@@ -25,7 +25,7 @@ const HeroSection = () => {
               }}>
             {/* Main Headline */}
             <motion.h1 
-              className="md:mt-[40px] mt-0 text-white text-5xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
+              className="md:mt-[40px] mt-0 text-white text-3xl md:text-6xl lg:text-7xl font-bold mb-8 title tracking-wide"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -39,7 +39,7 @@ const HeroSection = () => {
 
             {/* Description Text */}
             <motion.p 
-              className="text-white text-lg md:text-xl font-light leading-relaxed mb-6 max-w-2xl"
+              className="text-white text-m md:text-xl font-light leading-relaxed mb-6 max-w-2xl"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
