@@ -4,10 +4,10 @@ import { motion } from "motion/react";
 const Location: React.FC = () => {
   // Animation variants
   const imageVariants = {
-    hidden: { opacity: 0, x: -60 },
+    hidden: { opacity: 0, y: -60 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
@@ -16,10 +16,10 @@ const Location: React.FC = () => {
   };
 
   const titleVariants = {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, y: 60 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1],
@@ -29,10 +29,10 @@ const Location: React.FC = () => {
   };
 
   const descriptionVariants = {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, y: 60 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1],
@@ -42,10 +42,10 @@ const Location: React.FC = () => {
   };
 
   const areaInfoVariants = {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, y: 60 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1],
@@ -55,10 +55,10 @@ const Location: React.FC = () => {
   };
 
   const chameleonVariants = {
-    hidden: { opacity: 0, x: 60 },
+    hidden: { opacity: 0, y: 60 },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: -75,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1],

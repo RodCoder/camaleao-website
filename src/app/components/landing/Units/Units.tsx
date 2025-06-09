@@ -69,8 +69,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-b1/21388247",
       specs: {
         inicioObras: "2025",
-        areaBruta: "164 m²",
-        areaTotal: "249 m²",
+        areaBruta: "144,45 m²",
+        areaTotal: "228,88 m²",
         valorMovel: "840 000 €"
       }
     },
@@ -83,8 +83,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-c/21388245",
       specs: {
         inicioObras: "2025",
-        areaBruta: "203 m²",
-        areaTotal: "350 m²",
+        areaBruta: "161,28 m²",
+        areaTotal: "263,33 m²",
         valorMovel: "1 350 000 €"
       }
     },
@@ -97,8 +97,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-e/21388243",
       specs: {
         inicioObras: "2025",
-        areaBruta: "45 m²",
-        areaTotal: "65 m²",
+        areaBruta: "63,35 m²",
+        areaTotal: "74,97 m²",
         valorMovel: "440 000 €"
       }
     },
@@ -112,8 +112,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool/22948689",
       specs: {
         inicioObras: "2026",
-        areaBruta: "105 m²",
-        areaTotal: "227 m²",
+        areaBruta: "136 m²",
+        areaTotal: "189 m²",
         valorMovel: "790 000 €"
       }
     },
@@ -126,46 +126,47 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-integrated-social-space/23022753",
       specs: {
         inicioObras: "2026",
-        areaBruta: "164 m²",
-        areaTotal: "308 m²",
+        areaBruta: "161 m²",
+        areaTotal: "234 m²",
         valorMovel: "990 000 €"
       }
     },
     {
       id: 6,
       type: "Moradia",
-      price: "1 160 000 €",
-      subtitle: "Vista campo | Tipologia T2",
+      price: "1 090 000 €",
+      subtitle: "Vista Salina | Tipologia T2",
       image: "/moradia3.jpg",
       link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
       specs: {
         inicioObras: "2026",
-        areaBruta: "166 m²",
-        areaTotal: "282 m²",
+        areaBruta: "151 m²",
+        areaTotal: "229 m²",
+        valorMovel: "1 090 000 €"
+      }
+    },
+    {
+      id: 7,
+      type: "Moradia",
+      price: "1 160 000 €",
+      subtitle: "Vista mar | Tipologia T2",
+      image: "moradia4.png",
+      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
+      specs: {
+        inicioObras: "2026",
+        areaBruta: "204,11 m²",
+        areaTotal: "250 m²",
         valorMovel: "1 160 000 €"
       }
-    }
-    // {
-    //   id: 7,
-    //   type: "Moradia",
-    //   price: "1 150 000 €",
-    //   subtitle: "Vista mar | Tipologia T2",
-    //   image: "/moradia4.png",
-    //   specs: {
-    //     inicioObras: "2026",
-    //     areaBruta: "180 m²",
-    //     areaTotal: "320 m²",
-    //     valorMovel: "1 150 000 €"
-    //   }
-    // }
+    },
   ];
 
 
   // Animation variants
   const headerVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -176,8 +177,8 @@ const Units: React.FC = () => {
 
   const carouselVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -189,8 +190,8 @@ const Units: React.FC = () => {
 
   const buttonVariants = {
     hidden: { opacity: 0, y: 40 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -205,7 +206,7 @@ const Units: React.FC = () => {
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
 
         {/* Section Header */}
-        <motion.div 
+        <motion.div
           className="text-center mb-16"
           variants={headerVariants}
           initial="hidden"
@@ -219,7 +220,7 @@ const Units: React.FC = () => {
       </div>
 
       {/* Scrollable Cards for both Desktop and Mobile */}
-      <motion.div 
+      <motion.div
         className="relative w-full"
         variants={carouselVariants}
         initial="hidden"
@@ -227,7 +228,7 @@ const Units: React.FC = () => {
         viewport={{ once: true, amount: 0.3 }}
       >
         {/* Desktop version - scrollable with larger cards */}
-        <div 
+        <div
           ref={desktopScrollRef}
           className="hidden lg:block overflow-x-auto overflow-y-hidden scrollbar-hide cursor-grab"
           onMouseDown={handleDesktopMouseDown}
@@ -265,7 +266,7 @@ const Units: React.FC = () => {
                         <h3 className="text-4xl font-bold mb-1 title tracking-wide">{property.type}</h3>
                         <p className="text-l opacity-90 font-bold">{property.subtitle}</p>
                         {property.badge && (
-                          <span className="inline-block text-white text-xs px-3 py-2 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
+                          <span className="inline-block text-white text-xs px-3 py-2 rounded mt-2 font-bold" style={{ "background": "var(--brown)" }}>
                             {property.badge}
                           </span>
                         )}
@@ -319,7 +320,7 @@ const Units: React.FC = () => {
         </div>
 
         {/* Mobile version - touch scrollable with smaller cards */}
-        <div 
+        <div
           ref={mobileScrollRef}
           className="lg:hidden overflow-x-auto overflow-y-hidden scrollbar-hide cursor-grab"
           onMouseDown={handleMobileMouseDown}
@@ -357,7 +358,7 @@ const Units: React.FC = () => {
                         <h3 className="text-2xl font-bold mb-1 title tracking-wide">{property.type}</h3>
                         <p className="text-sm opacity-90 font-bold">{property.subtitle}</p>
                         {property.badge && (
-                          <span className="inline-block text-white text-xs px-2 py-1 rounded mt-2 font-bold" style={{"background": "var(--brown)"}}>
+                          <span className="inline-block text-white text-xs px-2 py-1 rounded mt-2 font-bold" style={{ "background": "var(--brown)" }}>
                             {property.badge}
                           </span>
                         )}
@@ -413,14 +414,14 @@ const Units: React.FC = () => {
 
       {/* View All Button */}
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div 
+        <motion.div
           className="text-center mt-12"
           variants={buttonVariants}
           initial="hidden"
           whileInView="visible"
           viewport={{ once: true, amount: 0.3 }}
         >
-          <button 
+          <button
             className="px-8 py-3 text-white font-medium rounded-full transition-all duration-200 hover:opacity-90 cursor-pointer"
             style={{ backgroundColor: 'var(--brown)' }}
             onClick={() => window.open('https://properties.terracota.capital/development/camaleao/21388242', '_blank')}

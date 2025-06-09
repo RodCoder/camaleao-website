@@ -130,11 +130,11 @@ Esta pessoa concordou com os termos de proteção de dados.`,
   const leftContentVariants = {
     hidden: { 
       opacity: 0, 
-      x: -60 
+      y: -60 
     },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
@@ -145,11 +145,11 @@ Esta pessoa concordou com os termos de proteção de dados.`,
   const rightContentVariants = {
     hidden: { 
       opacity: 0, 
-      x: 60 
+      y: 60 
     },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.8,
         ease: [0.25, 0.1, 0.25, 1]
@@ -209,11 +209,11 @@ Esta pessoa concordou com os termos de proteção de dados.`,
   const contactItemVariants = {
     hidden: { 
       opacity: 0, 
-      x: -20 
+      y: -20 
     },
     visible: { 
       opacity: 1, 
-      x: 0,
+      y: 0,
       transition: {
         duration: 0.6,
         ease: [0.25, 0.1, 0.25, 1]
