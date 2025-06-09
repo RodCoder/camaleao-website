@@ -55,6 +55,12 @@ body {
   }
 }
 
+@media only screen and (max-width: 1400px) {
+  .hideOnMedium {
+    visibility: hidden;
+  }
+}
+
 @media only screen and (max-width: 768px) {
 
   .hero-text h1 {

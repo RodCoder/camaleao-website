@@ -179,7 +179,7 @@ const Location: React.FC = () => {
 
       {/* Absolute Chameleon - Inverted - Desktop only */}
       <motion.div 
-        className="absolute right-0 bottom-auto transform -translate-y-1/2 hidden lg:block"
+        className="absolute right-0 bottom-auto transform -translate-y-1/2 hidden lg:block hideOnMedium"
         variants={chameleonVariants}
         initial="hidden"
         whileInView="visible"

@@ -313,7 +313,7 @@ const LivingSlide: React.FC = () => {
           <AnimatePresence mode="wait">
             <motion.div 
               key={`overlay-${currentSlide}`}
-              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block"
+              className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-64 h-128 lg:w-96 lg:h-108 rounded-xl overflow-hidden shadow-2xl z-10 hidden lg:block hideOnMedium"
               variants={overlayImageVariants}
               initial="initial"
               animate="animate"
