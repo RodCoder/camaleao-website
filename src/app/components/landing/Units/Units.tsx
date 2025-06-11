@@ -69,8 +69,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-b1/21388247",
       specs: {
         inicioObras: "2025",
-        areaBruta: "144,45 m²",
-        areaTotal: "228,88 m²",
+        areaBruta: "144 m²",
+        areaTotal: "229 m²",
         valorMovel: "840 000 €"
       }
     },
@@ -83,8 +83,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-c/21388245",
       specs: {
         inicioObras: "2025",
-        areaBruta: "161,28 m²",
-        areaTotal: "263,33 m²",
+        areaBruta: "161 m²",
+        areaTotal: "263 m²",
         valorMovel: "1 350 000 €"
       }
     },
@@ -97,8 +97,8 @@ const Units: React.FC = () => {
       link: "https://properties.terracota.capital/property/apartment-e/21388243",
       specs: {
         inicioObras: "2025",
-        areaBruta: "63,35 m²",
-        areaTotal: "74,97 m²",
+        areaBruta: "63 m²",
+        areaTotal: "75 m²",
         valorMovel: "440 000 €"
       }
     },
@@ -134,29 +134,29 @@ const Units: React.FC = () => {
     {
       id: 6,
       type: "Moradia",
-      price: "1 090 000 €",
-      subtitle: "Vista Salina | Tipologia T2",
-      image: "/moradia3.jpg",
+      price: "1 160 000 €",
+      subtitle: "Vista mar | Tipologia T2",
+      image: "TROCAR - VISTA MAR",
       link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
       specs: {
         inicioObras: "2026",
-        areaBruta: "151 m²",
-        areaTotal: "229 m²",
-        valorMovel: "1 090 000 €"
+        areaBruta: "204 m²",
+        areaTotal: "250 m²",
+        valorMovel: "1 160 000 €"
       }
     },
     {
       id: 7,
       type: "Moradia",
-      price: "1 160 000 €",
-      subtitle: "Vista mar | Tipologia T2",
-      image: "moradia4.png",
-      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
+      price: "1 090 000 €",
+      subtitle: "Vista Salina | Tipologia T2",
+      image: "/moradia3.jpg",
+      link: "https://properties.terracota.capital/property/two-bedroom-villa-with-a-private-pool-salt-flats-view/23104425",
       specs: {
         inicioObras: "2026",
-        areaBruta: "204,11 m²",
-        areaTotal: "250 m²",
-        valorMovel: "1 160 000 €"
+        areaBruta: "151 m²",
+        areaTotal: "229 m²",
+        valorMovel: "1 090 000 €"
       }
     },
   ];
@@ -285,11 +285,11 @@ const Units: React.FC = () => {
                         <span className="font-medium">{property.specs.inicioObras}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>ÁREA BRUTA PRIVATIVA:</span>
+                        <span>ÁREA INTERIOR:</span>
                         <span className="font-medium">{property.specs.areaBruta}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>ÁREA TOTAL:</span>
+                        <span>ÁREA INTERIOR + EXTERIOR:</span>
                         <span className="font-medium">{property.specs.areaTotal}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
