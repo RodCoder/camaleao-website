@@ -136,7 +136,7 @@ const Units: React.FC = () => {
       type: "Moradia",
       price: "1 160 000 €",
       subtitle: "Vista mar | Tipologia T2",
-      image: "TROCAR - VISTA MAR",
+      image: "moradia4.png",
       link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
       specs: {
         inicioObras: "2026",
