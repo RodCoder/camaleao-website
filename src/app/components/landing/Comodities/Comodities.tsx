@@ -188,7 +188,7 @@ const Comodities: React.FC = () => {
         </motion.div>
 
         {/* Bottom Description */}
-        <motion.div
+        {/* <motion.div
           className="text-center max-w-4xl mx-auto"
           variants={descriptionVariants}
           initial="hidden"
@@ -200,7 +200,7 @@ const Comodities: React.FC = () => {
             Um empreendimento sustentável e cuidadosamente planeado que proporciona exclusividade e tranquilidade.
             Ideais para viver ou desfrutar de férias, estas propriedades únicas aliam exclusividade e conforto, ao encanto local.
           </p>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>

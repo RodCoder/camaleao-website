@@ -307,7 +307,7 @@ const DescobrirSection = () => {
         </motion.div>
 
         {/* Description Text */}
-        <motion.div 
+        {/* <motion.div 
           className="text-center max-w-4xl mx-auto"
           variants={descriptionVariants}
           initial="hidden"
@@ -318,7 +318,7 @@ const DescobrirSection = () => {
             Um empreendimento sustentável e cuidadosamente planeado que proporciona exclusividade e tranquilidade. 
             Ideais para viver ou desfrutar de férias, estas propriedades únicas aliam exclusividade e conforto, ao encanto local.
           </p>
-        </motion.div>
+        </motion.div> */}
 
       </div>
     </section>
