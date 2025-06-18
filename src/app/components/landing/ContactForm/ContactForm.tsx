@@ -260,7 +260,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
   };
 
   return (
-    <section id='contacto' className="relative min-h-screen flex items-center">
+    <section id='contacto' className="relative min-h-screen flex items-center py-20 lg:py-32">
       {/* Background Image */}
       <div className="absolute inset-0">
         <img
@@ -273,7 +273,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
       </div>
 
       {/* Content Container */}
-      <div className="relative z-10 w-full max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 py-20">
+      <div className="relative z-10 w-full max-w-[1634px] mx-auto lg:px-8">
 
         <motion.div 
           className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-16 items-start"

@@ -53,7 +53,7 @@ const LivingSlide: React.FC = () => {
       id: 3,
       title: "A calma da natureza",
       description: "Onde o verde das reservas naturais se funde ao azul do céu algarvio, encontra-se o equilíbrio perfeito entre conforto e tranquilidade. Um refúgio onde a natureza guia o compasso dos dias e revela a essência de uma vida mais simples e plena.",
-      mainImage: "/calma-01.jpg",
+      mainImage: "/drone-13.jpg",
       overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",
       imagePosition: "right", 
@@ -198,7 +198,7 @@ const LivingSlide: React.FC = () => {
 
   return (
     <motion.section 
-      className="relative min-h-screen flex items-center overflow-hidden"
+      className="relative min-h-screen flex items-center overflow-hidden py-20 lg:py-32"
       style={{ 
         backgroundColor: currentSlideData.backgroundColor
       }}

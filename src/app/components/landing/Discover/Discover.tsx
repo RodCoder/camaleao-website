@@ -150,7 +150,7 @@ const DescobrirSection = () => {
 
         {/* Carousel Container */}
         <motion.div 
-          className="relative w-full mb-12"
+          className="relative w-full"
           variants={carouselVariants}
           initial="hidden"
           whileInView="visible"
