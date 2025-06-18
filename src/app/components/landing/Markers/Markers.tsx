@@ -66,7 +66,7 @@ const Markers = () => {
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">A 3.8 km da autoestrada</span>
+              <span className="text-sm font-medium">A 3 km da autoestrada</span>
             </motion.div>
 
             <motion.div 
