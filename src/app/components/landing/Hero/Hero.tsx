@@ -48,11 +48,10 @@ const HeroSection = () => {
                 delay: 0.8
               }}
             >
-              Abrace a beleza da vida costeira com um empreendimento
-              sustentável e bem planeado que proporciona luxo e paz de
-              espírito. Perfeitas para viver, passar férias ou até mesmo para
-              alugar turístico, estas propriedades exclusivas oferecem
-              flexibilidade e conveniência.
+              A harmonia entre arquitetura consciente e a envolvência natural de 
+Castro Marim, dá origem a um conceito pensado para quem valoriza 
+tempo, liberdade e autenticidade. Para viver, desfrutar ou investir, este 
+é o seu espaço, ao seu ritmo.
             </motion.p>
 
           </div>

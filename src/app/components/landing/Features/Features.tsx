@@ -69,7 +69,7 @@ const Features = () => {
                 Essência Algarvia
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-                Inspirado nas raízes históricas e culturais do Algarve e ecologicamente consciente, este projeto arquitetônico único funcional e cativante, refletindo a alma única da região.
+              Inspirado nas raízes históricas, e culturais do Algarve e ecologicamente consciente, este projeto combina arquitetura funcional e cativante, refletindo a alma única da região.
               </p>
             </motion.div>
 
@@ -88,7 +88,7 @@ const Features = () => {
                 Vivência Inesquecível
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-                Desenhado para criar uma vivência e momentos de partilha com a família e amigos, daqueles que ficam gravados na memória e perduram no tempo.
+              Desenhado para criar uma vivência e momentos de partilha com a família e amigos, daqueles que ficam gravados na memória e perduram no tempo.
               </p>
             </motion.div>
 
@@ -107,7 +107,7 @@ const Features = () => {
                 Envolvência com a Natureza
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-                As áreas de preservação ecológica envolventes serão cuidadosamente mantidas para garantir a proteção de espécies nativas da fauna e flora.
+              As áreas de preservação ecológica envolventes serão cuidadosamente mantidas para garantir a proteção de espécies nativas da fauna e flora.
               </p>
             </motion.div>
 

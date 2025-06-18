@@ -7,12 +7,12 @@ const LivingSlide: React.FC = () => {
   const slides = [
     {
       id: 1,
-      title: "Castro Marim",
-      description: "Castro Marim fica apenas a 6 minutos a pé de uma das praias mais exclusivas da região. Esta área possui um potencial excecional para um resort de praia bem definido, graças à sua localização privilegiada.",
-      mainImage: "/algarve-01.png",
-      overlayImage: "/flamingos.jpg",
+      title: "Arquitetura de autor",
+      description: "Luis Rebelo de Andrade é um dos arquitectos mais premiados de Portugal, e o seu trabalho é uma referência em projetos que combinam o luxo com o bem estar e a sustentabilidade. A identidade singular e distintiva dos seus projetos é baseada num profundo conhecimento e respeito pela história e tradição dos locais onde se situam.",
+      mainImage: "/autor-2.png",
+      overlayImage: "/autor-1.png",
       backgroundColor: "var(--brown)",
-      imagePosition: "left", 
+      imagePosition: "right", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M12 3c.132 0 .263 0 .393 0a7.5 7.5 0 0 0 7.92 12.446a9 9 0 1 1 -8.313-12.454z" />
@@ -32,7 +32,7 @@ const LivingSlide: React.FC = () => {
       mainImage: "/Restaurante.png",
       overlayImage: "/Restaurante2.png",
       backgroundColor: "var(--dark-green)",
-      imagePosition: "right", 
+      imagePosition: "left", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="1.5" d="M8.111 16.404a5.5 5.5 0 017.778 0M12 20h.01m-7.08-7.071c3.904-3.905 10.236-3.905 14.141 0M1.394 9.393c5.857-5.857 15.355-5.857 21.213 0" />
@@ -56,7 +56,7 @@ const LivingSlide: React.FC = () => {
       mainImage: "/calma-01.jpg",
       overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",
-      imagePosition: "left", 
+      imagePosition: "right", 
       icons: [
         <svg key="1" className="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <circle cx="18.5" cy="17.5" r="3.5" />

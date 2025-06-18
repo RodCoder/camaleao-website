@@ -66,7 +66,7 @@ const Units: React.FC = () => {
       price: "840 000 €",
       subtitle: "TIPOLOGIA: T2",
       image: "/apartamento1.png",
-      link: "https://properties.terracota.capital/property/apartment-b1/21388247",
+      link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-b1/21388247",
       specs: {
         inicioObras: "2025",
         areaBruta: "144 m²",
@@ -80,7 +80,7 @@ const Units: React.FC = () => {
       price: "1 350 000 €",
       subtitle: "TIPOLOGIA: T3",
       image: "/apartamento2.png",
-      link: "https://properties.terracota.capital/property/apartment-c/21388245",
+      link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-c/21388245",
       specs: {
         inicioObras: "2025",
         areaBruta: "161 m²",
@@ -94,7 +94,7 @@ const Units: React.FC = () => {
       price: "440 000 €",
       subtitle: "TIPOLOGIA: ESTÚDIO",
       image: "/apartamento3.jpg",
-      link: "https://properties.terracota.capital/property/apartment-e/21388243",
+      link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-e/21388243",
       specs: {
         inicioObras: "2025",
         areaBruta: "63 m²",
@@ -109,7 +109,7 @@ const Units: React.FC = () => {
       subtitle: "Tipologia T2",
       badge: "Early bird price",
       image: "/moradia1.png",
-      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool/22948689",
+      link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina/22948689",
       specs: {
         inicioObras: "2026",
         areaBruta: "136 m²",
@@ -123,7 +123,7 @@ const Units: React.FC = () => {
       price: "990 000 €",
       subtitle: "Tipologia T2",
       image: "/moradia2.jpg",
-      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-integrated-social-space/23022753",
+      link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-espaco-social-integrado/23022753",
       specs: {
         inicioObras: "2026",
         areaBruta: "161 m²",
@@ -137,7 +137,7 @@ const Units: React.FC = () => {
       price: "1 160 000 €",
       subtitle: "Vista mar | Tipologia T2",
       image: "moradia4.png",
-      link: "https://properties.terracota.capital/property/2-bedroom-villa-with-pool-sea-view/22948826",
+      link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-vista-mar/22948826",
       specs: {
         inicioObras: "2026",
         areaBruta: "204 m²",
@@ -151,7 +151,7 @@ const Units: React.FC = () => {
       price: "1 090 000 €",
       subtitle: "Vista Salina | Tipologia T2",
       image: "/moradia3.jpg",
-      link: "https://properties.terracota.capital/property/two-bedroom-villa-with-a-private-pool-salt-flats-view/23104425",
+      link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-vista-salinas/23104425",
       specs: {
         inicioObras: "2026",
         areaBruta: "151 m²",

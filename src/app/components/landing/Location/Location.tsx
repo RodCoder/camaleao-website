@@ -5,8 +5,8 @@ const Location: React.FC = () => {
   // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, y: -60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -17,8 +17,8 @@ const Location: React.FC = () => {
 
   const titleVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -30,8 +30,8 @@ const Location: React.FC = () => {
 
   const descriptionVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -43,8 +43,8 @@ const Location: React.FC = () => {
 
   const areaInfoVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: 0,
       transition: {
         duration: 0.8,
@@ -56,8 +56,8 @@ const Location: React.FC = () => {
 
   const chameleonVariants = {
     hidden: { opacity: 0, y: 60 },
-    visible: { 
-      opacity: 1, 
+    visible: {
+      opacity: 1,
       y: -75,
       transition: {
         duration: 0.8,
@@ -71,18 +71,18 @@ const Location: React.FC = () => {
     <section id='localizacao' className="py-20 lg:py-32 relative" style={{ backgroundColor: 'var(--light-brown)' }}>
       {/* Pattern Overlay */}
       <div
-          className="absolute inset-0 "
-          style={{
-            backgroundImage: 'url(/pattern.png)',
-            backgroundRepeat: 'repeat',
-            backgroundSize: 'auto'
-          }}
-        ></div>
+        className="absolute inset-0 "
+        style={{
+          backgroundImage: 'url(/pattern.png)',
+          backgroundRepeat: 'repeat',
+          backgroundSize: 'auto'
+        }}
+      ></div>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-center">
 
           {/* Left Image - Hidden on mobile */}
-          <motion.div 
+          <motion.div
             className="hidden lg:block lg:col-span-6 z-1"
             variants={imageVariants}
             initial="hidden"
@@ -102,7 +102,7 @@ const Location: React.FC = () => {
           <div className="lg:col-span-6 text-white space-y-8">
 
             {/* Title - Centered on mobile, right-aligned on desktop */}
-            <motion.div 
+            <motion.div
               className="text-center lg:text-right mb-12"
               variants={titleVariants}
               initial="hidden"
@@ -123,18 +123,12 @@ const Location: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <p className="text-base lg:text-lg font-light leading-relaxed mb-12 opacity-90">
-                Castro Marim fica apenas a 6 minutos a pé de uma das praias
-                mais exclusivas da região. Esta área possui um potencial
-                excepcional para um resort de praia bem definido, graças à
-                sua localização privilegiada. Ao combinar de forma única a
-                história, a natureza e o charme costeiro, Castro Marim oferece
-                uma oportunidade muito singular para desenvolvimentos
-                residenciais e turísticos.
+                Castro Marim combina, de forma única, a história, a natureza e o charme costeiro, numa região com cerca de 300 dias de sol por ano, a 6 minutos a pé da praia e onde se encontra a mais antiga reserva natural de sapal em Portugal. O Camaleão nasce como um empreendimento único, entre o sal, o sol e a serenidade, lugar onde a natureza dita o compasso dos dias e a vida se orienta pelo equilíbrio e pela autenticidade.
               </p>
             </motion.div>
 
             {/* Area Information - Centered on mobile */}
-            <motion.div 
+            <motion.div
               className="space-y-6 text-center lg:text-left"
               variants={areaInfoVariants}
               initial="hidden"
@@ -143,32 +137,29 @@ const Location: React.FC = () => {
             >
               <div>
                 <h3 className="text-2xl lg:text-3xl font-semibold mb-4 title tracking-wide">
-                  Área total
+                  Envolvente
                 </h3>
               </div>
 
               {/* Distance List - Centered on mobile */}
               <div className="space-y-3 text-sm lg:text-base">
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">26 000 m²</span>
+                  <span className="font-light">600m da praia</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">450m da praia</span>
+                  <span className="font-light">600m dos restaurantes mais próximos</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">3 km das autoestradas</span>
+                  <span className="font-light">2km dos supermercados</span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
+                  <span className="font-light">3km das autoestradas</span>
+                </div>
+                <div className="flex items-center justify-center lg:justify-start space-x-3">
+                  <span className="font-light">8km da fronteira com Espanha, da Ponte Internacional do Guadiana</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
                   <span className="font-light">58km do Aeroporto Internacional de Faro</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">153km do Aeroporto de Sevilha</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">450m dos restaurantes mais próximos</span>
-                </div>
-                <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">2km do supermercado</span>
                 </div>
               </div>
             </motion.div>
@@ -178,7 +169,7 @@ const Location: React.FC = () => {
       </div>
 
       {/* Absolute Chameleon - Inverted - Desktop only */}
-      <motion.div 
+      <motion.div
         className="absolute right-0 bottom-auto transform -translate-y-1/2 hidden lg:block hideOnMedium"
         variants={chameleonVariants}
         initial="hidden"

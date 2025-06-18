@@ -7,49 +7,49 @@ const Comodities: React.FC = () => {
     {
       id: 1,
       title: "Praia",
-      description: "À distância mínima de uma caminhada de uma das praias mais exclusivas da região. Um lugar de liberdade onde pode desfrutar e contemplar a paisagem e sentir o cheiro do mar.",
+      description: "A poucos minutos a pé, desfrute de uma das praias mais exclusivas da região. Um cenário natural ideal para relaxar, contemplar a paisagem e sentir a brisa do mar.",
       icon: "/Icon praia.svg"
     },
     {
       id: 2,
       title: "Restaurantes",
-      description: "Experiências autênticas e sabores inesquecíveis. Descubra restaurantes locais com pratos regionais e tradicionais que celebram a autêntica gastronomia algarvia.",
+      description: "Experiências autênticas e sabores irresistíveis. Descubra restaurantes típicos, com um frescor contemporâneo, que celebram a essência algarvia.",
       icon: "/Icon restaurante.svg"
     },
     {
       id: 3,
       title: "Estacionamento",
-      description: "Estacionamento privativo pensado para oferecer comodidade aos moradores.",
+      description: "Estacionamento privativo, pensado para oferecer comodidade aos residentes.",
       icon: "/Icon park.svg"
     },
     {
       id: 4,
       title: "Miradouro",
-      description: "Locais de pausa tranquilizante, pensados para contemplar a vista abangedora sobre as áreas verdes e o ambiente envolvente.",
+      description: "Locais de plena tranquilidade, perfeitos para contemplar a vista desafogada sobre o mar e o ecossistema natural envolvente.",
       icon: "/Icon_miradoro.svg"
     },
     {
       id: 5,
-      title: "Circuito Pedonal",
-      description: "Trilhos através na natureza, ideais para caminhadas matinais, exercício ou simplesmente para caminhar entre a fauna e fauna locais.",
+      title: "Percursos Pedonais",
+      description: "Trilhos imersos na natureza, ideais para caminhadas tranquilas, em contacto direto com a flora e fauna locais.",
       icon: "/Icon percurso.svg"
     },
     {
       id: 6,
       title: "Ciclovias",
-      description: "Ciclovias seguras e modernas para quem valoriza mobilidade sustentável. Uma alternativa saudável para deslocar lagares e explorar outras áreas locais.",
+      description: "Ciclovias seguras e modernas, para quem valoriza mobilidade sustentável e deseja explorar a região sobre duas rodas.",
       icon: "/Icon ciclovia.svg"
     },
     {
       id: 7,
       title: "Habitat Camealeão",
-      description: "Zonas verdes ecológicas dedicadas a preservar a espécie emblemática Camaleão. Estas áreas de conservação regional e do ecossistema envolvente no empreendimento.",
+      description: "Zona de proteção ecológica dedicada à preservação do camaleão-do-Algarve, símbolo da biodiversidade regional e do compromisso ambiental do empreendimento.",
       icon: "/Icon camaleao.svg"
     },
     {
       id: 8,
-      title: "Parque de Lazer",
-      description: "Espaço concebido para crianças se divertirem. Equipado com infraestruturas e brinquedos adequados, oferecendo lazer e velocípedes, oferecendo lazer ao ar livre, com segurança e diversão.",
+      title: "Parque de Velocípedes",
+      description: "Espaço concebido para circuitos de bicicletas, trotinetes e outros velocípedes, promovendo lazer ao ar livre, com segurança e diversão.",
       icon: "/Icon Velocipedes.svg"
     }
   ];

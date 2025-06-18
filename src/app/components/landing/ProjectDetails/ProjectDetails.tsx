@@ -376,7 +376,7 @@ const ProjectDetails: React.FC = () => {
       year: "2028",
       active: false,
       image: "/apartamentos-piscina.jpg",
-      description: "Obra finalizada, com entrega pronta a habitar e apta ao usufruto para os últimos detalhes."
+      description: "Obra finalizada e pronta a habitar, com entrega imediata e apenas pequenos detalhes por ultimar."
     },
     {
       label: "Escrituras",
