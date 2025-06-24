@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const Features = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -66,10 +71,10 @@ const Features = () => {
               }}
             >
               <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
-                Essência Algarvia
+                {t.features.essence.title}
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-              Inspirado nas raízes históricas, e culturais do Algarve e ecologicamente consciente, este projeto combina arquitetura funcional e cativante, refletindo a alma única da região.
+                {t.features.essence.description}
               </p>
             </motion.div>
 
@@ -85,10 +90,10 @@ const Features = () => {
               }}
             >
               <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
-                Vivência Inesquecível
+                {t.features.experience.title}
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-              Desenhado para criar uma vivência e momentos de partilha com a família e amigos, daqueles que ficam gravados na memória e perduram no tempo.
+                {t.features.experience.description}
               </p>
             </motion.div>
 
@@ -104,10 +109,10 @@ const Features = () => {
               }}
             >
               <h3 className="text-2xl lg:text-3xl font-light mb-6 title tracking-wide">
-                Envolvência com a Natureza
+                {t.features.nature.title}
               </h3>
               <p className="text-sm lg:text-base font-light leading-relaxed opacity-90 max-w-sm mx-auto">
-              As áreas de preservação ecológica envolventes serão cuidadosamente mantidas para garantir a proteção de espécies nativas da fauna e flora.
+                {t.features.nature.description}
               </p>
             </motion.div>
 

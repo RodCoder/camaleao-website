@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const Location: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   // Animation variants
   const imageVariants = {
     hidden: { opacity: 0, y: -60 },
@@ -110,7 +115,7 @@ const Location: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-6 title tracking-wide">
-                Localização
+                {t.location.title}
               </h2>
             </motion.div>
 
@@ -123,7 +128,7 @@ const Location: React.FC = () => {
               viewport={{ once: true, amount: 0.3 }}
             >
               <p className="text-base lg:text-lg font-light leading-relaxed mb-12 opacity-90">
-                Castro Marim combina, de forma única, a história, a natureza e o charme costeiro, numa região com cerca de 300 dias de sol por ano, a 6 minutos a pé da praia e onde se encontra a mais antiga reserva natural de sapal em Portugal. O Camaleão nasce como um empreendimento único, entre o sal, o sol e a serenidade, lugar onde a natureza dita o compasso dos dias e a vida se orienta pelo equilíbrio e pela autenticidade.
+                {t.location.description}
               </p>
             </motion.div>
 
@@ -137,29 +142,29 @@ const Location: React.FC = () => {
             >
               <div>
                 <h3 className="text-2xl lg:text-3xl font-semibold mb-4 title tracking-wide">
-                  Envolvente
+                  {t.location.environment}
                 </h3>
               </div>
 
               {/* Distance List - Centered on mobile */}
               <div className="space-y-3 text-sm lg:text-base">
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">600m da praia</span>
+                  <span className="font-light">{t.location.distances.beach}</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">600m dos restaurantes mais próximos</span>
+                  <span className="font-light">{t.location.distances.restaurants}</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">2km dos supermercados</span>
+                  <span className="font-light">{t.location.distances.supermarkets}</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">3km das autoestradas</span>
+                  <span className="font-light">{t.location.distances.highways}</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">8km da fronteira com Espanha, da Ponte Internacional do Guadiana</span>
+                  <span className="font-light">{t.location.distances.border}</span>
                 </div>
                 <div className="flex items-center justify-center lg:justify-start space-x-3">
-                  <span className="font-light">58km do Aeroporto Internacional de Faro</span>
+                  <span className="font-light">{t.location.distances.airport}</span>
                 </div>
               </div>
             </motion.div>

@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const Markers = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
@@ -47,12 +52,12 @@ const Markers = () => {
             >
               <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
-                  src="/Motorway.svg" 
+                  src="/Beach.svg" 
                   alt="Beach icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">A 750m da praia</span>
+              <span className="text-sm font-medium">{t.markers.beach}</span>
             </motion.div>
 
             <motion.div 
@@ -61,12 +66,12 @@ const Markers = () => {
             >
               <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
-                  src="/Beach.svg" 
+                  src="/Motorway.svg" 
                   alt="Motorway icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">A 3 km da autoestrada</span>
+              <span className="text-sm font-medium">{t.markers.highway}</span>
             </motion.div>
 
             <motion.div 
@@ -80,7 +85,7 @@ const Markers = () => {
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">A 58 km do Aeroporto Internacional de Faro</span>
+              <span className="text-sm font-medium">{t.markers.airport}</span>
             </motion.div>
 
             <motion.div 
@@ -94,7 +99,7 @@ const Markers = () => {
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">A 450 m dos restaurantes na praia</span>
+              <span className="text-sm font-medium">{t.markers.restaurants}</span>
             </motion.div>
 
           </motion.div>

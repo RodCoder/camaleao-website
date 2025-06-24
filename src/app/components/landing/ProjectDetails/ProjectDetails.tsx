@@ -1,5 +1,7 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 // Type definitions
 interface Phase {
@@ -46,6 +48,9 @@ interface ProgressBarProps {
 }
 
 const ProjectDetails: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   // Animation variants
   const headerVariants = {
     hidden: { opacity: 0, y: 40 },
@@ -271,119 +276,119 @@ const ProjectDetails: React.FC = () => {
   // Sales Phase Data
   const salesPhaseData: SalesPhaseData = {
     apartments: [
-      { type: "Fase 1 - Early bird", status: "Concluído", progress: 100, color: "bg-green-600" },
-      { type: "Fase 2", status: "Em curso", progress: 25, color: "bg-green-600" }
+      { type: "Fase 1 - Early bird", status: t.evolution.status.completed, progress: 100, color: "bg-green-600" },
+      { type: "Fase 2", status: t.evolution.status.inProgress, progress: 25, color: "bg-green-600" }
     ],
     houses: [
-      { type: "Fase 1 - Early bird", status: "Iniciado", progress: 30, color: "bg-green-600" },
-      { type: "Fase 2", status: "Por anunciar", progress: 0, color: "bg-gray-300" }
+      { type: "Fase 1 - Early bird", status: t.evolution.status.started, progress: 30, color: "bg-green-600" },
+      { type: "Fase 2", status: t.evolution.status.toAnnounce, progress: 0, color: "bg-gray-300" }
     ]
   };
 
   // Development Phase Data
   const developmentPhaseData: DevelopmentPhaseData = {
     apartments: [
-      { type: "Projetos", status: "Concluído", progress: 100 },
-      { type: "Construção", status: "Por anunciar", progress: 0 }
+      { type: t.evolution.projects, status: t.evolution.status.completed, progress: 100 },
+      { type: t.evolution.construction, status: t.evolution.status.toAnnounce, progress: 0 }
     ],
     houses: [
-      { type: "Projetos", status: "Em curso", progress: 30 },
-      { type: "Construção", status: "Por anunciar", progress: 0 },
+      { type: t.evolution.projects, status: t.evolution.status.inProgress, progress: 30 },
+      { type: t.evolution.construction, status: t.evolution.status.toAnnounce, progress: 0 },
     ],
     infrastructure: [
-      { type: "Fase 1", status: "Concluído", progress: 100 },
-      { type: "Fase 2", status: "Por anunciar", progress: 0 }
+      { type: "Fase 1", status: t.evolution.status.completed, progress: 100 },
+      { type: "Fase 2", status: t.evolution.status.toAnnounce, progress: 0 }
     ]
   };
 
   // Timeline Data for Infrastructure
   const infrastructurePhases: Phase[] = [
     {
-      label: "Projetos",
+      label: t.evolution.projects,
       year: "2024",
       active: false,
       image: "/infra-01.jpg",
-      description: "Planeamento técnico detalhado, garantindo soluções eficientes para cada tipo de investimento."
+      description: language === 'PT' ? "Planeamento técnico detalhado, garantindo soluções eficientes para cada tipo de investimento." : "Detailed technical planning, ensuring efficient solutions for each type of investment."
     },
     {
-      label: "Início da construção",
+      label: language === 'PT' ? "Início da construção" : "Construction start",
       year: "2025",
       active: true,
       image: "/infra-02.jpg",
-      description: "Execução das obras com rigor, qualidade e sustentabilidade como pilares fundamentais que norteiam a funcionalidade das estruturas."
+      description: language === 'PT' ? "Execução das obras com rigor, qualidade e sustentabilidade como pilares fundamentais que norteiam a funcionalidade das estruturas." : "Execution of works with rigor, quality and sustainability as fundamental pillars that guide the functionality of structures."
     },
     {
-      label: "Receção",
+      label: language === 'PT' ? "Receção" : "Reception",
       year: "2026",
       active: false,
-      badge: "Receção",
+      badge: language === 'PT' ? "Receção" : "Reception",
       image: "/infra-03.jpg",
-      description: "Entrega das infraestruturas concluídas, após verificação técnica e validação de todos os requisitos do projeto."
+      description: language === 'PT' ? "Entrega das infraestruturas concluídas, após verificação técnica e validação de todos os requisitos do projeto." : "Delivery of completed infrastructure, after technical verification and validation of all project requirements."
     }
   ];
 
   // Timeline Data for Apartments
   const apartmentPhases: Phase[] = [
     {
-      label: "Projetos",
+      label: t.evolution.projects,
       year: "2024",
       active: false,
       image: "/apart-01.jpg",
-      description: "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida aos apartamentos."
+      description: language === 'PT' ? "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida aos apartamentos." : "Planning and development of architectural and technical details that will bring apartments to life."
     },
     {
-      label: "Início da construção",
+      label: language === 'PT' ? "Início da construção" : "Construction start",
       year: "2025",
       active: true,
       image: "/apart-02.jpg",
-      description: "Arranque das obras com acompanhamento técnico especializado para garantir qualidade e cumprimento dos prazos."
+      description: language === 'PT' ? "Arranque das obras com acompanhamento técnico especializado para garantir qualidade e cumprimento dos prazos." : "Start of works with specialized technical monitoring to ensure quality and compliance with deadlines."
     },
     {
-      label: "Fim da construção",
+      label: t.evolution.completion,
       year: "2027",
       active: false,
       image: "/apart-03.png",
-      description: "Conclusão das obras com entrega das chaves e total disponibilidade para usufruir necessidades finais."
+      description: language === 'PT' ? "Conclusão das obras com entrega das chaves e total disponibilidade para usufruir necessidades finais." : "Completion of works with delivery of keys and full availability to enjoy final needs."
     },
     {
-      label: "Escrituras",
+      label: t.evolution.deeds,
       year: "2027",
       active: false,
       image: "/apart-04.jpg",
-      description: "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto."
+      description: language === 'PT' ? "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto." : "Delivery of completed infrastructure, after technical verification and validation of all project requirements."
     }
   ];
 
   // Timeline Data for Houses
   const housePhases: Phase[] = [
     {
-      label: "Projetos",
+      label: t.evolution.projects,
       year: "2025",
       active: true,
-      badge: "Projetos",
+      badge: t.evolution.projects,
       image: "/morad-01.png",
-      description: "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida às moradias."
+      description: language === 'PT' ? "Planeamento e desenvolvimento dos detalhes arquitetónicos e técnicos que darão vida às moradias." : "Planning and development of architectural and technical details that will bring houses to life."
     },
     {
-      label: "Início da construção",
+      label: language === 'PT' ? "Início da construção" : "Construction start",
       year: "2026",
       active: false,
       image: "/morad-02.jpg",
-      description: "Início da edificação com equipas experientes e materiais de elevada qualidade."
+      description: language === 'PT' ? "Início da edificação com equipas experientes e materiais de elevada qualidade." : "Start of construction with experienced teams and high quality materials."
     },
     {
-      label: "Fim da construção",
+      label: t.evolution.completion,
       year: "2028",
       active: false,
       image: "/apartamentos-piscina.jpg",
-      description: "Obra finalizada e pronta a habitar, com entrega imediata e apenas pequenos detalhes por ultimar."
+      description: language === 'PT' ? "Obra finalizada e pronta a habitar, com entrega imediata e apenas pequenos detalhes por ultimar." : "Work completed and ready to live in, with immediate delivery and only small details to finish."
     },
     {
-      label: "Escrituras",
+      label: t.evolution.deeds,
       year: "2029",
       active: false,
       image: "/morad-04.jpg",
-      description: "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto."
+      description: language === 'PT' ? "Entrega da infraestrutura concluída, após verificação técnica e validação de todos os requisitos do projeto." : "Delivery of completed infrastructure, after technical verification and validation of all project requirements."
     }
   ];
 
@@ -416,14 +421,14 @@ const ProjectDetails: React.FC = () => {
             style={{ color: 'var(--dark-green)' }}
             variants={headerVariants}
           >
-            Evolução do Camaleão
+            {t.evolution.title}
           </motion.h2>
           <motion.p 
             className="text-lg lg:text-xl font-light" 
             style={{ color: 'var(--dark-green)' }}
             variants={subtitleVariants}
           >
-            Última atualização: abril 2025
+            {t.evolution.lastUpdate}
           </motion.p>
         </motion.div>
 
@@ -439,14 +444,14 @@ const ProjectDetails: React.FC = () => {
           {/* Sales Phase */}
           <motion.div variants={cardVariants}>
             <h3 className="text-2xl font-bold mb-8 title tracking-wide mx-auto text-center" style={{ color: 'var(--dark-green)' }}>
-              Fase de vendas
+              {t.evolution.salesPhase}
             </h3>
 
             <div className="mb-8 flex">
               {/* Apartments Sales */}
               <div className='w-1/2 pr-4'>
                 <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
-                  Apartamentos
+                  {t.evolution.apartments}
                 </h4>
                 <div className="space-y-4">
                   {salesPhaseData.apartments.map((phase, index) => (
@@ -466,7 +471,7 @@ const ProjectDetails: React.FC = () => {
               {/* Houses Sales */}
               <div className='w-1/2 px-4'>
                 <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
-                  Moradias
+                  {t.evolution.houses}
                 </h4>
                 <div className="space-y-4">
                   {salesPhaseData.houses.map((phase, index) => (
@@ -488,14 +493,14 @@ const ProjectDetails: React.FC = () => {
           {/* Development Phase */}
           <motion.div variants={cardVariants}>
             <h3 className="text-2xl font-bold mb-8 title tracking-wide text-center" style={{ color: 'var(--dark-green)' }}>
-              Fase de desenvolvimento
+              {t.evolution.developmentPhase}
             </h3>
 
             {/* Apartments Development */}
             <div className="mb-8 flex">
               <div className='w-1/2 pr-4'>
                 <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
-                  Apartamentos
+                  {t.evolution.apartments}
                 </h4>
                 <div className="space-y-4">
                   {developmentPhaseData.apartments.map((phase, index) => (
@@ -515,7 +520,7 @@ const ProjectDetails: React.FC = () => {
               {/* Houses Development */}
               <div className='w-1/2 px-4'>
                 <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
-                  Moradias
+                  {t.evolution.houses}
                 </h4>
                 <div className="space-y-4">
                   {developmentPhaseData.houses.map((phase, index) => (
@@ -536,7 +541,7 @@ const ProjectDetails: React.FC = () => {
             {/* Infrastructure Development */}
             <div className='w-1/2 pr-4'>
               <h4 className="text-lg font-semibold mb-4 title tracking-wide" style={{ color: 'var(--dark-green)' }}>
-                Infraestrutura
+                {t.evolution.infrastructure}
               </h4>
               <div className="space-y-4">
                 {developmentPhaseData.infrastructure.map((phase, index) => (
@@ -556,9 +561,9 @@ const ProjectDetails: React.FC = () => {
         </motion.div>
 
         {/* Timeline Sections */}
-        <TimelineSection title="Infraestrutura" phases={infrastructurePhases} />
-        <TimelineSection title="Apartamentos" phases={apartmentPhases} />
-        <TimelineSection title="Moradias" phases={housePhases} />
+        <TimelineSection title={t.evolution.infrastructure} phases={infrastructurePhases} />
+        <TimelineSection title={t.evolution.apartments} phases={apartmentPhases} />
+        <TimelineSection title={t.evolution.houses} phases={housePhases} />
 
       </div>
 

@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { motion } from "motion/react";
 import emailjs from 'emailjs-com';
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 // Type definitions
 interface FormData {
@@ -16,6 +18,9 @@ interface ContactInfo {
 }
 
 const ContactForm: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   const [formData, setFormData] = useState<FormData>({
     name: '',
     email: '',
@@ -294,7 +299,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               className="text-4xl lg:text-5xl xl:text-6xl font-bold title tracking-wide"
               variants={titleVariants}
             >
-              Contactos
+              {t.contact.title}
             </motion.h2>
 
             {/* Description */}
@@ -302,8 +307,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               className="text-base lg:text-lg font-light leading-relaxed opacity-90 max-w-lg"
               variants={descriptionVariants}
             >
-              Precisa de mais informações? Ligue-nos ou preencha o formulário de
-              mensagem, e entraremos em contacto consigo entre 24 a 48h.
+              {t.contact.description}
             </motion.p>
 
             {/* Working Hours */}
@@ -312,10 +316,10 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               variants={workingHoursVariants}
             >
               <h3 className="text-lg font-semibold">
-                Horário de funcionamento:
+                {t.contact.workingHours}
               </h3>
               <p className="text-sm lg:text-base font-light opacity-90">
-                Segunda a Sexta das 9:00h às 18:00h
+                {t.contact.schedule}
               </p>
             </motion.div>
 
@@ -353,7 +357,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               className="text-2xl lg:text-3xl font-bold text-white mb-8 title tracking-wide"
               variants={formVariants}
             >
-              Quer saber mais?
+              {t.contact.wantToKnow}
             </motion.h3>
 
             {/* Contact Form */}
@@ -365,7 +369,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               {/* Name Field */}
               <motion.div variants={fieldVariants}>
                 <label htmlFor="name" className="block text-white text-sm font-medium mb-2">
-                  Nome
+                  {t.contact.form.name}
                 </label>
                 <motion.input
                   type="text"
@@ -374,7 +378,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                   value={formData.name}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                  placeholder="Seu nome completo"
+                  placeholder={language === 'PT' ? "Seu nome completo" : "Your full name"}
                   required
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
@@ -384,7 +388,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               {/* Email Field */}
               <motion.div variants={fieldVariants}>
                 <label htmlFor="email" className="block text-white text-sm font-medium mb-2">
-                  E-mail
+                  {t.contact.form.email}
                 </label>
                 <motion.input
                   type="email"
@@ -393,7 +397,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                   value={formData.email}
                   onChange={handleInputChange}
                   className="w-full px-4 py-3 bg-white/10 border border-white/20 rounded-lg text-white placeholder-white/60 focus:outline-none focus:ring-2 focus:ring-green-500 focus:border-transparent transition-all duration-200"
-                  placeholder="seu.email@exemplo.com"
+                  placeholder={language === 'PT' ? "seu.email@exemplo.com" : "your.email@example.com"}
                   required
                   whileFocus={{ scale: 1.02 }}
                   transition={{ duration: 0.2 }}
@@ -403,7 +407,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
               {/* Phone Field */}
               <motion.div variants={fieldVariants}>
                 <label htmlFor="phone" className="block text-white text-sm font-medium mb-2">
-                  Telefone/Whatsapp
+                  {t.contact.form.phone}
                 </label>
                 <motion.input
                   type="tel"
@@ -434,9 +438,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                   required
                 />
                 <label htmlFor="agreement" className="text-white text-sm font-light leading-relaxed">
-                  Dê acordo com a lei geral de proteção de dados, concordo em fornecer os
-                  dados acima para que o incorporador entre em contacto comigo para apresentar
-                  produtos e serviços em conformidade com a política de privacidade adotada.
+                  {t.contact.form.agreement}
                 </label>
               </motion.div>
 
@@ -458,7 +460,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                   whileTap={(formData.agreement && formData.name && formData.email && formData.phone && !isSubmitting) ? { scale: 0.95 } : {}}
                   transition={{ duration: 0.2 }}
                 >
-                  {isSubmitting ? 'Enviando...' : 'Entre em contacto'}
+                  {isSubmitting ? t.contact.form.sending : t.contact.form.submit}
                 </motion.button>
 
                 {/* Status Messages */}
@@ -468,7 +470,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-4 p-3 bg-green-600/20 border border-green-600/30 rounded-lg text-green-100 text-sm text-center"
                   >
-                    ✓ Mensagem enviada com sucesso! Entraremos em contacto em breve.
+                    {t.contact.form.success}
                   </motion.div>
                 )}
 
@@ -478,7 +480,7 @@ Esta pessoa concordou com os termos de proteção de dados.`,
                     animate={{ opacity: 1, y: 0 }}
                     className="mt-4 p-3 bg-red-600/20 border border-red-600/30 rounded-lg text-red-100 text-sm text-center"
                   >
-                    ✗ Erro ao enviar mensagem. Tente novamente ou contacte-nos diretamente.
+                    {t.contact.form.error}
                   </motion.div>
                 )}
               </motion.div>

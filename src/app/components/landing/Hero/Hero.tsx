@@ -1,7 +1,12 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const HeroSection = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
+
   return (
     <section className="relative h-screen w-full overflow-hidden">
       {/* Background Image */}
@@ -34,7 +39,7 @@ const HeroSection = () => {
                 delay: 0.3
               }}
             >
-              A dois passos do mar
+              {t.hero.title}
             </motion.h1>
 
             {/* Description Text */}
@@ -48,10 +53,7 @@ const HeroSection = () => {
                 delay: 0.8
               }}
             >
-              A harmonia entre arquitetura consciente e a envolvência natural de 
-Castro Marim, dá origem a um conceito pensado para quem valoriza 
-tempo, liberdade e autenticidade. Para viver, desfrutar ou investir, este 
-é o seu espaço, ao seu ritmo.
+              {t.hero.description}
             </motion.p>
 
           </div>

@@ -1,14 +1,18 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const LivingSlide: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
   const [currentSlide, setCurrentSlide] = useState<number>(0);
 
   const slides = [
     {
       id: 1,
-      title: "Arquitetura de autor",
-      description: "Luis Rebelo de Andrade é um dos arquitectos mais premiados de Portugal, e o seu trabalho é uma referência em projetos que combinam o luxo com o bem estar e a sustentabilidade. A identidade singular e distintiva dos seus projetos é baseada num profundo conhecimento e respeito pela história e tradição dos locais onde se situam.",
+      title: t.living.architect.title,
+      description: t.living.architect.description,
       mainImage: "/autor-2.png",
       overlayImage: "/autor-1.png",
       backgroundColor: "var(--brown)",
@@ -27,8 +31,8 @@ const LivingSlide: React.FC = () => {
     },
     {
       id: 2,
-      title: "Sabor a mar",
-      description: "Frescura que vem do mar, num cenário onde o oceano nunca se ausenta. Peixe grelhado à beira-mar, aromas que se confundem com a brisa, e uma cultura gastronómica enraizada na tradição costeira.",
+      title: t.living.seafood.title,
+      description: t.living.seafood.description,
       mainImage: "/Restaurante.png",
       overlayImage: "/Restaurante2.png",
       backgroundColor: "var(--dark-green)",
@@ -51,8 +55,8 @@ const LivingSlide: React.FC = () => {
     },
     {
       id: 3,
-      title: "A calma da natureza",
-      description: "Onde o verde das reservas naturais se funde ao azul do céu algarvio, encontra-se o equilíbrio perfeito entre conforto e tranquilidade. Um refúgio onde a natureza guia o compasso dos dias e revela a essência de uma vida mais simples e plena.",
+      title: t.living.nature.title,
+      description: t.living.nature.description,
       mainImage: "/drone-13.jpg",
       overlayImage: "/calma-02.jpg",
       backgroundColor: "var(--dark-green)",

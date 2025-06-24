@@ -1,7 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const DescobrirSection = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   // Sample images - replace with your actual images
@@ -73,19 +77,6 @@ const DescobrirSection = () => {
     }
   };
 
-  // const descriptionVariants = {
-  //   hidden: { opacity: 0, y: 40 },
-  //   visible: { 
-  //     opacity: 1, 
-  //     y: 0,
-  //     transition: {
-  //       duration: 0.8,
-  //       ease: [0.25, 0.1, 0.25, 1],
-  //       delay: 0.6
-  //     }
-  //   }
-  // };
-
   // Image transition variants - crossfade without empty moment
   const imageVariants = {
     enter: {
@@ -138,13 +129,13 @@ const DescobrirSection = () => {
             className="text-4xl lg:text-5xl xl:text-6xl font-bold text-white mb-4 tracking-wide title"
             variants={headerVariants}
           >
-            DESCOBRIR
+            {t.discover.title}
           </motion.h2>
           <motion.p 
             className="text-2xl lg:text-3xl text-white/90 font-light tracking-wide title"
             variants={subtitleVariants}
           >
-            Viver em harmonia
+            {t.discover.subtitle}
           </motion.p>
         </motion.div>
 
@@ -305,20 +296,6 @@ const DescobrirSection = () => {
             ))}
           </div>
         </motion.div>
-
-        {/* Description Text */}
-        {/* <motion.div 
-          className="text-center max-w-4xl mx-auto"
-          variants={descriptionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <p className="text-white/90 text-lg lg:text-xl font-light leading-relaxed">
-            Um empreendimento sustentável e cuidadosamente planeado que proporciona exclusividade e tranquilidade. 
-            Ideais para viver ou desfrutar de férias, estas propriedades únicas aliam exclusividade e conforto, ao encanto local.
-          </p>
-        </motion.div> */}
 
       </div>
     </section>

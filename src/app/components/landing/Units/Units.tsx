@@ -1,5 +1,7 @@
 import React, { useRef } from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 interface Property {
   id: number;
@@ -18,6 +20,8 @@ interface Property {
 }
 
 const Units: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
   const desktopScrollRef = useRef<HTMLDivElement>(null);
   const mobileScrollRef = useRef<HTMLDivElement>(null);
 
@@ -58,13 +62,14 @@ const Units: React.FC = () => {
   const handleMobileMouseDown = (e: React.MouseEvent<HTMLDivElement>): void => {
     handleMouseDown(e, mobileScrollRef);
   };
+
   // Property data - 6 cards as requested
   const properties: Property[] = [
     {
       id: 1,
-      type: "Apartamento",
+      type: language === 'PT' ? "Apartamento" : "Apartment",
       price: "840 000 €",
-      subtitle: "TIPOLOGIA: T2",
+      subtitle: language === 'PT' ? "TIPOLOGIA: T2" : "TYPE: T2",
       image: "/apartamento1.png",
       link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-b1/21388247",
       specs: {
@@ -76,9 +81,9 @@ const Units: React.FC = () => {
     },
     {
       id: 2,
-      type: "Apartamento",
+      type: language === 'PT' ? "Apartamento" : "Apartment",
       price: "1 350 000 €",
-      subtitle: "TIPOLOGIA: T3",
+      subtitle: language === 'PT' ? "TIPOLOGIA: T3" : "TYPE: T3",
       image: "/apartamento2.png",
       link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-c/21388245",
       specs: {
@@ -90,9 +95,9 @@ const Units: React.FC = () => {
     },
     {
       id: 3,
-      type: "Apartamento",
+      type: language === 'PT' ? "Apartamento" : "Apartment",
       price: "440 000 €",
-      subtitle: "TIPOLOGIA: ESTÚDIO",
+      subtitle: language === 'PT' ? "TIPOLOGIA: ESTÚDIO" : "TYPE: STUDIO",
       image: "/apartamento3.jpg",
       link: "https://properties.terracota.capital/pt-pt/imovel/apartamento-e/21388243",
       specs: {
@@ -104,10 +109,10 @@ const Units: React.FC = () => {
     },
     {
       id: 4,
-      type: "Moradia",
+      type: language === 'PT' ? "Moradia" : "Villa",
       price: "790 000 €",
-      subtitle: "Tipologia T2",
-      badge: "Early bird price",
+      subtitle: language === 'PT' ? "Tipologia T2" : "Type T2",
+      badge: language === 'PT' ? "Early bird price" : "Early bird price",
       image: "/moradia1.png",
       link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina/22948689",
       specs: {
@@ -119,9 +124,9 @@ const Units: React.FC = () => {
     },
     {
       id: 5,
-      type: "Moradia",
+      type: language === 'PT' ? "Moradia" : "Villa",
       price: "990 000 €",
-      subtitle: "Tipologia T2",
+      subtitle: language === 'PT' ? "Tipologia T2" : "Type T2",
       image: "/moradia2.jpg",
       link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-espaco-social-integrado/23022753",
       specs: {
@@ -133,9 +138,9 @@ const Units: React.FC = () => {
     },
     {
       id: 6,
-      type: "Moradia",
+      type: language === 'PT' ? "Moradia" : "Villa",
       price: "1 160 000 €",
-      subtitle: "Vista mar | Tipologia T2",
+      subtitle: language === 'PT' ? "Vista mar | Tipologia T2" : "Sea view | Type T2",
       image: "moradia4.png",
       link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-vista-mar/22948826",
       specs: {
@@ -147,9 +152,9 @@ const Units: React.FC = () => {
     },
     {
       id: 7,
-      type: "Moradia",
+      type: language === 'PT' ? "Moradia" : "Villa",
       price: "1 090 000 €",
-      subtitle: "Vista Salina | Tipologia T2",
+      subtitle: language === 'PT' ? "Vista Salina | Tipologia T2" : "Salt marsh view | Type T2",
       image: "/moradia3.jpg",
       link: "https://properties.terracota.capital/pt-pt/imovel/moradia-t2-com-piscina-vista-salinas/23104425",
       specs: {
@@ -160,7 +165,6 @@ const Units: React.FC = () => {
       }
     },
   ];
-
 
   // Animation variants
   const headerVariants = {
@@ -214,7 +218,7 @@ const Units: React.FC = () => {
           viewport={{ once: true, amount: 0.3 }}
         >
           <h2 className="text-4xl lg:text-5xl xl:text-6xl font-bold mb-8 title" style={{ color: 'var(--brown)' }}>
-            Unidades Residenciais
+            {t.units.title}
           </h2>
         </motion.div>
       </div>
@@ -281,19 +285,19 @@ const Units: React.FC = () => {
                     {/* Bottom Section - Details */}
                     <div className="space-y-2">
                       <div className="flex justify-between items-center text-sm">
-                        <span>INÍCIO DAS OBRAS:</span>
+                        <span>{t.units.specs.construction}</span>
                         <span className="font-medium">{property.specs.inicioObras}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>ÁREA INTERIOR:</span>
+                        <span>{t.units.specs.interior}</span>
                         <span className="font-medium">{property.specs.areaBruta}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>ÁREA INTERIOR + EXTERIOR:</span>
+                        <span>{t.units.specs.total}</span>
                         <span className="font-medium">{property.specs.areaTotal}</span>
                       </div>
                       <div className="flex justify-between items-center text-sm">
-                        <span>VALOR DO IMÓVEL:</span>
+                        <span>{t.units.specs.value}</span>
                         <span className="font-medium">{property.specs.valorMovel}</span>
                       </div>
                       <div className='w-full flex items-center '>
@@ -308,7 +312,7 @@ const Units: React.FC = () => {
                             }
                           }}
                         >
-                          Mais informações
+                          {t.units.moreInfo}
                         </button>
                       </div>
                     </div>
@@ -373,19 +377,19 @@ const Units: React.FC = () => {
                     {/* Bottom Section - Details */}
                     <div className="space-y-1">
                       <div className="flex justify-between items-center text-xs">
-                        <span>INÍCIO DAS OBRAS:</span>
+                        <span>{t.units.specs.construction}</span>
                         <span className="font-medium">{property.specs.inicioObras}</span>
                       </div>
                       <div className="flex justify-between items-center text-xs">
-                        <span>ÁREA BRUTA PRIVATIVA:</span>
+                        <span>{t.units.specs.interior}</span>
                         <span className="font-medium">{property.specs.areaBruta}</span>
                       </div>
                       <div className="flex justify-between items-center text-xs">
-                        <span>ÁREA TOTAL:</span>
+                        <span>{t.units.specs.total}</span>
                         <span className="font-medium">{property.specs.areaTotal}</span>
                       </div>
                       <div className="flex justify-between items-center text-xs">
-                        <span>VALOR DO IMÓVEL:</span>
+                        <span>{t.units.specs.value}</span>
                         <span className="font-medium">{property.specs.valorMovel}</span>
                       </div>
                       <div className='w-full flex items-center '>
@@ -400,7 +404,7 @@ const Units: React.FC = () => {
                             }
                           }}
                         >
-                          Mais informações
+                          {t.units.moreInfo}
                         </button>
                       </div>
                     </div>
@@ -426,7 +430,7 @@ const Units: React.FC = () => {
             style={{ backgroundColor: 'var(--brown)' }}
             onClick={() => window.open('https://properties.terracota.capital/development/camaleao/21388242', '_blank')}
           >
-            Ver mais unidades
+            {t.units.viewMore}
           </button>
         </motion.div>
       </div>

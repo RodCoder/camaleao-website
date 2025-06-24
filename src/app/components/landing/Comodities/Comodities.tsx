@@ -1,55 +1,59 @@
 import React from 'react';
 import { motion } from "motion/react";
+import { useLanguage } from '../../LanguageContext/LanguageContext';
+import { useTranslations } from '../../LanguageContext/translations';
 
 const Comodities: React.FC = () => {
+  const { language } = useLanguage();
+  const t = useTranslations(language);
 
   const amenities = [
     {
       id: 1,
-      title: "Praia",
-      description: "A poucos minutos a pé, desfrute de uma das praias mais exclusivas da região. Um cenário natural ideal para relaxar, contemplar a paisagem e sentir a brisa do mar.",
+      title: t.amenities.beach.title,
+      description: t.amenities.beach.description,
       icon: "/Icon praia.svg"
     },
     {
       id: 2,
-      title: "Restaurantes",
-      description: "Experiências autênticas e sabores irresistíveis. Descubra restaurantes típicos, com um frescor contemporâneo, que celebram a essência algarvia.",
+      title: t.amenities.restaurants.title,
+      description: t.amenities.restaurants.description,
       icon: "/Icon restaurante.svg"
     },
     {
       id: 3,
-      title: "Estacionamento",
-      description: "Estacionamento privativo, pensado para oferecer comodidade aos residentes.",
+      title: t.amenities.parking.title,
+      description: t.amenities.parking.description,
       icon: "/Icon park.svg"
     },
     {
       id: 4,
-      title: "Miradouro",
-      description: "Locais de plena tranquilidade, perfeitos para contemplar a vista desafogada sobre o mar e o ecossistema natural envolvente.",
+      title: t.amenities.viewpoint.title,
+      description: t.amenities.viewpoint.description,
       icon: "/Icon_miradoro.svg"
     },
     {
       id: 5,
-      title: "Percursos Pedonais",
-      description: "Trilhos imersos na natureza, ideais para caminhadas tranquilas, em contacto direto com a flora e fauna locais.",
+      title: t.amenities.trails.title,
+      description: t.amenities.trails.description,
       icon: "/Icon percurso.svg"
     },
     {
       id: 6,
-      title: "Ciclovias",
-      description: "Ciclovias seguras e modernas, para quem valoriza mobilidade sustentável e deseja explorar a região sobre duas rodas.",
+      title: t.amenities.cycling.title,
+      description: t.amenities.cycling.description,
       icon: "/Icon ciclovia.svg"
     },
     {
       id: 7,
-      title: "Habitat Camealeão",
-      description: "Zona de proteção ecológica dedicada à preservação do camaleão-do-Algarve, símbolo da biodiversidade regional e do compromisso ambiental do empreendimento.",
+      title: t.amenities.habitat.title,
+      description: t.amenities.habitat.description,
       icon: "/Icon camaleao.svg"
     },
     {
       id: 8,
-      title: "Parque de Velocípedes",
-      description: "Espaço concebido para circuitos de bicicletas, trotinetes e outros velocípedes, promovendo lazer ao ar livre, com segurança e diversão.",
+      title: t.amenities.park.title,
+      description: t.amenities.park.description,
       icon: "/Icon Velocipedes.svg"
     }
   ];
@@ -106,19 +110,6 @@ const Comodities: React.FC = () => {
     }
   };
 
-  // const descriptionVariants = {
-  //   hidden: { opacity: 0, y: 40 },
-  //   visible: {
-  //     opacity: 1,
-  //     y: 0,
-  //     transition: {
-  //       duration: 0.8,
-  //       ease: [0.25, 0.1, 0.25, 1],
-  //       delay: 0.5
-  //     }
-  //   }
-  // };
-
   return (
     <section id='comodidades' className="py-20 lg:py-32" style={{ backgroundColor: 'var(--background)' }}>
       <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8">
@@ -135,14 +126,14 @@ const Comodities: React.FC = () => {
             style={{ color: 'var(--brown)' }}
             variants={headerVariants}
           >
-            Comodidades
+            {t.amenities.title}
           </motion.h2>
           <motion.p
             className="text-lg lg:text-xl font-light"
             style={{ color: 'var(--brown)' }}
             variants={subtitleVariants}
           >
-            Abrace o ritmo da vida
+            {t.amenities.subtitle}
           </motion.p>
         </motion.div>
 
@@ -186,21 +177,6 @@ const Comodities: React.FC = () => {
             </motion.div>
           ))}
         </motion.div>
-
-        {/* Bottom Description */}
-        {/* <motion.div
-          className="text-center max-w-4xl mx-auto"
-          variants={descriptionVariants}
-          initial="hidden"
-          whileInView="visible"
-          viewport={{ once: true, amount: 0.3 }}
-        >
-          <p className="text-base lg:text-lg font-light leading-relaxed"
-            style={{ color: 'var(--brown)' }}>
-            Um empreendimento sustentável e cuidadosamente planeado que proporciona exclusividade e tranquilidade.
-            Ideais para viver ou desfrutar de férias, estas propriedades únicas aliam exclusividade e conforto, ao encanto local.
-          </p>
-        </motion.div> */}
 
       </div>
     </section>
