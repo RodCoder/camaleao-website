@@ -438,7 +438,7 @@ export const translations: Record<Language, Translations> = {
       salesPhase: "Sales Phase",
       developmentPhase: "Development Phase",
       apartments: "Apartments",
-      houses: "Houses",
+      houses: "Villas",
       infrastructure: "Infrastructure",
       projects: "Projects",
       construction: "Construction",
