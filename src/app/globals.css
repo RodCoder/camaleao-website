@@ -35,10 +35,10 @@ body {
 }
 
 .hero-text {
-  background: radial-gradient(ellipse 700px 400px at center,
+  /* background: radial-gradient(ellipse 700px 400px at center,
       rgba(86, 53, 46, 0.4) 0%,
       rgba(86, 53, 46, 0.2) 15%,
-      transparent 25%);
+      transparent 25%); */
 }
 
 .loader-background {

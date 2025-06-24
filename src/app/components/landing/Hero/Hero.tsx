@@ -16,21 +16,23 @@ const HeroSection = () => {
           alt="Camaleão Terrace View"
           className="w-full h-full object-cover"
         />
+        {/* Gradient Overlay */}
+        <div 
+          className="absolute inset-0"
+          style={{
+            background: 'linear-gradient(to top, rgba(86, 53, 46, 1) 0%, rgba(86, 53, 46, 0.5) 40%, transparent 60%)'
+          }}
+        ></div>
       </div>
 
       {/* Content Container */}
       <div className="relative z-10 h-full flex items-center">
         <div className="max-w-[1634px] mx-auto px-4 sm:px-6 lg:px-8 w-full">
 
-          <div className="max-w-[600px] hero-text p-6 md:rounded-none rounded-lg backdrop-blur-sm" style={{
-                backgroundColor: 'rgb(from var(--brown) r g b / 0.4)',
-                borderRadius: '9.89px',
-                border: '0.99px solid rgba(255,255,255,0.2)',
-                boxShadow: '0 4px 30px rgba(0, 0, 0, 0.1)'
-              }}>
+          <div className="max-w-[680px] hero-text mt-36 lg:mt-24 p-6 md:rounded-none">
             {/* Main Headline */}
             <motion.h1 
-              className="md:mt-[40px] mt-0 text-white text-3xl md:text-4xl lg:text-6xl font-bold mb-8 title tracking-wide max-w-[560px]"
+              className="md:mt-[40px] mt-0 text-white text-3xl md:text-4xl lg:text-5xl font-bold mb-8 title tracking-wide max-w-[680px]"
               initial={{ opacity: 0, y: 60 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
@@ -44,7 +46,7 @@ const HeroSection = () => {
 
             {/* Description Text */}
             <motion.p 
-              className="text-white text-m md:text-l font-light leading-relaxed mb-6 max-w-[560px]"
+              className="text-white text-m md:text-l font-light leading-relaxed mb-6 max-w-[680px]"
               initial={{ opacity: 0, y: 40 }}
               animate={{ opacity: 1, y: 0 }}
               transition={{ 
