@@ -50,56 +50,56 @@ const Markers = () => {
               className="flex items-center justify-center space-x-3"
               variants={itemVariants}
             >
-              <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
+              <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
                   src="/Beach.svg" 
                   alt="Beach icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.beach}</span>
+              <span className="text-m font-medium">{t.markers.beach}</span>
             </motion.div>
 
             <motion.div 
               className="flex items-center justify-center space-x-3"
               variants={itemVariants}
             >
-              <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
+              <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
                   src="/Restaurant.svg" 
                   alt="Restaurant icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.restaurants}</span>
+              <span className="text-m font-medium">{t.markers.restaurants}</span>
             </motion.div>
 
             <motion.div 
               className="flex items-center justify-center space-x-3"
               variants={itemVariants}
             >
-              <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
+              <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
                   src="/Border.svg" 
                   alt="Airport icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.airport}</span>
+              <span className="text-m font-medium">{t.markers.airport}</span>
             </motion.div>
 
             <motion.div 
               className="flex items-center justify-center space-x-3"
               variants={itemVariants}
             >
-              <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
+              <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
                   src="/Motorway.svg" 
                   alt="Motorway icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.highway}</span>
+              <span className="text-m font-medium">{t.markers.highway}</span>
             </motion.div>
 
 
