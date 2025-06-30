@@ -51,9 +51,9 @@ const Markers = () => {
               variants={itemVariants}
             >
               <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
-                <img 
-                  src="/Beach.svg" 
-                  alt="Beach icon" 
+              <img 
+                  src="/Motorway.svg" 
+                  alt="Motorway icon" 
                   className="w-full h-full"
                 />
               </div>
@@ -93,9 +93,10 @@ const Markers = () => {
               variants={itemVariants}
             >
               <div className="w-12 h-12 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
-                <img 
-                  src="/Motorway.svg" 
-                  alt="Motorway icon" 
+               
+                 <img 
+                  src="/Beach.svg" 
+                  alt="Beach icon" 
                   className="w-full h-full"
                 />
               </div>
