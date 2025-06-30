@@ -54,7 +54,7 @@ const Comodities: React.FC = () => {
       id: 8,
       title: t.amenities.park.title,
       description: t.amenities.park.description,
-      icon: "/Icon Velocipedes.svg"
+      icon: "/velocipedes.svg"
     }
   ];
 

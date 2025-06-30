@@ -170,6 +170,8 @@ export interface Translations {
   // Footer
   footer: {
     copyright: string;
+    linkLegal: {text: string, url: string};
+    linkCookies: {text: string, url: string};
   };
 }
 
@@ -320,7 +322,15 @@ export const translations: Record<Language, Translations> = {
       }
     },
     footer: {
-      copyright: "© 2025 Camaleão. All Rights Reserved."
+      copyright: "© 2025 Camaleão. All Rights Reserved.",
+      linkLegal: {
+        text: "Aviso Legal",
+        url: "https://terracota.capital/aviso-legal/"
+      },
+      linkCookies: {
+        text: "Política de Cookies",
+        url: "https://terracota.capital/politica-de-cookies/"
+      }
     }
   },
   EN: {
@@ -469,7 +479,15 @@ export const translations: Record<Language, Translations> = {
       }
     },
     footer: {
-      copyright: "© 2025 Camaleão. All Rights Reserved."
+      copyright: "© 2025 Camaleão. All Rights Reserved.",
+      linkLegal: {
+        text: "Legal notice",
+        url: "https://terracota.capital/en/legal-notice/"
+      },
+      linkCookies: {
+        text: "Cookies policy",
+        url: "https://terracota.capital/en/cookies-policy/"
+      }
     }
   }
 };

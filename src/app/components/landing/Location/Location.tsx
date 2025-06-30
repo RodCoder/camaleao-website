@@ -96,7 +96,7 @@ const Location: React.FC = () => {
           >
             <div className="rounded-2xl overflow-hidden shadow-2xl">
               <img
-                src="/location-01.png"
+                src="/location-01.jpg"
                 alt="Castro Marim Location"
                 className="w-full h-full lg:h-[800px] object-cover"
               />
