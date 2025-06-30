@@ -188,10 +188,10 @@ export const translations: Record<Language, Translations> = {
       description: "A harmonia entre arquitetura consciente e a envolvência natural de Castro Marim, dá origem a um conceito pensado para quem valoriza tempo, liberdade e autenticidade. Para viver, desfrutar ou investir, este é o seu espaço, ao seu ritmo."
     },
     markers: {
-      beach: "A 750m da praia",
+      beach: "A 600m da praia",
+      restaurants: "A 600 m dos restaurantes na praia",
+      airport: "A 8 km da fronteira com Espanha",
       highway: "A 3 km da autoestrada",
-      airport: "A 58 km do Aeroporto Internacional de Faro",
-      restaurants: "A 450 m dos restaurantes na praia"
     },
     features: {
       essence: {
@@ -345,10 +345,10 @@ export const translations: Record<Language, Translations> = {
       description: "The harmony between conscious architecture and the natural environment of Castro Marim gives rise to a concept designed for those who value time, freedom and authenticity. To live, enjoy or invest, this is your space, at your pace."
     },
     markers: {
-      beach: "750m from the beach",
+      beach: "600m from the beach",
+      restaurants: "600 m from beach restaurants",
+      airport: "8km from Spain's border",
       highway: "3 km from the highway",
-      airport: "58 km from Faro International Airport",
-      restaurants: "450 m from beach restaurants"
     },
     features: {
       essence: {

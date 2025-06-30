@@ -66,12 +66,12 @@ const Markers = () => {
             >
               <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
-                  src="/Motorway.svg" 
-                  alt="Motorway icon" 
+                  src="/Restaurant.svg" 
+                  alt="Restaurant icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.highway}</span>
+              <span className="text-sm font-medium">{t.markers.restaurants}</span>
             </motion.div>
 
             <motion.div 
@@ -80,7 +80,7 @@ const Markers = () => {
             >
               <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
-                  src="/Plane.svg" 
+                  src="/Border.svg" 
                   alt="Airport icon" 
                   className="w-full h-full"
                 />
@@ -94,13 +94,14 @@ const Markers = () => {
             >
               <div className="w-8 h-8 flex-shrink-0" style={{ filter: 'brightness(0) saturate(100%) invert(20%) sepia(15%) saturate(1676%) hue-rotate(347deg) brightness(95%) contrast(86%)' }}>
                 <img 
-                  src="/Restaurant.svg" 
-                  alt="Restaurant icon" 
+                  src="/Motorway.svg" 
+                  alt="Motorway icon" 
                   className="w-full h-full"
                 />
               </div>
-              <span className="text-sm font-medium">{t.markers.restaurants}</span>
+              <span className="text-sm font-medium">{t.markers.highway}</span>
             </motion.div>
+
 
           </motion.div>
         </div>
