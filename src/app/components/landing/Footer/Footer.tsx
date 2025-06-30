@@ -52,7 +52,7 @@ const Footer: React.FC = () => {
             className="flex justify-center lg:justify-start"
             variants={itemVariants}
           >
-            <div className="w-[250px]">
+            <div className="w-[210px]">
               <img
                 src="/terracota.svg"
                 alt="Terracota Logo"
