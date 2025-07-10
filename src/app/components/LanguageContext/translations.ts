@@ -357,7 +357,7 @@ export const translations: Record<Language, Translations> = {
       },
       experience: {
         title: "Unforgettable Experience",
-        description: "Designed to create an experience and moments of sharing with family and friends, those that are engraved in memory and endure over time."
+        description: "Thoughtfully designed to create lasting memories and meaningful moments shared among family and friends, those that endure throught time."
       },
       nature: {
         title: "Connection with Nature",

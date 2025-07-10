@@ -348,7 +348,7 @@ const ProjectDetails: React.FC = () => {
       year: "2027",
       active: false,
       image: "/apart-03.png",
-      description: language === 'PT' ? "Conclusão das obras com entrega das chaves e total disponibilidade para usufruir necessidades finais." : "Completion of works with delivery of keys and full availability to enjoy final needs."
+      description: language === 'PT' ? "Conclusão das obras com entrega das chaves e total disponibilidade para usufruir necessidades finais." : "Completed and ready for immediate move-in, with only minor final touches remaining."
     },
     {
       label: t.evolution.deeds,
